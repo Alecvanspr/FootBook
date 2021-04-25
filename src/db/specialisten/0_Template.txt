@@ -1,0 +1,8 @@
+ID
+volledige naam
+Telefoon nummer
+Adres
+postcode
+plaats
+email
+Ziekenhuis

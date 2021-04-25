@@ -1,0 +1,9 @@
+ID
+Volledige naam
+Telefoon nummer
+Adres
+Postcode
+Plaats
+Email adres
+Huisartsenpost
+website

@@ -1,0 +1,9 @@
+Klant id
+volledige naam
+Telefoon nummer
+straat
+postcode
+plaats
+email adres
+geboorte datum
+registratie nummer
