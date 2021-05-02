@@ -17,11 +17,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         CreateFile createFile = new CreateFile();
-        System.out.println("lol");
         Context context = new Context();
-        System.out.println("lol");
-        Client eerste = context.getClient("1");
-        System.out.println("lol");
 
     }
     //        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));

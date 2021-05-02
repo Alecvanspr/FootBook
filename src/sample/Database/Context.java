@@ -1,5 +1,6 @@
 package sample.Database;
 
+import com.sun.scenario.effect.impl.state.LinearConvolveKernel;
 import sample.modals.*;
 
 import java.util.ArrayList;
@@ -10,10 +11,11 @@ import java.util.LinkedList;
 //getSpecialist
 
 public class Context {
-    public static LinkedList<Client> patienten;
+    public static LinkedList<Client> clients;
     public static LinkedList<Huisarts> Huisartsen;
     public static LinkedList<Specialist> specialisten;
     public static LinkedList<Behandeling> behandelingen;
+    public static LinkedList<Product> producten;
     public static int MaxKlanten;
     public static int MaxArtsen;
     public static int MaxSpecialisten;
@@ -39,14 +41,14 @@ public class Context {
                 }
             }
         }
-        if(patienten == null){ //Hier wordt vanuit gegaan dat beide leeg zijn.
-            patienten = new LinkedList<>();
+        if(clients == null){ //Hier wordt vanuit gegaan dat beide leeg zijn.
+            clients = new LinkedList<>();
             Huisartsen = new LinkedList<>();
             specialisten = new LinkedList<>();
             for(int i = 0; i<=MaxKlanten; i++){
                 Client client=getClientFile(""+i);
                 if(client!=null) {
-                    patienten.addLast(client);
+                    clients.addLast(client);
                 }
             }
             for(int i = 0; i<=MaxArtsen; i++){
@@ -66,31 +68,28 @@ public class Context {
 
     private Client getClientFile(String id){
         FileReader r = new FileReader();
-        return makeClient(r.getFile("klanten/"+id+"/"+id+".txt"));
+        if(r.getFile("klanten/"+id+"/"+id+".txt")!=null)
+        return new Client(r.getFile("klanten/"+id+"/"+id+".txt"));
+        return null;
     }
     //hier wordt gesorteerd op het klantId, Dit is een directe zoek
     public Client getClient(String id){
-        for(int i = 0; i< patienten.size(); i++){
-            if(id.equals(patienten.get(i).id))
-                return patienten.get(i);
+        for(int i = 0; i< clients.size(); i++){
+            if(id.equals(clients.get(i).id))
+                return clients.get(i);
         }
         return null;
     }
 
-    private Client makeClient(ArrayList<String> ClientData){
-        if(ClientData!=null) {
-            Patient client = new Patient(ClientData);
-            return client;
-        }
-        return null;
-    }
     public LinkedList<Client> getClients(){
-        return patienten;
+        return clients;
     }
 
     private Huisarts getArtsFile(String id){
         FileReader r = new FileReader();
-        return makeArts(r.getFile("huisartsen/"+id+"/"+id+".txt"));
+        if(r.getFile("huisartsen/"+id+"/"+id+".txt")!=null)
+        return new Huisarts(r.getFile("huisartsen/"+id+"/"+id+".txt"));
+        return null;
     }
     //hier wordt gesorteerd op het arts id
     public Huisarts getArts(String id){
@@ -101,24 +100,6 @@ public class Context {
         return null;
     }
 
-    public Huisarts makeArts(ArrayList<String> ArtsData){
-        if(ArtsData!=null) {
-            Huisarts huisarts = new Huisarts();
-            huisarts.id = ArtsData.get(0);
-            if(ArtsData.size()>1) {
-                huisarts.naam = ArtsData.get(1);
-                huisarts.telefoonnr = ArtsData.get(2);
-                huisarts.adres = ArtsData.get(3);
-                huisarts.postcode = ArtsData.get(4);
-                huisarts.plaats = ArtsData.get(5);
-                huisarts.email = ArtsData.get(6);
-                huisarts.huisartsenpost = ArtsData.get(7);
-                huisarts.website = ArtsData.get(8);
-            }
-            return huisarts;
-        }
-        return null;
-    }
 
     public LinkedList<Huisarts> getHuisartsen() {
         return Huisartsen;
@@ -126,7 +107,7 @@ public class Context {
 
     private Specialist getSpecialistFile(String id){
         FileReader r = new FileReader();
-        return makeSpecialist(r.getFile("specialisten/"+id+"/"+id+".txt"));
+        return new Specialist(r.getFile("specialisten/"+id+"/"+id+".txt"));
     }
 
     //hier wordt gesorteerd op het klantId
@@ -138,44 +119,17 @@ public class Context {
         return null;
     }
 
-    private Specialist makeSpecialist(ArrayList<String> data){
-        if(data!=null) {
-            Specialist specialist = new Specialist();
-            specialist.id = data.get(0);
-            if(data.size()>1) {
-                specialist.naam = data.get(1);
-                specialist.telefoonnr = data.get(2);
-                specialist.adres = data.get(3);
-                specialist.postcode = data.get(4);
-                specialist.plaats = data.get(5);
-                specialist.email = data.get(6);
-                specialist.ziekenhuis = data.get(7);
-            }
-            return specialist;
-        }
-        return null;
-    }
 
     public LinkedList<Specialist> getSpecialisten() {
         return specialisten;
     }
     private Behandeling getBehandeling(String id){
         FileReader r = new FileReader();
-        return makeBehandeling(r.getFile("behandelingen/"+id+".txt"));
-    }
-    private Behandeling makeBehandeling(ArrayList<String> data){
-        if(data!=null) {
-            Behandeling behandeling = new Behandeling();
-            behandeling.id = data.get(0);
-            if(data.size()>1) {
-                behandeling.naam = data.get(1);
-                behandeling.omschrijving = data.get(2);
-                behandeling.kosten = Double.parseDouble(data.get(3));
-            }
-            return behandeling;
-        }
+        if(r.getFile("behandelingen/"+id+".txt")!=null)
+        return new Behandeling(r.getFile("behandelingen/"+id+".txt"));
         return null;
     }
+
     public Behandeling findBehandeling (String id){
         for(int i=0;i<behandelingen.size();i++){
             if(behandelingen.get(i).id.equals(id)){
