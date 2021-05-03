@@ -16,6 +16,6 @@ public class Product {
         this.leverancier = data.get(2);
         this.omschrijving = data.get(3);
         this.inkoopPrijs = Double.parseDouble(data.get(4));
-        this.verkoopPrijs = Double.parseDouble(data.get(5));
+        //this.verkoopPrijs = Double.parseDouble(data.get(5));
     }
 }

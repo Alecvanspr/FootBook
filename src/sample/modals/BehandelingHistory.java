@@ -7,4 +7,6 @@ public class BehandelingHistory {
     public Behandeling type;
     public String bijzonderheden;
     //bijverkoop
+
+
 }

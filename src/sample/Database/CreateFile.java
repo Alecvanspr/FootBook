@@ -7,6 +7,10 @@ import java.io.*;
 //CreatePath
 
 public class CreateFile {
+    public String[] typen = new String[]{"Klanten","Artsen","Specialisten","Behandelingen","Producten"};
+    public CreateFile(){
+
+    }
     //Dit is voor het maken het vullen van een textbestand
     public void CreatePersoon(String type, Object[] data) {
         try {
@@ -14,10 +18,10 @@ public class CreateFile {
             String path = createPath(type,UniqueNumber);
             File nieuwBestand = new File(path);
             if (nieuwBestand.createNewFile()) {
-                if (type.equals("klanten")||type.equals("huisartsen")||type.equals("specialisten")||type.equals("behandelingen") )
-                    WriteClient(data, path, UniqueNumber);
-                else
-                    System.out.println("Niks is gedaan, het type bestaat niet");
+                for(int i=0;i<typen.length;i++) {
+                    if (type.equalsIgnoreCase(typen[i]))
+                        WriteClient(data, path, UniqueNumber);
+                }
             } else {
                 System.out.println("File already exists.");
             }
@@ -31,6 +35,9 @@ public class CreateFile {
         try {
             PrintWriter writer = new PrintWriter(path);
             writer.println(UniqueNumber);
+            System.out.println(data.length);
+            System.out.println(UniqueNumber);
+            System.out.println(path);
             for(int i = 0;i<data.length;i++)
                 writer.println(data[i]);
             writer.close();
@@ -41,15 +48,12 @@ public class CreateFile {
 
     //dit is voor het maken van een pad voor de file. Dit zorgt ervoor dat ik niet 3 verschillende methods heb.
     private String getPath(String type){
-            if(type=="klanten")
-                return "src/db/MaxKlanten.txt";
-            if(type=="huisartsen")
-                return "src/db/MaxArtsen.txt";
-            if(type=="specialisten")
-                return "src/db/MaxSpecialisten.txt";
-            if(type=="behandelingen")
-                return "src/db/MaxBehandelingen.txt";
-            return null;
+        for(int i =0; i<typen.length;i++){
+            if(type.equalsIgnoreCase(typen[i])){
+                return "src/db/Max"+typen[i]+".txt";
+            }
+        }
+        return null;
     }
     //deze methode die haalt het Unique number uit de file en Update deze ook gelijk.
     private int getUniqueNumber(String type) {
@@ -73,7 +77,7 @@ public class CreateFile {
         String path ="src/db/" + type;
 
         //dit is voor het maken voor de dossiers
-        if(type!="behandelingen") {
+        if(!type.equals("behandelingen")&&!type.equals("producten")) {
             path = "src/db/" + type + "/" + UniqueNumber;
             File map = new File(path);
             map.mkdirs();
@@ -81,6 +85,5 @@ public class CreateFile {
 
         return path+"/"+ UniqueNumber+ ".txt";
     }
-    //TODO in deze class een method maken die data in het main bestandje gooit
     //TODO een screening maken voor de klant
 }

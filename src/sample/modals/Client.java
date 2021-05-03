@@ -15,12 +15,14 @@ public class Client extends Persoon{
     public ArrayList<BehandelingHistory> behandelingen;
     public Date geboortedatum;
     public String registratieNummer;
+    public Huisarts huisarts;
     public Boolean diabetus;
     public Boolean reuma;
     public Boolean kanker;
     public Boolean soa;
 
     public Client(ArrayList<String> data){
+        Context context = Context.getContext();
         this.id = data.get(0);
         this.naam = data.get(1);
         this.telefoonnr = data.get(2);
@@ -30,10 +32,11 @@ public class Client extends Persoon{
         this.email = data.get(6);
         this.geboortedatum = maakDate(data.get(7));
         this.registratieNummer = data.get(8);
-        this.diabetus = Boolean.getBoolean(data.get(9));
-        this.reuma = Boolean.getBoolean(data.get(10));
-        this.kanker = Boolean.getBoolean(data.get(11)); //TODO DIT FIXEN
-        this.soa = Boolean.getBoolean(data.get(12));
+        this.huisarts = context.getArts(data.get(9));
+        this.diabetus = Boolean.getBoolean(data.get(10));
+        this.reuma = Boolean.getBoolean(data.get(11));
+        this.kanker = Boolean.getBoolean(data.get(12)); //TODO DIT FIXEN
+        this.soa = Boolean.getBoolean(data.get(13));
     }
 
     public ArrayList<BehandelingHistory> getBehandelingGeschiedenis() {

@@ -1,11 +1,17 @@
 package sample.Database;
 
+import org.junit.Assert;
+import sample.modals.Client;
+
+import java.util.LinkedList;
+
 import static org.junit.Assert.*;
 
 public class ContextTest {
-
+    public Context context = new Context();
     @org.junit.Test
     public void getClient() {
+
     }
 
     @org.junit.Test

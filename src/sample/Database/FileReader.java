@@ -28,16 +28,18 @@ public class FileReader {
 
     public String getUniqueNumber(String path){
         String ret = "";
-        try {
-            File myObj = new File(path);
-            Scanner myReader = new Scanner(myObj);
-            while (myReader.hasNextLine()) {
-                ret = myReader.nextLine();
+        if(path!=(null)) {
+            try {
+                File myObj = new File(path);
+                Scanner myReader = new Scanner(myObj);
+                while (myReader.hasNextLine()) {
+                    ret = myReader.nextLine();
+                }
+                myReader.close();
+            } catch (FileNotFoundException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
             }
-            myReader.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
         }
         return ret;
     }

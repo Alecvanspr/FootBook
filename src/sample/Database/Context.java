@@ -3,6 +3,7 @@ package sample.Database;
 import com.sun.scenario.effect.impl.state.LinearConvolveKernel;
 import sample.modals.*;
 
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.LinkedList;
 //context
@@ -11,6 +12,7 @@ import java.util.LinkedList;
 //getSpecialist
 
 public class Context {
+    public static Context context;
     public static LinkedList<Client> clients;
     public static LinkedList<Huisarts> Huisartsen;
     public static LinkedList<Specialist> specialisten;
@@ -20,6 +22,7 @@ public class Context {
     public static int MaxArtsen;
     public static int MaxSpecialisten;
     public static int MaxBehandelingen;
+    public static int MaxProducten;
 
     //Deze methode maakt haalt alle clients op en plaatst ze in een list.
     public Context(){
@@ -27,9 +30,10 @@ public class Context {
         if(MaxKlanten==0){
             //hier worden de Max dingen gevult. Dit is voor alle lists
             MaxKlanten = Integer.parseInt(reader.getUniqueNumber("src/db/MaxKlanten.txt"));
-            MaxArtsen = Integer.parseInt(reader.getUniqueNumber("src/db/MaxArtsen.txt"));
+            MaxArtsen = Integer.parseInt(reader.getUniqueNumber("src/db/MaxHuisartsen.txt"));
             MaxSpecialisten = Integer.parseInt(reader.getUniqueNumber("src/db/MaxSpecialisten.txt"));
             MaxBehandelingen = Integer.parseInt(reader.getUniqueNumber("src/db/MaxBehandelingen.txt"));
+            MaxProducten = Integer.parseInt(reader.getUniqueNumber("src/db/MaxProducten.txt"));
         }
 
         if(behandelingen==null) {
@@ -41,29 +45,54 @@ public class Context {
                 }
             }
         }
-        if(clients == null){ //Hier wordt vanuit gegaan dat beide leeg zijn.
-            clients = new LinkedList<>();
+        if (Huisartsen==null){
             Huisartsen = new LinkedList<>();
-            specialisten = new LinkedList<>();
-            for(int i = 0; i<=MaxKlanten; i++){
-                Client client=getClientFile(""+i);
-                if(client!=null) {
-                    clients.addLast(client);
-                }
-            }
             for(int i = 0; i<=MaxArtsen; i++){
                 Huisarts arts =getArtsFile(""+i);
                 if(arts!=null) {
                     Huisartsen.addLast(arts);
                 }
             }
+        }
+        if(clients == null){ //Hier wordt vanuit gegaan dat beide leeg zijn.
+            clients = new LinkedList<>();
+
+            specialisten = new LinkedList<>();
+            producten = new LinkedList<>();
+            for(int i = 0; i<=MaxKlanten; i++){
+                Client client=getClientFile(""+i);
+                if(client!=null) {
+                    clients.addLast(client);
+                }
+            }
+
             for(int i = 0; i<=MaxSpecialisten; i++){
                 Specialist specialist =getSpecialistFile(""+i);
                 if(specialist!=null) {
                     specialisten.addLast(specialist);
                 }
             }
+            for(int i = 0; i<=MaxProducten; i++){
+                Product product = getProductenFile(""+i);
+                if(product!=null){
+                    producten.addLast(product);
+                }
+            }
         }
+    }
+
+    public static Context getContext() {
+        if(context==null){
+            context = new Context();
+        }
+        return context;
+    }
+
+    private Product getProductenFile(String id) {
+        FileReader r = new FileReader();
+        if(r.getFile("producten/"+id+".txt")!=null)
+            return new Product(r.getFile("producten/"+id+".txt"));
+        return null;
     }
 
     private Client getClientFile(String id){
@@ -100,14 +129,15 @@ public class Context {
         return null;
     }
 
-
     public LinkedList<Huisarts> getHuisartsen() {
         return Huisartsen;
     }
 
     private Specialist getSpecialistFile(String id){
         FileReader r = new FileReader();
+        if(r.getFile("specialisten/"+id+"/"+id+".txt")!=null)
         return new Specialist(r.getFile("specialisten/"+id+"/"+id+".txt"));
+        return null;
     }
 
     //hier wordt gesorteerd op het klantId
@@ -138,8 +168,22 @@ public class Context {
         }
         return null;
     }
-
     public LinkedList<Behandeling> getBehandelingen() {
         return behandelingen;
     }
+
+    public void makeNewClient(ArrayList<String> data){
+        CreateFile createFile = new CreateFile();
+        createFile.CreatePersoon("klanten",data.toArray());
+        clients.add(new Client(data));
+    }
+    public void makeNewProduct(ArrayList<String> data){
+        CreateFile createFile = new CreateFile();
+        createFile.CreatePersoon("producten",data.toArray());
+        producten.add(new Product(data));
+    }
+    public LinkedList<Product> getProducten(){
+        return producten;
+    }
+
 }
