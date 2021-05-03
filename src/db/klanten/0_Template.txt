@@ -8,3 +8,52 @@ email adres
 geboorte datum
 registratie nummer
 Huisarts
+Diabetus
+Diabetusspecialist
+Reuma
+Reumatoloog
+Kanker
+Oncoloog
+soa
+allergenen
+Elastische / therapeutische kousen
+voettype
+orthop.afwijkingen
+Steunzolen
+Aangepaste confectieschoen
+orthopedische schoenen
+huidconditie
+huidaandoeningen
+nagelconditie
+nagelaandoening
+
+
+        ArrayList<String> data = new ArrayList<>();
+        data.add("");//naam
+        data.add("");//telefoonnr
+        data.add("");//straat
+        data.add("");//postcode
+        data.add("");//plaats
+        data.add("");//emailAdress
+        data.add("");//geboorte Datum
+        data.add("");//Registratie nummer
+        data.add("");//Huisarts nr
+        data.add("");//diabetus
+        data.add("");//diabetusspecialist
+        data.add("");//reuma
+        data.add("");//reumatoloog
+        data.add("");//kanker
+        data.add("");//oncoloog
+        data.add("");//soa
+        data.add("");//allergenen
+        data.add("");//kousen
+        data.add("");//voettype
+        data.add("");//orthopedische afwijkingen
+        data.add("");//steunzolen
+        data.add("");//aangepaste confectiezolen
+        data.add("");//orthopedische schoenen
+        data.add("");//huidconditie
+        data.add("");//huisaandoeningen
+        data.add("");//nagelconditie
+        data.add("");//nagelaandoening
+        context.makeNewClient(data);

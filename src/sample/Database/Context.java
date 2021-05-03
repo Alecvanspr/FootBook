@@ -177,6 +177,16 @@ public class Context {
         createFile.CreatePersoon("klanten",data.toArray());
         clients.add(new Client(data));
     }
+    public void makeNewHuisarts(ArrayList<String> data){
+        CreateFile createFile = new CreateFile();
+        createFile.CreatePersoon("Artsen",data.toArray());
+        Huisartsen.add(new Huisarts(data));
+    }
+    public void makeNewSpecialist(ArrayList<String> data){
+        CreateFile createFile = new CreateFile();
+        createFile.CreatePersoon("Specialisten", data.toArray());
+        specialisten.add(new Specialist(data));
+    }
     public void makeNewProduct(ArrayList<String> data){
         CreateFile createFile = new CreateFile();
         createFile.CreatePersoon("producten",data.toArray());

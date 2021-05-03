@@ -19,8 +19,13 @@ public class CreateFile {
             File nieuwBestand = new File(path);
             if (nieuwBestand.createNewFile()) {
                 for(int i=0;i<typen.length;i++) {
-                    if (type.equalsIgnoreCase(typen[i]))
+                    if (type.equalsIgnoreCase(typen[i])) {
                         WriteClient(data, path, UniqueNumber);
+                        if(typen[i].equalsIgnoreCase("Klanten")){
+                            File behandelingen = new File("src/db/klanten/"+UniqueNumber+"/BehandelingLog.txt");
+                        }
+                    }
+
                 }
             } else {
                 System.out.println("File already exists.");
@@ -35,9 +40,6 @@ public class CreateFile {
         try {
             PrintWriter writer = new PrintWriter(path);
             writer.println(UniqueNumber);
-            System.out.println(data.length);
-            System.out.println(UniqueNumber);
-            System.out.println(path);
             for(int i = 0;i<data.length;i++)
                 writer.println(data[i]);
             writer.close();

@@ -17,9 +17,24 @@ public class Client extends Persoon{
     public String registratieNummer;
     public Huisarts huisarts;
     public Boolean diabetus;
+    public Specialist diatusSpecialist;
     public Boolean reuma;
+    public Specialist reumatoloog;
     public Boolean kanker;
+    public Specialist oncoloog;
     public Boolean soa;
+    public String soanaam;
+    public String allergenen;
+    public Boolean kousen;
+    public String voettype;
+    public String orthopedischeAfwijkingen;
+    public Boolean steunzolen;
+    public Boolean confectieSchoenen;
+    public Boolean orthopedischeSchoenen;
+    public String huidconditie;
+    public String huidaandoening;
+    public String nagelConditie;
+    public String nagelAandoening;
 
     public Client(ArrayList<String> data){
         Context context = Context.getContext();
@@ -34,9 +49,27 @@ public class Client extends Persoon{
         this.registratieNummer = data.get(8);
         this.huisarts = context.getArts(data.get(9));
         this.diabetus = Boolean.getBoolean(data.get(10));
-        this.reuma = Boolean.getBoolean(data.get(11));
-        this.kanker = Boolean.getBoolean(data.get(12)); //TODO DIT FIXEN
-        this.soa = Boolean.getBoolean(data.get(13));
+        if(diabetus)
+        this.diatusSpecialist = context.getSpecialist(data.get(11));
+        this.reuma = Boolean.getBoolean(data.get(12));
+        if(reuma)
+        this.reumatoloog = context.getSpecialist(data.get(13));
+        this.kanker = Boolean.getBoolean(data.get(14));
+        if(kanker)
+            this.oncoloog = context.getSpecialist(data.get(15));
+        this.soa = Boolean.getBoolean(data.get(16));
+        this.soanaam = data.get(17);
+        this.allergenen = data.get(18);
+        this.kousen = Boolean.getBoolean(data.get(19));
+        this.voettype = data.get(20);
+        this.orthopedischeAfwijkingen = data.get(21);
+        this.steunzolen = Boolean.getBoolean(data.get(22));
+        this.confectieSchoenen = Boolean.getBoolean(data.get(23));
+        this.orthopedischeSchoenen = Boolean.getBoolean(data.get(24));
+        this.huidconditie = data.get(25);
+        this.huidaandoening = data.get(26);
+        this.nagelConditie = data.get(27);
+        this.nagelAandoening = data.get(28);
     }
 
     public ArrayList<BehandelingHistory> getBehandelingGeschiedenis() {
@@ -46,8 +79,8 @@ public class Client extends Persoon{
             FileReader fileReader = new FileReader();
             ArrayList<String> data = new ArrayList<>();
             data = fileReader.getFile("klanten/"+id+"/BehandelingLog.txt");
+
             //Hier worden de 2 gegeven in verwerkt
-            System.out.println(data.size());
             for(int i=0;i<data.size();i=i+3){
                 BehandelingHistory behandelingHistory = new BehandelingHistory();
                 behandelingHistory.datum = maakDate(data.get(i));
@@ -69,5 +102,8 @@ public class Client extends Persoon{
         date.setMonth(month-1);
         date.setDate(day);
         return date;
+    }
+    public void addBehandeling(String date,String type,String sideNote){
+
     }
 }
