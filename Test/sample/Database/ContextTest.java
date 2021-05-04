@@ -75,18 +75,18 @@ public class ContextTest {
     public void addClient(){
         ArrayList<String> data = new ArrayList<>();
         data.add(null);
-        data.add("Marlies Haarsman");//naam
+        data.add("Hendrik Pechvogel");//naam
         data.add("06-68780269");//telefoonnr
-        data.add("Haringstraat 48");//straat
-        data.add("2586 XT");//postcode
-        data.add("Den Haag");//plaats
-        data.add("Marlies03@gmail.com");//emailAdress
-        data.add("06-08-1956");//geboorte Datum
-        data.add("155");//Registratie nummer
+        data.add("Lange Werpstraat");//straat
+        data.add("2382 TP");//postcode
+        data.add("Naaldwijk");//plaats
+        data.add("HVogel@gmail.com");//emailAdress
+        data.add("06-04-1948");//geboorte Datum
+        data.add("014");//Registratie nummer
         data.add("2");//Huisarts nr
         data.add("false");//diabetus
         data.add("null");//diabetusspecialist
-        data.add("false");//reuma
+        data.add("True");//reuma
         data.add("null");//reumatoloog
         data.add("True");//kanker
         data.add("2");//oncoloog

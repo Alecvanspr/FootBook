@@ -4,6 +4,8 @@ import sample.modals.*;
 import sun.misc.Cleaner;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.LinkedList;
 //context
 //getClient
@@ -198,6 +200,15 @@ public class Context {
         CreateFile createFile = new CreateFile();
         createFile.CreatePersoon("Behandelingen", data.toArray());
         behandelingen.add(new Behandeling(data));
+    }
+    public Date maakDate(String datum){
+        //Deze maakt de substrings
+        int day = Integer.parseInt(datum.substring(0,2));
+        int month = Integer.parseInt(datum.substring(3,5));
+        int year = Integer.parseInt(datum.substring(6,10));
+        //Deze maakt de Datum die uiteindelijk gereturned wordt.
+        Date date = new GregorianCalendar(year,month-1,day).getTime();
+        return date;
     }
 
     public ArrayList<Client> searchClients(String name){
