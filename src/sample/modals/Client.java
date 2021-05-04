@@ -2,9 +2,15 @@ package sample.modals;
 
 import sample.Database.Context;
 import sample.Database.FileReader;
+import sample.Database.FileUpdater;
 
+import javax.annotation.processing.SupportedSourceVersion;
+import java.lang.reflect.Array;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Scanner;
 
 //Client (Hier wordt de client aangemaakt)
 //Getbahndelgeschiedenis
@@ -12,6 +18,7 @@ import java.util.Date;
 
 public class Client extends Persoon{
     public ArrayList<BehandelingHistory> behandelingen;
+    public ArrayList<Screening> screenings;
     public Date geboortedatum;
     public String registratieNummer;
     public Huisarts huisarts;
@@ -87,7 +94,7 @@ public class Client extends Persoon{
             Context context = new Context();
             FileReader fileReader = new FileReader();
             ArrayList<String> data = new ArrayList<>();
-            data = fileReader.getFile("klanten/"+id+"/BehandelingLog.txt");
+            data = fileReader.getFile("klanten/"+id+"/BehandelingLog.txt.txt");
 
             //Hier worden de 2 gegeven in verwerkt
             for(int i=0;i<data.size();i=i+3){
@@ -102,17 +109,21 @@ public class Client extends Persoon{
     }
     public Date maakDate(String datum){
         //Deze maakt de substrings
+        System.out.println(datum);
         int day = Integer.parseInt(datum.substring(0,2));
         int month = Integer.parseInt(datum.substring(3,5));
         int year = Integer.parseInt(datum.substring(6,10));
         //Deze maakt de Datum die uiteindelijk gereturned wordt.
-        Date date = new Date();
-        date.setYear(year);
-        date.setMonth(month-1);
-        date.setDate(day);
+        Date date = new GregorianCalendar(year,month-1,day).getTime();
+        System.out.println(date);
         return date;
     }
     public void addBehandeling(String date,String type,String sideNote){
-
+        FileUpdater fileUpdater = new FileUpdater();
+        ArrayList<String> data = new ArrayList<>();
+        data.add(date);
+        data.add(type);
+        data.add(sideNote);
+        fileUpdater.addBehandeling(id,data);
     }
 }

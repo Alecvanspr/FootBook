@@ -22,7 +22,8 @@ public class CreateFile {
                     if (type.equalsIgnoreCase(typen[i])) {
                         WriteClient(data, path, UniqueNumber);
                         if(typen[i].equalsIgnoreCase("Klanten")){
-                            File behandelingen = new File("src/db/klanten/"+UniqueNumber+"/BehandelingLog.txt");
+                            File behandelingen = new File("src/db/klanten/"+UniqueNumber+"/BehandelingLog.txt.txt");
+                            behandelingen.createNewFile();
                         }
                     }
 
@@ -79,12 +80,18 @@ public class CreateFile {
         String path ="src/db/" + type;
 
         //dit is voor het maken voor de dossiers
-        if(!type.equals("behandelingen")&&!type.equals("producten")) {
+        if(type.equals("klanten")) {
             path = "src/db/" + type + "/" + UniqueNumber;
             File map = new File(path);
             map.mkdirs();
         }
 
         return path+"/"+ UniqueNumber+ ".txt";
+    }
+    public void removeFile(String path){
+        File file = new File(path);
+        if(file.delete()){
+            System.out.println(path+ " is no more");
+        }
     }
 }

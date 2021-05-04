@@ -11,6 +11,6 @@ public class Behandeling {
         this.id = data.get(0);
         this.naam = data.get(1);
         this.omschrijving = data.get(2);
-        this.kosten =Double.parseDouble(data.get(3));
+        this.kosten = Double.parseDouble(data.get(3));
     }
 }

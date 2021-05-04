@@ -1,0 +1,4 @@
+id
+naam
+omscrijving
+kosten (Dit is een double)

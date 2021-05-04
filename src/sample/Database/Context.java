@@ -1,6 +1,7 @@
 package sample.Database;
 
 import sample.modals.*;
+import sun.misc.Cleaner;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -10,17 +11,17 @@ import java.util.LinkedList;
 //getSpecialist
 
 public class Context {
-    public static Context context;
-    public static LinkedList<Client> clients;
-    public static LinkedList<Huisarts> Huisartsen;
-    public static LinkedList<Specialist> specialisten;
-    public static LinkedList<Behandeling> behandelingen;
-    public static LinkedList<Product> producten;
-    public static int MaxKlanten;
-    public static int MaxArtsen;
-    public static int MaxSpecialisten;
-    public static int MaxBehandelingen;
-    public static int MaxProducten;
+    private static Context context;
+    private static LinkedList<Client> clients;
+    private static LinkedList<Huisarts> Huisartsen;
+    private static LinkedList<Specialist> specialisten;
+    private static LinkedList<Behandeling> behandelingen;
+    private static LinkedList<Product> producten;
+    private static int MaxKlanten;
+    private static int MaxArtsen;
+    private static int MaxSpecialisten;
+    private static int MaxBehandelingen;
+    private static int MaxProducten;
 
     //Deze methode maakt haalt alle clients op en plaatst ze in een list.
     public Context(){
@@ -114,8 +115,8 @@ public class Context {
 
     private Huisarts getArtsFile(String id){
         FileReader r = new FileReader();
-        if(r.getFile("huisartsen/"+id+"/"+id+".txt")!=null)
-        return new Huisarts(r.getFile("huisartsen/"+id+"/"+id+".txt"));
+        if(r.getFile("huisartsen/"+id+".txt")!=null)
+        return new Huisarts(r.getFile("huisartsen/" +id+".txt"));
         return null;
     }
     //hier wordt gesorteerd op het arts id
@@ -133,8 +134,8 @@ public class Context {
 
     private Specialist getSpecialistFile(String id){
         FileReader r = new FileReader();
-        if(r.getFile("specialisten/"+id+"/"+id+".txt")!=null)
-        return new Specialist(r.getFile("specialisten/"+id+"/"+id+".txt"));
+        if(r.getFile("specialisten/"+id+".txt")!=null)
+        return new Specialist(r.getFile("specialisten/"+id+".txt"));
         return null;
     }
 
@@ -157,7 +158,6 @@ public class Context {
         return new Behandeling(r.getFile("behandelingen/"+id+".txt"));
         return null;
     }
-
     public Behandeling getBehandeling(String id){
         for(int i=0;i<behandelingen.size();i++){
             if(behandelingen.get(i).id.equals(id)){
@@ -192,5 +192,20 @@ public class Context {
     }
     public LinkedList<Product> getProducten(){
         return producten;
+    }
+
+    public void makeBehandeling(ArrayList<String> data) {
+        CreateFile createFile = new CreateFile();
+        createFile.CreatePersoon("Behandelingen", data.toArray());
+        behandelingen.add(new Behandeling(data));
+    }
+
+    public ArrayList<Client> searchClients(String name){
+        ArrayList<Client> matchingClients = new ArrayList<Client>();
+        for(int i=0;i<clients.size();i++){
+            if(clients.get(i).naam.contains(name))
+                matchingClients.add(clients.get(i));
+        }
+        return matchingClients;
     }
 }
