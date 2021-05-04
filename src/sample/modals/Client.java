@@ -106,6 +106,7 @@ public class Client extends Persoon{
         }
         return behandelingen;
     }
+
     public void addBehandeling(String date,String type,String sideNote){
         FileUpdater fileUpdater = new FileUpdater();
         ArrayList<String> data = new ArrayList<>();
@@ -113,6 +114,15 @@ public class Client extends Persoon{
         data.add(type);
         data.add(sideNote);
         fileUpdater.addBehandeling(id,data);
+    }
+    public double travelDistance(){
+        FileReader reader = new FileReader();
+        ArrayList<String> plaatsen = reader.getFile("Plaatsen.txt");
+        for (int i=1; i<plaatsen.size()-1;i++)
+        if(plaats.equalsIgnoreCase(plaatsen.get(i))){
+            return Double.parseDouble(plaatsen.get(i+1));
+        }
+        return 0.0;
     }
     public boolean allowScreening(){
         if((kanker&&reuma)|| diabetes){

@@ -1,0 +1,18 @@
+Kwintsheul
+0.00
+Poeldijk
+4.9
+Honserlersdijk
+1.0
+Wateringen
+2.0
+Den Haag
+8.8
+Monster
+7.4
+Rijswijk
+5.5
+De Lier
+6.5
+Gouda
+45

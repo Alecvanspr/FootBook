@@ -3,6 +3,8 @@ package sample.Database;
 import sample.modals.*;
 import sun.misc.Cleaner;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -190,6 +192,9 @@ public class Context {
     public void makeNewProduct(ArrayList<String> data){
         CreateFile createFile = new CreateFile();
         createFile.CreatePersoon("producten",data.toArray());
+        FileReader fileReader = new FileReader();
+        ArrayList<String> quantiteitData = fileReader.getFile("src/db/producten/quantiteit.txt");
+        quantiteitData.add("0");
         producten.add(new Product(data));
     }
     public LinkedList<Product> getProducten(){
