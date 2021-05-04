@@ -1,9 +1,7 @@
 package sample.Database;
 
-import com.sun.scenario.effect.impl.state.LinearConvolveKernel;
 import sample.modals.*;
 
-import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.LinkedList;
 //context
@@ -39,7 +37,7 @@ public class Context {
         if(behandelingen==null) {
             behandelingen = new LinkedList<>();
             for (int i = 0; i < MaxBehandelingen; i++) {
-                Behandeling behandeling = getBehandeling("" + i);
+                Behandeling behandeling = getBehandelingFile("" + i);
                 if (behandeling != null) {
                     behandelingen.addLast(behandeling);
                 }
@@ -153,14 +151,14 @@ public class Context {
     public LinkedList<Specialist> getSpecialisten() {
         return specialisten;
     }
-    private Behandeling getBehandeling(String id){
+    private Behandeling getBehandelingFile(String id){
         FileReader r = new FileReader();
         if(r.getFile("behandelingen/"+id+".txt")!=null)
         return new Behandeling(r.getFile("behandelingen/"+id+".txt"));
         return null;
     }
 
-    public Behandeling findBehandeling (String id){
+    public Behandeling getBehandeling(String id){
         for(int i=0;i<behandelingen.size();i++){
             if(behandelingen.get(i).id.equals(id)){
                 return behandelingen.get(i);
@@ -195,5 +193,4 @@ public class Context {
     public LinkedList<Product> getProducten(){
         return producten;
     }
-
 }

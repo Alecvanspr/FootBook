@@ -24,6 +24,11 @@ public class FileUpdater {
             e.printStackTrace();
         }
     }
+    public void editModal(ArrayList<String> data){
+        for(int i = 0;i<data.size();i++){
+
+        }
+    }
 
     public String maakDatum(Date datum){
         String jaar = ""+(datum.getYear()+1900);

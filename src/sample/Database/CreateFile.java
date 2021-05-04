@@ -87,5 +87,4 @@ public class CreateFile {
 
         return path+"/"+ UniqueNumber+ ".txt";
     }
-    //TODO een screening maken voor de klant
 }

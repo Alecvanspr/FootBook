@@ -1,6 +1,5 @@
 package sample.modals;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import sample.Database.Context;
 import sample.Database.FileReader;
 
@@ -22,6 +21,10 @@ public class Client extends Persoon{
     public Specialist reumatoloog;
     public Boolean kanker;
     public Specialist oncoloog;
+    public Boolean chemos;
+    public String medicijnen;
+    public Boolean uitzaaingen;
+    public String terapien;
     public Boolean soa;
     public String soanaam;
     public String allergenen;
@@ -37,6 +40,7 @@ public class Client extends Persoon{
     public String nagelAandoening;
 
     public Client(ArrayList<String> data){
+        FileReader r = new FileReader();
         Context context = Context.getContext();
         this.id = data.get(0);
         this.naam = data.get(1);
@@ -55,21 +59,26 @@ public class Client extends Persoon{
         if(reuma)
         this.reumatoloog = context.getSpecialist(data.get(13));
         this.kanker = Boolean.getBoolean(data.get(14));
-        if(kanker)
+        if(kanker) {
             this.oncoloog = context.getSpecialist(data.get(15));
-        this.soa = Boolean.getBoolean(data.get(16));
-        this.soanaam = data.get(17);
-        this.allergenen = data.get(18);
-        this.kousen = Boolean.getBoolean(data.get(19));
-        this.voettype = data.get(20);
-        this.orthopedischeAfwijkingen = data.get(21);
-        this.steunzolen = Boolean.getBoolean(data.get(22));
-        this.confectieSchoenen = Boolean.getBoolean(data.get(23));
-        this.orthopedischeSchoenen = Boolean.getBoolean(data.get(24));
-        this.huidconditie = data.get(25);
-        this.huidaandoening = data.get(26);
-        this.nagelConditie = data.get(27);
-        this.nagelAandoening = data.get(28);
+            this.chemos  = Boolean.getBoolean(data.get(16));
+            this.medicijnen = data.get(17);
+            this.uitzaaingen = Boolean.getBoolean(data.get(18));
+            this.terapien = data.get(19);
+        }
+        this.soa = Boolean.getBoolean(data.get(20));
+        this.soanaam = data.get(21);
+        this.allergenen = data.get(22);
+        this.kousen = Boolean.getBoolean(data.get(23));
+        this.voettype = data.get(24);
+        this.orthopedischeAfwijkingen = data.get(25);
+        this.steunzolen = Boolean.getBoolean(data.get(26));
+        this.confectieSchoenen = Boolean.getBoolean(data.get(27));
+        this.orthopedischeSchoenen = Boolean.getBoolean(data.get(28));
+        this.huidconditie = data.get(29);
+        this.huidaandoening = data.get(30);
+        this.nagelConditie = data.get(31);
+        this.nagelAandoening = data.get(32);
     }
 
     public ArrayList<BehandelingHistory> getBehandelingGeschiedenis() {
@@ -84,7 +93,7 @@ public class Client extends Persoon{
             for(int i=0;i<data.size();i=i+3){
                 BehandelingHistory behandelingHistory = new BehandelingHistory();
                 behandelingHistory.datum = maakDate(data.get(i));
-                behandelingHistory.type = context.findBehandeling(data.get(i+1));
+                behandelingHistory.type = context.getBehandeling(data.get(i+1));
                 behandelingHistory.bijzonderheden= data.get(i);
                 behandelingen.add(behandelingHistory);
             }

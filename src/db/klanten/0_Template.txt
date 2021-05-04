@@ -14,6 +14,10 @@ Reuma
 Reumatoloog
 Kanker
 Oncoloog
+Chemo
+Medicijnen
+Uitzaaingen
+Terapiën
 soa
 allergenen
 Elastische / therapeutische kousen
@@ -35,23 +39,27 @@ nagelaandoening
         data.add("");//postcode
         data.add("");//plaats
         data.add("");//emailAdress
-        data.add("");//geboorte Datum
+        data.add("DD-MM-YYYY");//geboorte Datum
         data.add("");//Registratie nummer
         data.add("");//Huisarts nr
-        data.add("");//diabetus
+        data.add("false");//diabetus
         data.add("");//diabetusspecialist
-        data.add("");//reuma
+        data.add("false");//reuma
         data.add("");//reumatoloog
-        data.add("");//kanker
+        data.add("false");//kanker
         data.add("");//oncoloog
-        data.add("");//soa
+        data.add("false");//chemos
+        data.add("");//medicijnen
+        data.add("false");//uitzaaiingen
+        data.add("");//terapiën
+        data.add("false");//soa
         data.add("");//allergenen
-        data.add("");//kousen
+        data.add("false");//kousen
         data.add("");//voettype
         data.add("");//orthopedische afwijkingen
-        data.add("");//steunzolen
-        data.add("");//aangepaste confectiezolen
-        data.add("");//orthopedische schoenen
+        data.add("false");//steunzolen
+        data.add("false");//aangepaste confectiezolen
+        data.add("false");//orthopedische schoenen
         data.add("");//huidconditie
         data.add("");//huisaandoeningen
         data.add("");//nagelconditie
