@@ -40,13 +40,11 @@ public class ClientTest {
     }
     @org.junit.Test
     public void allowScreeningTest(){
-        Client client = context.getClient("1");
         Client diabeet = context.getClient("2");
         Client kankerPatient = context.getClient("3");
         Client reumapatient = context.getClient("4");
         Client kankerReumaPatient = context.getClient("6");
 
-        Assert.assertFalse(client.allowScreening());
         Assert.assertTrue(diabeet.allowScreening());
         Assert.assertFalse(kankerPatient.allowScreening());
         Assert.assertFalse(reumapatient.allowScreening());
