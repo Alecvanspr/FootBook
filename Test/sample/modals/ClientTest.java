@@ -14,7 +14,11 @@ public class ClientTest {
     public Context context= Context.getContext();
 
     @org.junit.Test
-    public void MaakScreening(){
+    public void testContext(){
+        System.out.println(context.getClient("1"));
+    }
+    @org.junit.Test
+    public void testCreateClient(){
 
     }
 
