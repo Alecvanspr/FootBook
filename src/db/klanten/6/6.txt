@@ -1,0 +1,33 @@
+6
+Hendrik Pechvogel
+06-68780269
+Lange Werpstraat
+2382 TP
+Gouda
+HVogel@gmail.com
+06-04-1948
+014
+2
+false
+null
+True
+null
+True
+2
+true
+null
+true
+geen
+false
+Lactose
+false
+Normale voet
+Geen
+false
+false
+false
+Normaal
+Geen
+Verzorgd
+Geen
+-

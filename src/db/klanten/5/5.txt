@@ -1,0 +1,33 @@
+5
+Marlies Haarsman
+06-68780269
+Haringstraat 48
+2586 XT
+Honserlersdijk
+Marlies03@gmail.com
+06-08-1956
+155
+2
+false
+null
+false
+null
+True
+2
+true
+null
+true
+geen
+false
+Lactose
+false
+Normale voet
+Geen
+false
+false
+false
+Normaal
+Geen
+Verzorgd
+Geen
+-
