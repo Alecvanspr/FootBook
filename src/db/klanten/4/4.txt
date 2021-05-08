@@ -1,0 +1,33 @@
+4
+Aafke van Oldeniel
+06-94966032
+Suzannaland 9
+2591 JN
+Naaldwijk
+AafkevanOldeniel@gmail.com
+04-04-1998
+152
+2
+false
+null
+false
+null
+True
+2
+false
+Astra-zenica
+false
+Zehn-Terapie
+false
+Lactose
+false
+Normale voet
+Geen
+false
+false
+false
+Normaal
+Geen
+Verzorgd
+Geen
+-
