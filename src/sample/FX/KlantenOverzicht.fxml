@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FX.KlantenOverzicht">
+   <children>
+      <Button fx:id="zoekBtn" layoutX="223.0" layoutY="79.0" mnemonicParsing="false" onAction="#zoek" text="Zoek" />
+      <ListView fx:id="listViewKlanten" layoutX="22.0" layoutY="119.0" prefHeight="426.0" prefWidth="254.0" />
+      <TextField fx:id="zoekField" layoutX="22.0" layoutY="79.0" prefHeight="26.0" prefWidth="187.0" promptText="zoek" />
+      <Button layoutX="14.0" layoutY="560.0" mnemonicParsing="false" onAction="#GaNaarHomescreen" text="Terug" />
+      <Button layoutX="22.0" layoutY="40.0" mnemonicParsing="false" onAction="#MaakNieuweKlant" text="Maak nieuwe klant" />
+   </children>
+</AnchorPane>

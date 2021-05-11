@@ -1,6 +1,9 @@
 package sample;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 import sample.Database.Context;
 import sample.Database.CreateFile;
@@ -14,6 +17,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("FX/NieuweKlant.fxml"));
+        primaryStage.setTitle("Footbook");
+        primaryStage.setScene(new Scene(root, 800, 600));
+        primaryStage.show();
 
     }
     //        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));

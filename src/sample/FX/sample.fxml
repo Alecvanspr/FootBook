@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="600.0" maxWidth="800.0" minHeight="400.0" minWidth="600.0" opacity="1" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FX.Controller">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Images/HomescreenBackgroundFootBook.png" />
+         </image>
+      </ImageView>
+      <AnchorPane prefHeight="600.0" prefWidth="800.0">
+         <children>
+            <Label fx:id="WelcomeLabel" layoutX="341.0" layoutY="282.0" style="-fx-font-family: Gotham;" styleClass="body" text="Welkom Marga heppe" />
+            <Button layoutX="343.0" layoutY="372.0" onAction="#CheckGebruiker" prefHeight="26.0" prefWidth="114.0" text="Button" />
+            <TextField fx:id="TextVeld" layoutX="326.0" layoutY="321.0" />
+            <Label fx:id="errorLabel" layoutX="334.0" layoutY="347.0" text="Helaas, Probeer opnieuw" textFill="RED" visible="false" />
+         </children>
+      </AnchorPane>
+   </children>
+</Pane>
