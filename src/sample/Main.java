@@ -1,30 +1,24 @@
 package sample;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
-import sample.Database.Context;
-import sample.Database.CreateFile;
-import sample.modals.*;
 
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.List;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        System.out.println(maakDate("06-03-2002"));
-        CreateFile createFile = new CreateFile();
-        Context context = Context.getContext();
-        System.out.println(context.getClient(0+""));
+        Parent root = FXMLLoader.load(getClass().getResource("FX/NieuweKlant.fxml"));
+        primaryStage.setTitle("Footbook");
+        primaryStage.setScene(new Scene(root, 800, 600));
+        primaryStage.show();
 
     }
-    //        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-    //        primaryStage.setTitle("Hello World");
-    //        primaryStage.setScene(new Scene(root, 300, 275));
-    //        primaryStage.show();
-
 
     public static void main(String[] args) {
         launch(args);

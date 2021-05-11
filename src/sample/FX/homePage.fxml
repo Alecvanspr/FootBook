@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="600.0" maxWidth="800.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FX.HomePage">
+   <children>
+       <AnchorPane layoutX="8.0" prefHeight="600.0" prefWidth="800.0">
+           <children>
+               <Button fx:id="KlantenBtn" layoutX="77.0" layoutY="83.0" mnemonicParsing="false" onAction="#gaNaarKlantenOverzicht" prefHeight="50.0" prefWidth="150.0" text="Klanten" />
+            <Button layoutX="77.0" layoutY="159.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Factuur maken" />
+            <Button layoutX="77.0" layoutY="230.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Inevaris" />
+            <Label fx:id="errorLabel" layoutX="252.0" layoutY="50.0" text="errorLabel" />
+           </children>
+       </AnchorPane>
+   </children>
+</Pane>
