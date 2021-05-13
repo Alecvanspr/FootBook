@@ -17,7 +17,7 @@ public class Main extends Application {
         System.out.println(maakDate("06-03-2002"));
         CreateFile createFile = new CreateFile();
         Context context = Context.getContext();
-        System.out.println(context.getClient(0+""));
+        System.out.println(context.getClients().getClient(0+""));
 
     }
     //        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));

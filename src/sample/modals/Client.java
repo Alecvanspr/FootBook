@@ -53,16 +53,16 @@ public class Client extends Persoon{
         this.email = data.get(6);
         this.geboortedatum = context.maakDate(data.get(7));
         this.registratieNummer = data.get(8);
-        this.huisarts = context.getArts(data.get(9));
+        this.huisarts = context.getHuisartsen().getArts(data.get(9));
         this.diabetes = makeBoolean(data.get(10));
         if(diabetes)
-        this.diatusSpecialist = context.getSpecialist(data.get(11));
+        this.diatusSpecialist = context.getSpecialisten().getSpecialist(data.get(11));
         this.reuma = makeBoolean(data.get(12));
         if(reuma)
-        this.reumatoloog = context.getSpecialist(data.get(13));
+        this.reumatoloog = context.getSpecialisten().getSpecialist(data.get(13));
         this.kanker = makeBoolean(data.get(14));
         if(kanker) {
-            this.oncoloog = context.getSpecialist(data.get(15));
+            this.oncoloog = context.getSpecialisten().getSpecialist(data.get(15));
             this.chemos  = makeBoolean(data.get(16));
             this.medicijnen = data.get(17);
             this.uitzaaingen = makeBoolean(data.get(18));
@@ -99,7 +99,7 @@ public class Client extends Persoon{
             for(int i=0;i<data.size();i=i+3){
                 BehandelingHistory behandelingHistory = new BehandelingHistory();
                 behandelingHistory.datum = context.maakDate(data.get(i));
-                behandelingHistory.type = context.getBehandeling(data.get(i+1));
+                behandelingHistory.type = context.getBehandelingen().getBehandeling(data.get(i+1));
                 behandelingHistory.bijzonderheden= data.get(i);
                 behandelingen.add(behandelingHistory);
             }
