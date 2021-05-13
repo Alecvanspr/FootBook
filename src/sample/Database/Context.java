@@ -176,6 +176,7 @@ public class Context {
 
     public void makeNewClient(ArrayList<String> data){
         CreateFile createFile = new CreateFile();
+
         createFile.CreatePersoon("klanten",data.toArray());
         clients.add(new Client(data));
     }
