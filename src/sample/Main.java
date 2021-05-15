@@ -14,10 +14,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        System.out.println(maakDate("06-03-2002"));
-        CreateFile createFile = new CreateFile();
-        Context context = Context.getContext();
-        System.out.println(context.getClients().getClient(0+""));
 
     }
     //        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));

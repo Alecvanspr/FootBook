@@ -17,7 +17,7 @@ public class Clients {
     }
     private void fillClients(){
         clients = new LinkedList<>();
-        for(int i = 0; i<=MaxKlanten; i++){
+        for(int i = 0; i<MaxKlanten; i++){
             Client client=getClientFile(""+i);
             if(client!=null) {
                 clients.addLast(client);
@@ -25,8 +25,9 @@ public class Clients {
         }
     }
     public static Clients getInstance(){
-        if(instance==null)
+        if(instance==null) {
             instance = new Clients();
+        }
         return  instance;
     }
 

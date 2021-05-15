@@ -53,4 +53,5 @@ public class Behandelingen {
         createFile.CreatePersoon("Behandelingen", data.toArray());
         behandelingen.add(new Behandeling(data));
     }
+
 }

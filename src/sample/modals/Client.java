@@ -106,7 +106,7 @@ public class Client extends Persoon{
         }
         return behandelingen;
     }
-
+    //deze class is voor de behandel geschiedenis.
     public void addBehandeling(String date,String type,String sideNote){
         FileUpdater fileUpdater = new FileUpdater();
         ArrayList<String> data = new ArrayList<>();
