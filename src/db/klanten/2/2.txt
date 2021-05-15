@@ -1,0 +1,33 @@
+2
+Sebastiaan Roonsch
+06-26896878
+Schipperstraat 77
+2584 VM
+Den Haag
+SebRoonsch@gmail.com
+02-11-1989
+021
+4
+True
+1
+false
+null
+false
+null
+false
+null
+false
+null
+false
+Cavia's
+false
+Normale voet
+Geen
+false
+false
+false
+Normaal
+Geen
+Verzorgd
+Geen
+-
