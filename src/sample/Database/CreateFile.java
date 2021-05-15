@@ -20,7 +20,7 @@ public class CreateFile {
             if (nieuwBestand.createNewFile()) {
                 for(int i=0;i<typen.length;i++) {
                     if (type.equalsIgnoreCase(typen[i])) {
-                        WriteClient(data, path, UniqueNumber);
+                        WriteNewFile(data, path, UniqueNumber);
                         if(typen[i].equalsIgnoreCase("Klanten")){
                             File behandelingen = new File("src/db/klanten/"+UniqueNumber+"/BehandelingLog.txt.txt");
                             behandelingen.createNewFile();
@@ -37,7 +37,7 @@ public class CreateFile {
         }
     }
 
-    private void WriteClient(Object[] data,String path,int UniqueNumber){
+    private void WriteNewFile(Object[] data, String path, int UniqueNumber){
         try {
             PrintWriter writer = new PrintWriter(path);
             writer.println(UniqueNumber);
@@ -45,7 +45,7 @@ public class CreateFile {
                 writer.println(data[i]);
             writer.close();
         }catch (IOException e){
-            System.out.println("ERROR er gaat iets goed fout met het aanmaken van de client");
+            System.out.println("ERROR er gaat iets goed fout");
         }
     }
 

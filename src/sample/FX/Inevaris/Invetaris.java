@@ -14,7 +14,9 @@ import sample.Database.Context;
 import sample.Database.Producten;
 import sample.modals.Product;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -64,8 +66,9 @@ public class Invetaris {
         }
     }
     public void editProduct(int i) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        Parent root = FXMLLoader.load(getClass().getResource("sample/FX/Inevaris/EditProduct.fxml"));
+        URL url = new File("src/sample/FX/Inevaris/EditProduct.fxml").toURI().toURL();
+        FXMLLoader fxmlLoader = new FXMLLoader(url);
+        Parent root = fxmlLoader.load();
         EditProduct controller = (EditProduct) fxmlLoader.getController();
         controller.setProduct(i);
         Stage window = (Stage)btnNext.getScene().getWindow();
