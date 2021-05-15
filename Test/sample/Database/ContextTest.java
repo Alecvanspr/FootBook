@@ -17,7 +17,7 @@ public class ContextTest {
     public CreateFile c = new CreateFile();
     @org.junit.Test
     public void getClient() {
-        Client client = context.getClient(0+"");
+        Client client = context.getClients().getClient(0+"");
         Assert.assertTrue(client.naam.equals("Klaas van der Gouw"));
     }
 
@@ -27,7 +27,7 @@ public class ContextTest {
 
     @org.junit.Test
     public void getArts() {
-        Huisarts huisarts = Context.getContext().getArts("1");
+        Huisarts huisarts = Context.getContext().getHuisartsen().getArts("1");
         Assert.assertTrue(huisarts.id.equals("1"));
     }
 
@@ -37,17 +37,17 @@ public class ContextTest {
 
     @org.junit.Test
     public void getHuisartsen() {
-        Assert.assertTrue(context.getHuisartsen()!=null);
+        Assert.assertTrue(context.getHuisartsen().getHuisartsen()!=null);
     }
 
     @org.junit.Test
     public void getSpecialist() {
-        Specialist specialist = context.getSpecialist("1");
+        Specialist specialist = context.getSpecialisten().getSpecialist("1");
     }
 
     @org.junit.Test
     public void getSpecialisten() {
-        Assert.assertTrue(context.getSpecialisten()!=null);
+        Assert.assertTrue(context.getSpecialisten().getSpecialisten()!=null);
     }
     @org.junit.Test
     public void addBehandeling(){
@@ -56,15 +56,15 @@ public class ContextTest {
         data.add("Voetmassage Deluxe");
         data.add("test");
         data.add("25.00");
-        context.makeBehandeling(data);
-        Assert.assertTrue(context.getBehandeling(clientId+"").naam.equals("Voetmassage Deluxe"));
-        Assert.assertTrue(context.getBehandeling(clientId+"").omschrijving.equals("test"));
-        Assert.assertTrue(context.getBehandeling(clientId+"").kosten==(25.00));
+        context.getBehandelingen().makeBehandeling(data);
+        Assert.assertTrue(context.getBehandelingen().getBehandeling(clientId+"").naam.equals("Voetmassage Deluxe"));
+        Assert.assertTrue(context.getBehandelingen().getBehandeling(clientId+"").omschrijving.equals("test"));
+        Assert.assertTrue(context.getBehandelingen().getBehandeling(clientId+"").kosten==(25.00));
     }
 
     @org.junit.Test
     public void getBehandeling() {
-        Assert.assertTrue(context.getBehandeling("1").id.equals("1"));
+        Assert.assertTrue(context.getBehandelingen().getBehandeling("1").id.equals("1"));
     }
 
     @org.junit.Test
@@ -107,15 +107,15 @@ public class ContextTest {
         data.add("Verzorgd");//nagelconditie
         data.add("Geen");//nagelaandoening
         data.add("-");
-        context.makeNewClient(data);
+        context.clients.makeNewClient(data);
         String clientId = r.getUniqueNumber("src/db/MaxKlanten.txt");
-        Assert.assertTrue(context.getClient(clientId).naam.equals("Thea van der Meijer"));
-        Assert.assertTrue(context.getClient(clientId).postcode.equals("Poeldijk"));
+        Assert.assertTrue(context.clients.getClient(clientId).naam.equals("Thea van der Meijer"));
+        Assert.assertTrue(context.clients.getClient(clientId).postcode.equals("Poeldijk"));
         c.removeFile("src/db/klanten/"+clientId+"/"+clientId+".txt");
     }
     @org.junit.Test
     public void SearchByNameTest(){
-        ArrayList<Client> clients = context.searchClients("Marlies");
+        ArrayList<Client> clients = context.clients.searchClients("Marlies");
         Assert.assertTrue(clients.get(0).naam.contains("Marlies"));
     }
 }
