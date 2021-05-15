@@ -45,6 +45,10 @@ public class Producten {
         quantiteitData.add("0");
         producten.add(new Product(data));
     }
+    public void editProducten(ArrayList<String> data){
+        FileUpdater updater = new FileUpdater();
+        updater.updateFile("Producten",data);
+    }
     public LinkedList<Product> getProducten(){
         return producten;
     }
