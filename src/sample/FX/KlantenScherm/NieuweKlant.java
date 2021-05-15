@@ -1,4 +1,4 @@
-package sample.FX;
+package sample.FX.KlantenScherm;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -73,7 +73,7 @@ public class NieuweKlant {
 
     public void saveClient(){
         Context context = Context.getContext();
-        context.makeNewClient(getData());
+        context.getClients().makeNewClient(getData());
     }
     public String checkleeg(String text){
         if(text.equals("")||text==null){

@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<AnchorPane fx:id="KankerCX" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FX.NieuweKlant">
+<AnchorPane fx:id="KankerCX" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FX.KlantenScherm.NieuweKlant">
    <children>
       <AnchorPane layoutX="1.0" layoutY="2.0" prefHeight="170.0" prefWidth="400.0">
          <children>

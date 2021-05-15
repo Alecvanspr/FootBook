@@ -13,16 +13,17 @@ import java.io.IOException;
 public class HomePage {
     @FXML
     private Label errorLabel;
-
+    public void gaNaarInvetarisOverzicht() throws IOException {
+        WisselScreen("FX/Inevaris/Invetaris.fxml");
+    }
 
     public void gaNaarKlantenOverzicht() throws IOException {
-       WisselScreen("KlantenOverzicht");
+       WisselScreen("src/sample/FX/KlantenScherm/KlantenOverzicht.fxml");
     }
     public void WisselScreen(String scherm) throws IOException
     {
-        Parent root = FXMLLoader.load(getClass().getResource(scherm+".fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource(scherm));
         Stage window = (Stage)errorLabel.getScene().getWindow();
         window.setScene(new Scene(root,800,600));
-
     }
 }

@@ -1,4 +1,4 @@
-package sample.FX;
+package sample.FX.KlantenScherm;
 
 
 import javafx.beans.InvalidationListener;
@@ -14,6 +14,7 @@ import javafx.scene.control.ListView;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import sample.Database.Clients;
 import sample.Database.Context;
 
 import java.io.IOException;
@@ -43,10 +44,10 @@ public class KlantenOverzicht implements Initializable {
         listViewKlanten.setItems(list);
     }
     private ArrayList<String> getKlantNaamArray(String naam){
-        ArrayList ret = new ArrayList();
-        for(int i =0;i<context.getClients().size();i++){
-            if(context.getClients().get(i).naam.contains(naam))
-                ret.add(context.getClients().get(i).naam);
+        ArrayList<String> ret = new ArrayList();
+        for(int i =0;i<context.getClients().getClients().size();i++){
+            if(context.getClients().getClients().get(i).naam.contains(naam))
+                ret.add(context.getClients().getClients().get(i).naam);
         }
         return ret;
     }
@@ -59,7 +60,7 @@ public class KlantenOverzicht implements Initializable {
         GoToScreen("homePage");
     }
     public void MaakNieuweKlant() throws IOException {
-        GoToScreen("NieuweKlant");
+        GoToScreen("KlantenScherm/NieuweKlant");
     }
 
     public void GoToScreen(String file) throws IOException {

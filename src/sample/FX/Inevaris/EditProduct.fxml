@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FX.Inevaris.EditProduct">
+   <children>
+      <Button layoutX="527.0" layoutY="360.0" mnemonicParsing="false" text="Sla op" />
+      <Button layoutX="22.0" layoutY="360.0" mnemonicParsing="false" text="Terug" />
+      <TextField fx:id="naamfld" layoutX="173.0" layoutY="53.0" />
+      <TextField fx:id="leverancierfld" layoutX="173.0" layoutY="91.0" />
+      <TextField fx:id="omschrijvingfld" layoutX="173.0" layoutY="132.0" />
+      <TextField fx:id="inkoopprijsfld" layoutX="173.0" layoutY="175.0" />
+      <TextField fx:id="verkoopprijsfld" layoutX="173.0" layoutY="218.0" />
+      <Label layoutX="55.0" layoutY="57.0" text="Naam" />
+      <Label layoutX="55.0" layoutY="95.0" text="Leverancier" />
+      <Label layoutX="55.0" layoutY="136.0" text="Omschrijving" />
+      <Label layoutX="55.0" layoutY="179.0" text="Inkoop prijs" />
+      <Label layoutX="55.0" layoutY="222.0" text="Verkoop prijs" />
+      <Button fx:id="LoadBTN" layoutX="45.0" layoutY="14.0" mnemonicParsing="false" text="Load" />
+   </children>
+</AnchorPane>
