@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="paneLoadLabel" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FX.Inevaris.Invetaris">
+    <children>
+
+        <Button fx:id="btnNext" layoutX="14.0" layoutY="14.0" mnemonicParsing="true" onAction="#enterTextMouse" prefHeight="35.0" prefWidth="112.0" text="Load" />
+      <ScrollPane layoutX="14.0" layoutY="104.0" prefHeight="427.0" prefWidth="774.0">
+        <content>
+          <AnchorPane fx:id="ancorPane" minHeight="0.0" minWidth="0.0" prefHeight="409.0" prefWidth="754.0" />
+        </content>
+      </ScrollPane>
+      <Button layoutX="20.0" layoutY="548.0" mnemonicParsing="false" text="Terug" />
+        <Label layoutX="20.0" layoutY="80.0" text="Id" />
+        <Label layoutX="65.0" layoutY="80.0" text="Product naam" />
+      <Label layoutX="260.0" layoutY="80.0" text="Omschrijving" />
+      <Label layoutX="500.0" layoutY="80.0" text="inkoop prijs" />
+      <Label layoutX="615.0" layoutY="80.0" text="Verkoop prijs" />
+    </children>
+</AnchorPane>

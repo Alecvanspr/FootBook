@@ -9,7 +9,7 @@
            <children>
                <Button fx:id="KlantenBtn" layoutX="77.0" layoutY="83.0" mnemonicParsing="false" onAction="#gaNaarKlantenOverzicht" prefHeight="50.0" prefWidth="150.0" text="Klanten" />
             <Button layoutX="77.0" layoutY="159.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Factuur maken" />
-            <Button layoutX="77.0" layoutY="230.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Inevaris" />
+            <Button layoutX="77.0" layoutY="230.0" mnemonicParsing="false" onAction="#gaNaarInvetarisOverzicht" prefHeight="50.0" prefWidth="150.0" text="Inevaris" />
             <Label fx:id="errorLabel" layoutX="252.0" layoutY="50.0" text="errorLabel" />
            </children>
        </AnchorPane>

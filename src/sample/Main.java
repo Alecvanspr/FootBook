@@ -13,11 +13,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FX/NieuweKlant.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FX/Inevaris/Invetaris.fxml"));
         primaryStage.setTitle("Footbook");
         primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();
-
     }
 
     public static void main(String[] args) {
