@@ -4,9 +4,13 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import sample.FX.Inevaris.EditProduct;
+import sample.FX.KlantenScherm.KlantenOverzicht;
 
+import java.io.File;
+import java.net.URL;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -14,12 +18,15 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FX/Inevaris/EditProduct.fxml"));
+        URL url = new File("src/sample/FX/Huisartsen/HuisartsenOverzicht.fxml").toURI().toURL();
+        FXMLLoader fxmlLoader = new FXMLLoader(url);
         Parent root = fxmlLoader.load();
-        EditProduct controller = (EditProduct) fxmlLoader.getController();
-        controller.setProduct(1);
+
+//        KlantenOverzicht controller = (KlantenOverzicht) fxmlLoader.getController();
+//        controller.load();
+
         primaryStage.setTitle("Footbook");
-        primaryStage.setScene(new Scene(root, 800, 600));
+        primaryStage.setScene(new Scene(root, 1080, 900));
         primaryStage.show();
     }
 

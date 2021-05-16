@@ -3,12 +3,39 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FX.KlantenScherm.KlantenOverzicht">
+<AnchorPane prefHeight="900.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FX.KlantenScherm.KlantenOverzicht">
    <children>
-      <Button fx:id="zoekBtn" layoutX="223.0" layoutY="79.0" mnemonicParsing="false" onAction="#zoek" text="Zoek" />
-      <ListView fx:id="listViewKlanten" layoutX="22.0" layoutY="119.0" prefHeight="426.0" prefWidth="254.0" />
+      <Button fx:id="zoekBtn" layoutX="223.0" layoutY="79.0" mnemonicParsing="false" text="Zoek" />
       <TextField fx:id="zoekField" layoutX="22.0" layoutY="79.0" prefHeight="26.0" prefWidth="187.0" promptText="zoek" />
-      <Button layoutX="14.0" layoutY="560.0" mnemonicParsing="false" onAction="#GaNaarHomescreen" text="Terug" />
+      <Button layoutX="16.0" layoutY="860.0" mnemonicParsing="false" onAction="#GaNaarHomescreen" text="Terug" />
       <Button layoutX="22.0" layoutY="40.0" mnemonicParsing="false" onAction="#MaakNieuweKlant" text="Maak nieuwe klant" />
+      <ScrollPane layoutX="22.0" layoutY="161.0" prefHeight="687.0" prefWidth="286.0">
+        <content>
+          <AnchorPane fx:id="klantenOverzicht" minHeight="0.0" minWidth="0.0" prefHeight="671.0" prefWidth="268.0">
+               <children>
+               </children></AnchorPane>
+        </content>
+      </ScrollPane>
+      <AnchorPane layoutX="358.0" layoutY="53.0" prefHeight="796.0" prefWidth="678.0">
+         <children>
+            <Label layoutX="25.0" layoutY="22.0" text="Naam:" />
+            <Button layoutX="609.0" layoutY="756.0" mnemonicParsing="false" text="Bewerk" />
+            <Label layoutX="25.0" layoutY="47.0" text="Adress:" />
+            <Label layoutX="246.0" layoutY="22.0" text="Registratienr:" />
+            <Label fx:id="naamlbl" layoutX="79.0" layoutY="22.0" text="naam" />
+            <Label fx:id="straatlbl" layoutX="79.0" layoutY="47.0" text="straat" />
+            <Label layoutX="16.0" layoutY="99.0" text="postcode:" />
+            <Label fx:id="postcodelbl" layoutX="84.0" layoutY="99.0" text="postcode" />
+            <Label fx:id="registratienrlbl" layoutX="331.0" layoutY="22.0" text="registratieNR" />
+            <Label layoutX="27.0" layoutY="75.0" text="Plaats:" />
+            <Label fx:id="plaatslbl" layoutX="80.0" layoutY="75.0" text="Plaats" />
+            <Label layoutX="246.0" layoutY="47.0" text="Geboorte datum" />
+            <Label fx:id="geboortedatumlbl" layoutX="352.0" layoutY="47.0" text="Label" />
+            <Label fx:id="telefoonlbl" layoutX="352.0" layoutY="75.0" text="Label" />
+            <Label layoutX="246.0" layoutY="75.0" text="Telefoonnr:" />
+            <Label layoutX="28.0" layoutY="147.0" text="Huisarts" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="24.0" layoutY="123.0" text="Naam" />
    </children>
 </AnchorPane>

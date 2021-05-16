@@ -1,70 +1,87 @@
 package sample.FX.KlantenScherm;
 
 
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
+import javafx.scene.control.Label;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-import sample.Database.Clients;
 import sample.Database.Context;
+import sample.modals.Client;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
+import java.util.LinkedList;
 
-public class KlantenOverzicht implements Initializable {
+public class KlantenOverzicht {
     private ObservableList<String> list;
     private Context context = Context.getContext();
+    private int hoogte = 45;
     @FXML
-    private ListView listViewKlanten;
+    private AnchorPane klantenOverzicht;
+    @FXML
+    private Label naamlbl,straatlbl,postcodelbl,plaatslbl,telefoonlbl,geboortedatumlbl,registratienrlbl;
     @FXML
     private Button zoekBtn;
     @FXML
     private TextField zoekField;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        list = FXCollections.observableArrayList(getKlantNaamArray(""));
-        list.addListener(new InvalidationListener() {
-            @Override
-            public void invalidated(Observable observable) {
-                System.out.println("List invalidated");
-            }
-        });
-        listViewKlanten.setItems(list);
-    }
-    private ArrayList<String> getKlantNaamArray(String naam){
-        ArrayList<String> ret = new ArrayList();
-        for(int i =0;i<context.getClients().getClients().size();i++){
-            if(context.getClients().getClients().get(i).naam.contains(naam))
-                ret.add(context.getClients().getClients().get(i).naam);
-        }
-        return ret;
-    }
-    @FXML
+    private LinkedList<Client> clients;
+
     private void zoek(){
-        //hier moet een zoekmethode in komen
+        clients = context.getClients().getClients();
     }
+    public void load(){
+        clients = context.getClients().getClients();
+        for(int i =0; i<clients.size();i++){
+            Rectangle rectangle = new Rectangle(245,40);
+            rectangle.setLayoutY(i*hoogte-7);
+            rectangle.setFill(Color.TRANSPARENT);
+            rectangle.setStroke(Color.BLACK);
+            int h = i*hoogte;
+            Label id = new Label(clients.get(i).id);
+            id.setLayoutX(10);
+            id.setLayoutY(h);
+            Label naam = new Label(clients.get(i).naam);
+            naam.setLayoutX(55);
+            naam.setLayoutY(h);
+            int gebruikerID = i;
+            rectangle.onMouseClickedProperty().setValue(E->{
+                naamlbl.setText(clients.get(gebruikerID).naam);
+                straatlbl.setText(clients.get(gebruikerID).adres);
+                postcodelbl.setText(clients.get(gebruikerID).postcode);
+                plaatslbl.setText(clients.get(gebruikerID).plaats);
+                telefoonlbl.setText(clients.get(gebruikerID).telefoonnr);
+                geboortedatumlbl.setText(clients.get(gebruikerID).geboortedatum+"");
+                registratienrlbl.setText(clients.get(gebruikerID).registratieNummer);
+            });
+            klantenOverzicht.getChildren().addAll(rectangle,id,naam);
+        }
+    }
+
     public void GaNaarHomescreen() throws IOException
     {
         GoToScreen("homePage");
     }
+
     public void MaakNieuweKlant() throws IOException {
         GoToScreen("KlantenScherm/NieuweKlant");
     }
 
     public void GoToScreen(String file) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource(file+".fxml"));
+        URL url = new File("src/sample/FX/"+file+".fxml").toURI().toURL();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(url);
+        Parent root = fxmlLoader.load();
+
         Stage window = (Stage)zoekField.getScene().getWindow();
         window.setScene(new Scene(root,800,600));
     }

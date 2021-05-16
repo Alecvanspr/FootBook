@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="900.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FX.Huisartsen.HuisartsenOverzicht">
+
+    <children>
+        <Button fx:id="zoekBtn" layoutX="223.0" layoutY="79.0" mnemonicParsing="false" onAction="#zoek" text="Zoek" />
+        <TextField fx:id="zoekField" layoutX="22.0" layoutY="79.0" prefHeight="26.0" prefWidth="187.0" promptText="zoek" />
+        <Button layoutX="16.0" layoutY="860.0" mnemonicParsing="false" text="Terug" />
+        <Button layoutX="22.0" layoutY="40.0" mnemonicParsing="false" text="Maak nieuwe huisarts" />
+        <ScrollPane layoutX="22.0" layoutY="161.0" prefHeight="687.0" prefWidth="286.0">
+            <content>
+                <AnchorPane fx:id="klantenOverzicht" minHeight="0.0" minWidth="0.0" prefHeight="671.0" prefWidth="268.0">
+                    <children>
+                    </children></AnchorPane>
+            </content>
+        </ScrollPane>
+        <AnchorPane layoutX="355.0" layoutY="52.0" prefHeight="796.0" prefWidth="678.0">
+            <children>
+                <Label layoutX="25.0" layoutY="22.0" text="Naam:" />
+                <Button layoutX="609.0" layoutY="756.0" mnemonicParsing="false" text="Bewerk" />
+                <Label layoutX="25.0" layoutY="47.0" text="Adress:" />
+                <Label fx:id="naamlbl" layoutX="96.0" layoutY="22.0" text="naam" />
+                <Label fx:id="straatlbl" layoutX="95.0" layoutY="47.0" text="straat" />
+                <Label layoutX="16.0" layoutY="99.0" text="postcode:" />
+                <Label fx:id="postcodelbl" layoutX="98.0" layoutY="99.0" text="postcode" />
+                <Label layoutX="27.0" layoutY="75.0" text="Plaats:" />
+                <Label fx:id="plaatslbl" layoutX="95.0" layoutY="75.0" text="Plaats" />
+                <Label fx:id="telefoonlbl" layoutX="97.0" layoutY="128.0" text="Label" />
+                <Label layoutX="12.0" layoutY="128.0" text="Telefoonnr:" />
+            <Label layoutX="28.0" layoutY="152.0" text="Email:" />
+            <Label layoutX="28.0" layoutY="180.0" text="Website:" />
+            <Label fx:id="emaillbl" layoutX="97.0" layoutY="152.0" text="Email" />
+            <Label fx:id="websitelbl" layoutX="95.0" layoutY="180.0" text="Label" />
+            <Label fx:id="Huisartsenpostfld" layoutX="1.0" layoutY="208.0" text="Huisartsen post" />
+            <Label fx:id="Huisartsenpostlbl" layoutX="95.0" layoutY="208.0" text="Label" />
+            <Button layoutX="18.0" layoutY="264.0" mnemonicParsing="false" text="Berwerk" />
+            </children>
+        </AnchorPane>
+        <Label layoutX="24.0" layoutY="123.0" text="Naam" />
+    </children>
+</AnchorPane>

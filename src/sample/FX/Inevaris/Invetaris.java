@@ -72,12 +72,21 @@ public class Invetaris {
         EditProduct controller = (EditProduct) fxmlLoader.getController();
         controller.setProduct(i);
         Stage window = (Stage)btnNext.getScene().getWindow();
-        window.setScene(new Scene(root,800,600));
+        window.setScene(new Scene(root,1080, 900));
     }
-    public void WisselScreen(String scherm) throws IOException
-    {
-        Parent root = FXMLLoader.load(getClass().getResource(scherm));
+    public void Homepage() throws IOException {
+        URL url = new File("src/sample/FX/homePage.fxml").toURI().toURL();
+        FXMLLoader fxmlLoader = new FXMLLoader(url);
+        Parent root = fxmlLoader.load();
         Stage window = (Stage)btnNext.getScene().getWindow();
-        window.setScene(new Scene(root,800,600));
+        window.setScene(new Scene(root,1080, 900));
+    }
+    private void WisselScreen(String scherm) throws IOException
+    {
+        URL url = new File(scherm).toURI().toURL();
+        FXMLLoader fxmlLoader = new FXMLLoader(url);
+        Parent root = fxmlLoader.load();
+        Stage window = (Stage)btnNext.getScene().getWindow();
+        window.setScene(new Scene(root,1080, 900));
     }
 }

@@ -28,6 +28,7 @@ public class EditProduct {
         inkoopprijsfld.setText(product.inkoopPrijs+"");
         verkoopprijsfld.setText(product.verkoopPrijs+"");
     }
+
     public void slaOp() throws IOException {
         ArrayList<String> data = new ArrayList<>();
         data.add(product.id);
@@ -39,11 +40,18 @@ public class EditProduct {
         context.getProducten().editProducten(data);
         WisselScreen();
     }
+
     public void WisselScreen() throws IOException
     {
         URL url = new File("src/sample/FX/Inevaris/Invetaris.fxml").toURI().toURL();
-        Parent root = FXMLLoader.load(url);
+
+        FXMLLoader fxmlLoader = new FXMLLoader(url);
+        Parent root = fxmlLoader.load();
+
+        Invetaris controller = (Invetaris) fxmlLoader.getController();
+        controller.enterTextMouse();
+
         Stage window = (Stage)naamfld.getScene().getWindow();
-        window.setScene(new Scene(root,800,600));
+        window.setScene(new Scene(root,1080,900));
     }
 }

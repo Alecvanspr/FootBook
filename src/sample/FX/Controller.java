@@ -34,6 +34,6 @@ public class Controller {
         Parent root = FXMLLoader.load(getClass().getResource("homePage.fxml"));
 
         Stage window = (Stage)errorLabel.getScene().getWindow();
-        window.setScene(new Scene(root,800,600));
+        window.setScene(new Scene(root,1080,900));
     }
 }
