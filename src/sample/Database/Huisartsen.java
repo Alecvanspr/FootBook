@@ -53,4 +53,12 @@ public class Huisartsen {
     public LinkedList<Huisarts> getHuisartsen() {
         return Huisartsen;
     }
+    public LinkedList<Huisarts> getHuisartsen(String filter){
+        LinkedList ret = new LinkedList();
+        for(int i =0; i<Huisartsen.size();i++){
+            if(Huisartsen.get(i).naam.toLowerCase().contains(filter.toLowerCase())||Huisartsen.get(i).id.contains(filter)||Huisartsen.get(i).huisartsenpost.toLowerCase().contains(filter.toLowerCase()))
+            ret.add(Huisartsen.get(i));
+        }
+        return  ret;
+    }
 }

@@ -80,7 +80,7 @@ public class Client extends Persoon{
         this.huidconditie = data.get(29);
         this.huidaandoening = data.get(30);
         this.nagelConditie = data.get(31);
-        this.nagelAandoening = data.get(32);
+        //this.nagelAandoening = data.get(32);
     }
     public Boolean makeBoolean(String bool){
         if(bool.equalsIgnoreCase("true"))
