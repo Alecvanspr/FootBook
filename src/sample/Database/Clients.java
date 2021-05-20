@@ -31,10 +31,10 @@ public class Clients {
         return  instance;
     }
 
-    public ArrayList<Client> searchClients(String name) {
-        ArrayList<Client> matchingClients = new ArrayList<Client>();
+    public LinkedList<Client> getClients(String filter) {
+        LinkedList<Client> matchingClients = new LinkedList<>();
         for (int i = 0; i < clients.size(); i++) {
-            if (clients.get(i).naam.contains(name))
+            if ((clients.get(i).naam.toLowerCase()).contains(filter.toLowerCase()))
                 matchingClients.add(clients.get(i));
         }
         return matchingClients;

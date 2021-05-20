@@ -13,6 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import sample.Database.Clients;
 import sample.Database.Context;
 import sample.modals.Client;
 
@@ -37,10 +38,13 @@ public class KlantenOverzicht {
     private LinkedList<Client> clients;
 
     private void zoek(){
-        clients = context.getClients().getClients();
+        if(!zoekField.equals(""))
+            clients = context.getClients().getClients(zoekField.getText());
+        else
+            clients = context.getClients().getClients();
     }
     public void load(){
-        clients = context.getClients().getClients();
+        zoek();
         for(int i =0; i<clients.size();i++){
             Rectangle rectangle = new Rectangle(245,40);
             rectangle.setLayoutY(i*hoogte-7);

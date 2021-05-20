@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FX.Specialisten.EditSpecialist">
+
+    <AnchorPane layoutX="81.0" layoutY="55.0" prefHeight="170.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+        <children>
+            <Label layoutX="16.0" layoutY="22.0" text="Naam:" />
+            <Label layoutX="16.0" layoutY="63.0" text="Straat" />
+            <Label layoutX="16.0" layoutY="101.0" text="Postcode" />
+            <TextField fx:id="NaamFld" layoutX="112.0" layoutY="18.0" />
+            <TextField fx:id="straatfld" layoutX="112.0" layoutY="59.0" />
+            <TextField fx:id="postcodefld" layoutX="112.0" layoutY="97.0" />
+            <TextField fx:id="plaatsfld" layoutX="112.0" layoutY="139.0" />
+            <Label layoutX="21.0" layoutY="134.0" text="Plaats" />
+        </children>
+    </AnchorPane>
+    <AnchorPane layoutX="67.0" layoutY="226.0" prefHeight="170.0" prefWidth="427.0">
+        <children>
+            <Label layoutX="20.0" layoutY="63.0" text="Telefoon nr" />
+            <Label layoutX="20.0" layoutY="21.0" text="Ziekenhuis" />
+            <TextField fx:id="ziekenhuisfld" layoutX="123.0" layoutY="17.0" />
+            <TextField fx:id="Telefoonfld" layoutX="123.0" layoutY="59.0" />
+            <TextField fx:id="emailfld" layoutX="123.0" layoutY="135.0" />
+            <Label layoutX="22.0" layoutY="139.0" text="e-mail" />
+            <Label layoutX="20.0" layoutY="97.0" text="Specialiteit" />
+         <ComboBox fx:id="SpecialiteitComboBox" layoutX="123.0" layoutY="93.0" prefWidth="150.0" />
+        </children>
+    </AnchorPane>
+    <Button layoutX="1001.0" layoutY="845.0" mnemonicParsing="false" onAction="#slaOp" text="Sla op" />
+    <Button layoutX="29.0" layoutY="845.0" mnemonicParsing="false" onAction="#gaNaarSpecialistenOverzicht" text="Terug" />
+    <Label fx:id="ErrorLabel" layoutX="1001.0" layoutY="821.0" text="Velden zijn leeg" textFill="RED" visible="false" />
+</AnchorPane>

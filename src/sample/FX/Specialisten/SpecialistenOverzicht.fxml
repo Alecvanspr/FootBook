@@ -3,16 +3,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="900.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FX.Huisartsen.HuisartsenOverzicht">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FX.Specialisten.SpecialistenOverzicht">
 
     <children>
-        <Button fx:id="zoekBtn" layoutX="223.0" layoutY="79.0" mnemonicParsing="false" onAction="#loadHuisartsen" text="Zoek" />
+        <Button fx:id="zoekBtn" layoutX="223.0" layoutY="79.0" mnemonicParsing="false" onAction="#load" text="Zoek" />
         <TextField fx:id="zoekField" layoutX="22.0" layoutY="79.0" prefHeight="26.0" prefWidth="187.0" promptText="zoek" />
         <Button layoutX="16.0" layoutY="860.0" mnemonicParsing="false" onAction="#GaNaarHomescreen" text="Terug" />
-        <Button layoutX="22.0" layoutY="40.0" mnemonicParsing="false" onAction="#goNieuweHuisarts" text="Maak nieuwe huisarts" />
+        <Button layoutX="22.0" layoutY="40.0" mnemonicParsing="false" onAction="#GaNaarNieuweSpecialist" text="Maak nieuwe Specialist" />
         <ScrollPane layoutX="22.0" layoutY="161.0" prefHeight="687.0" prefWidth="337.0">
             <content>
-                <AnchorPane fx:id="HuisartsField">
+                <AnchorPane fx:id="SpecialistenField">
                     <children>
                     </children></AnchorPane>
             </content>
@@ -20,7 +20,6 @@
         <AnchorPane layoutX="355.0" layoutY="52.0" prefHeight="796.0" prefWidth="678.0">
             <children>
                 <Label layoutX="25.0" layoutY="22.0" text="Naam:" />
-                <Button fx:id="BewerkBtn" layoutX="609.0" layoutY="756.0" mnemonicParsing="false" text="Bewerk" />
                 <Label layoutX="25.0" layoutY="47.0" text="Adress:" />
                 <Label fx:id="naamlbl" layoutX="148.0" layoutY="22.0" text="naam" />
                 <Label fx:id="straatlbl" layoutX="147.0" layoutY="47.0" text="straat" />
@@ -30,12 +29,13 @@
                 <Label fx:id="plaatslbl" layoutX="147.0" layoutY="75.0" text="Plaats" />
                 <Label fx:id="telefoonlbl" layoutX="148.0" layoutY="128.0" text="Label" />
                 <Label layoutX="12.0" layoutY="128.0" text="Telefoonnr:" />
-            <Label layoutX="28.0" layoutY="152.0" text="Email:" />
-            <Label layoutX="36.0" layoutY="208.0" text="Website:" />
-            <Label fx:id="emaillbl" layoutX="148.0" layoutY="152.0" text="Email" />
-            <Label fx:id="websitelbl" layoutX="144.0" layoutY="180.0" text="Label" />
-            <Label fx:id="Huisartsenpostfld" layoutX="3.0" layoutY="180.0" text="Huisartsen post" />
-            <Label fx:id="Huisartsenpostlbl" layoutX="144.0" layoutY="208.0" text="Label" />
+                <Label layoutX="28.0" layoutY="152.0" text="Email:" />
+                <Label layoutX="21.0" layoutY="208.0" text="Specialisatie" />
+                <Label fx:id="emaillbl" layoutX="148.0" layoutY="152.0" text="Email" />
+                <Label fx:id="Ziekenhuisbl" layoutX="144.0" layoutY="180.0" text="Label" />
+                <Label layoutX="16.0" layoutY="180.0" text="Ziekenhuis" />
+                <Label fx:id="Specialiteitlbl" layoutX="144.0" layoutY="208.0" text="label" />
+            <Button fx:id="bewerkSpecialist" layoutX="620.0" layoutY="757.0" mnemonicParsing="false" text="Button" />
             </children>
         </AnchorPane>
         <Label layoutX="24.0" layoutY="123.0" text="Naam" />
