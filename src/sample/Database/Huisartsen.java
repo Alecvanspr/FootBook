@@ -47,7 +47,7 @@ public class Huisartsen {
     }
     public void makeNewHuisarts(ArrayList<String> data){
         CreateFile createFile = new CreateFile();
-        createFile.CreatePersoon("Artsen",data.toArray());
+        createFile.CreatePersoon("Huisartsen",data.toArray());
         Huisartsen.add(new Huisarts(data));
     }
     public LinkedList<Huisarts> getHuisartsen() {
@@ -60,5 +60,24 @@ public class Huisartsen {
             ret.add(Huisartsen.get(i));
         }
         return  ret;
+    }
+    public void editHuisarts(ArrayList data){
+        FileUpdater fileUpdater = new FileUpdater();
+        fileUpdater.updateFile("src/db/Huisartsen/"+data.get(0)+".txt",data);
+        changeHuisarts(data);
+    }
+    private void changeHuisarts(ArrayList<String> data){
+        for(int i = 0;i<Huisartsen.size();i++){
+            if(Huisartsen.get(i).id.equals(data.get(0))){
+                Huisartsen.get(i).naam = data.get(1);
+                Huisartsen.get(i).telefoonnr = data.get(2);
+                Huisartsen.get(i).adres = data.get(3);
+                Huisartsen.get(i).postcode = data.get(4);
+                Huisartsen.get(i).plaats = data.get(5);
+                Huisartsen.get(i).email = data.get(6);
+                Huisartsen.get(i).huisartsenpost = data.get(7);
+                Huisartsen.get(i).huisartsenpost = data.get(8);
+            }
+        }
     }
 }

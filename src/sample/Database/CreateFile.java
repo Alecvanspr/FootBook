@@ -7,7 +7,7 @@ import java.io.*;
 //CreatePath
 
 public class CreateFile {
-    public String[] typen = new String[]{"Klanten","Artsen","Specialisten","Behandelingen","Producten"};
+    public String[] typen = new String[]{"Klanten","Huisartsen","Specialisten","Behandelingen","Producten"};
     public CreateFile(){
 
     }
@@ -64,9 +64,10 @@ public class CreateFile {
             try {
                 FileReader reader = new FileReader();
                 String path = getPath(type);
+                System.out.println(path);
                 UniqueNumber = Integer.parseInt(reader.getUniqueNumber(path));
                 PrintWriter UniqueNumberFile = new PrintWriter(path);
-                UniqueNumberFile.println(UniqueNumber + 1); // hier wordt het nummer wat in het bestand staat geüpdate;
+                UniqueNumberFile.println((UniqueNumber + 1)+""); // hier wordt het nummer wat in het bestand staat geüpdate;
                 UniqueNumberFile.close();
             }catch (IOException e){
                 System.out.println("An error occurred.");

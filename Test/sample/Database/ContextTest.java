@@ -115,7 +115,7 @@ public class ContextTest {
     }
     @org.junit.Test
     public void SearchByNameTest(){
-        ArrayList<Client> clients = context.clients.searchClients("Marlies");
+        LinkedList<Client> clients = context.clients.getClients("Marlies");
         Assert.assertTrue(clients.get(0).naam.contains("Marlies"));
     }
 }

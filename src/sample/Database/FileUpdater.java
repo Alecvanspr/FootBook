@@ -25,16 +25,16 @@ public class FileUpdater {
             e.printStackTrace();
         }
     }
-    public void updateFile(String type,ArrayList<String> newData){
+    public void updateFile(String path,ArrayList<String> newData){
         try{
-            int id = Integer.parseInt(newData.get(0));
-            String path = createPath(type,id);
+            //int id = Integer.parseInt(newData.get(0));
+            //String path = createPath(type,id);
             CreateFile createFile = new CreateFile();
             PrintWriter writer = new PrintWriter(path);
-            for(int i = 0;i<newData.size();i++)
+            for(int i = 0;i<newData.size();i++) {
                 writer.println(newData.toArray()[i]);
-            writer.close();;
-
+            }
+            writer.close();
         }catch (IOException e){
             System.out.println("An error occurred.");
             e.printStackTrace();

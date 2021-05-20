@@ -4,19 +4,26 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import sample.Database.Huisartsen;
+import sample.FX.Huisartsen.HuisartsenOverzicht;
 import sample.FX.Inevaris.Invetaris;
 import sample.FX.KlantenScherm.KlantenOverzicht;
+import sample.FX.Specialisten.SpecialistenOverzicht;
 
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 
 public class HomePage {
     @FXML
-    private Label errorLabel;
+    private Button KlantenBtn;
+
+    //opzich zit hier veel code duplication in, maar het is lastig om dit kleiner te maken.
     public void gaNaarInvetarisOverzicht() throws IOException {
         URL url = new File("src/sample/FX/Inevaris/Invetaris.fxml").toURI().toURL();
 
@@ -26,7 +33,33 @@ public class HomePage {
         Invetaris controller = (Invetaris) fxmlLoader.getController();
         controller.enterTextMouse();
 
-        Stage window = (Stage)errorLabel.getScene().getWindow();
+        Stage window = (Stage)KlantenBtn.getScene().getWindow();
+        window.setScene(new Scene(root,1080, 900));
+    }
+
+    public void gaNaarHuisartenOverzicht() throws IOException {
+        URL url = new File("src/sample/FX/Huisartsen/HuisartsenOverzicht.fxml").toURI().toURL();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(url);
+        Parent root = fxmlLoader.load();
+
+        HuisartsenOverzicht controller =(HuisartsenOverzicht) fxmlLoader.getController();
+        controller.loadHuisartsen();
+
+        Stage window = (Stage)KlantenBtn.getScene().getWindow();
+        window.setScene(new Scene(root,1080, 900));
+    }
+
+    public void gaNaarSpecialistenOverzicht() throws IOException {
+        URL url = new File("src/sample/FX/Specialisten/SpecialistenOverzicht.fxml").toURI().toURL();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(url);
+        Parent root = fxmlLoader.load();
+
+        SpecialistenOverzicht controller =(SpecialistenOverzicht) fxmlLoader.getController();
+        controller.load();
+
+        Stage window = (Stage)KlantenBtn.getScene().getWindow();
         window.setScene(new Scene(root,1080, 900));
     }
 
@@ -37,18 +70,9 @@ public class HomePage {
         Parent root = fxmlLoader.load();
 
         KlantenOverzicht controller =(KlantenOverzicht) fxmlLoader.getController();
+        controller.load();
 
-        Stage window = (Stage)errorLabel.getScene().getWindow();
-        window.setScene(new Scene(root,1080, 900));
-    }
-    public void WisselScreen(String scherm) throws IOException
-    {
-        URL url = new File(scherm).toURI().toURL();
-
-        FXMLLoader fxmlLoader = new FXMLLoader(url);
-        Parent root = fxmlLoader.load();
-
-        Stage window = (Stage)errorLabel.getScene().getWindow();
+        Stage window = (Stage)KlantenBtn.getScene().getWindow();
         window.setScene(new Scene(root,1080, 900));
     }
 }

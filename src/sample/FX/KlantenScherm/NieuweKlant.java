@@ -96,7 +96,7 @@ public class NieuweKlant {
         data.add(HuisartsID.getText());//Huisarts nr
         data.add(""+diabetisCheckBox.isSelected());//diabetus
         data.add(checkleeg("leeg"));//diabetusspecialist
-        data.add(""+ReumaCB);//reuma
+        data.add(""+ReumaCB.isSelected());//reuma
         data.add(checkleeg("leeg"));//reumatoloog
         data.add(""+kankerCB.isSelected());//kanker
         data.add(checkleeg("leeg"));//oncoloog
@@ -116,6 +116,7 @@ public class NieuweKlant {
         data.add(checkleeg(huidAandfld.getText()));//huisaandoeningen
         data.add(checkleeg(nagelconfld.getText()));//nagelconditie
         data.add(checkleeg(nagelAandfld.getText()));//nagelaandoening
+        data.add("-");
         return data;
     }
     public boolean checkBenodigdeVelden(){

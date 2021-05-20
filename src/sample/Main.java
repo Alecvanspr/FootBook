@@ -6,24 +6,30 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import sample.Database.Context;
+import sample.Database.FileReader;
+import sample.Database.FileUpdater;
+import sample.FX.Huisartsen.HuisartsenOverzicht;
 import sample.FX.Inevaris.EditProduct;
 import sample.FX.KlantenScherm.KlantenOverzicht;
+import sample.FX.Specialisten.SpecialistenOverzicht;
 
 import java.io.File;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Scanner;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+
         URL url = new File("src/sample/FX/Huisartsen/HuisartsenOverzicht.fxml").toURI().toURL();
         FXMLLoader fxmlLoader = new FXMLLoader(url);
         Parent root = fxmlLoader.load();
 
-//        KlantenOverzicht controller = (KlantenOverzicht) fxmlLoader.getController();
-//        controller.load();
 
         primaryStage.setTitle("Footbook");
         primaryStage.setScene(new Scene(root, 1080, 900));

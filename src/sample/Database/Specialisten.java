@@ -48,9 +48,37 @@ public class Specialisten {
         return specialisten;
     }
 
+    public LinkedList<Specialist> getSpecialisten(String filter) {
+        LinkedList<Specialist> ret = new LinkedList();
+        for(int i =0; i<specialisten.size();i++){
+            if(specialisten.get(i).naam.toLowerCase().contains(filter.toLowerCase())||specialisten.get(i).id.contains(filter)||specialisten.get(i).specialiteit.toLowerCase().contains(filter.toLowerCase()))
+                ret.add(specialisten.get(i));
+        }
+        return  ret;
+    }
+
     public void makeNewSpecialist(ArrayList<String> data){
         CreateFile createFile = new CreateFile();
         createFile.CreatePersoon("Specialisten", data.toArray());
         specialisten.add(new Specialist(data));
+    }
+    public void editSpecialist(ArrayList<String> data){
+        FileUpdater fileUpdater = new FileUpdater();
+        fileUpdater.updateFile("src/db/Specialisten/"+data.get(0)+".txt",data);
+        changeSpecialist(data.get(0),data);
+    }
+    private void changeSpecialist(String id,ArrayList<String> data){
+        for(int i=0; i<specialisten.size(); i++){
+            if(specialisten.get(i).id.equals(id)){
+                specialisten.get(i).naam = data.get(1);
+                specialisten.get(i).telefoonnr = data.get(2);
+                specialisten.get(i).adres = data.get(3);
+                specialisten.get(i).postcode = data.get(4);
+                specialisten.get(i).plaats = data.get(5);
+                specialisten.get(i).email = data.get(6);
+                specialisten.get(i).ziekenhuis = data.get(7);
+                specialisten.get(i).specialiteit = data.get(8);
+            }
+        }
     }
 }
