@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="KankerCX" prefHeight="900.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FX.KlantenScherm.EditKlant">
+        <children>
+            <AnchorPane layoutX="1.0" layoutY="2.0" prefHeight="170.0" prefWidth="400.0">
+                <children>
+                    <Label layoutX="16.0" layoutY="22.0" text="Naam:" />
+                    <Label layoutX="16.0" layoutY="63.0" text="Straat" />
+                    <Label layoutX="16.0" layoutY="101.0" text="Postcode" />
+                    <TextField fx:id="NaamFld" layoutX="92.0" layoutY="18.0" />
+                    <TextField fx:id="straatfld" layoutX="92.0" layoutY="59.0" />
+                    <TextField fx:id="postcodefld" layoutX="92.0" layoutY="97.0" />
+                    <TextField fx:id="regnrfld" layoutX="92.0" layoutY="130.0" />
+                    <Label layoutX="16.0" layoutY="134.0" text="Registratienr" />
+                </children>
+            </AnchorPane>
+            <AnchorPane layoutX="438.0" layoutY="2.0" prefHeight="170.0" prefWidth="427.0">
+                <children>
+                    <Label layoutX="20.0" layoutY="104.0" text="Plaats" />
+                    <Label layoutX="20.0" layoutY="63.0" text="Telefoon nr" />
+                    <Label layoutX="20.0" layoutY="21.0" text="Geboorte datum" />
+                    <TextField fx:id="datumfld" layoutX="123.0" layoutY="17.0" promptText="DD-MM-YYYY" />
+                    <TextField fx:id="telNrfld" layoutX="123.0" layoutY="59.0" />
+                    <TextField fx:id="plaatsfld" layoutX="123.0" layoutY="100.0" />
+                    <TextField fx:id="emailfld" layoutX="123.0" layoutY="135.0" />
+                    <Label layoutX="22.0" layoutY="139.0" text="e-mail" />
+                </children>
+            </AnchorPane>
+            <Button fx:id="btnTerug" layoutX="14.0" layoutY="860.0" mnemonicParsing="false" onAction="#GaKlantenOverzicht" text="Terug" />
+            <AnchorPane layoutX="14.0" layoutY="168.0" prefHeight="132.0" prefWidth="385.0">
+                <children>
+                    <CheckBox fx:id="diabetisCheckBox" layoutY="5.0" mnemonicParsing="false" onAction="#makeDiabetisVisable" text="Diabetus" />
+                    <CheckBox fx:id="kankerCB" layoutY="33.0" mnemonicParsing="false" onAction="#makeKankerVisable" text="Kanker" />
+                    <CheckBox fx:id="ReumaCB" layoutY="62.0" mnemonicParsing="false" text="Reuma" />
+                    <CheckBox fx:id="soaCB" layoutX="-1.0" layoutY="91.0" mnemonicParsing="false" onAction="#makeSoaVisable" text="SOA" />
+                    <TextField fx:id="SoaTF" layoutX="78.0" layoutY="87.0" promptText="Type soa" visible="false" />
+                    <Label layoutY="118.0" text="Allergenen" />
+                    <TextField layoutX="78.0" layoutY="114.0" />
+                </children>
+            </AnchorPane>
+            <AnchorPane layoutX="426.0" layoutY="477.0" prefHeight="341.0" prefWidth="450.0">
+                <children>
+                    <Label fx:id="HuisartsLBL" layoutX="14.0" layoutY="9.0" text="Huisarts" />
+                    <TextField fx:id="huisartsTF" disable="true" layoutX="94.0" layoutY="5.0" />
+                    <CheckBox fx:id="elasKousCB" layoutX="14.0" layoutY="38.0" mnemonicParsing="false" text="Elasticsche / therapeutische kousen" />
+                    <TextField fx:id="Voettypetld" layoutX="174.0" layoutY="66.0" />
+                    <Label layoutX="14.0" layoutY="70.0" text="Voettype" />
+                    <Label layoutX="14.0" layoutY="99.0" text="Orthopedische afwijkingen" />
+                    <TextField fx:id="orthAffld" layoutX="174.0" layoutY="95.0" />
+                    <CheckBox fx:id="steunZolCB" layoutX="14.0" layoutY="127.0" mnemonicParsing="false" text="Steunzolen" />
+                    <CheckBox fx:id="confZolCB" layoutX="14.0" layoutY="155.0" mnemonicParsing="false" text="Confectie schoenen" />
+                    <CheckBox fx:id="OrthSchoenCB" layoutX="14.0" layoutY="186.0" mnemonicParsing="false" text="Orthopedische schoenen" />
+                    <Label layoutX="14.0" layoutY="221.0" text="Huidconditie" />
+                    <Label layoutX="24.0" layoutY="248.0" text="Huid aandoening" />
+                    <Label layoutX="24.0" layoutY="274.0" text="Nagel conditie" />
+                    <Label layoutX="24.0" layoutY="303.0" text="Nagel aandoening" />
+                    <TextField fx:id="huidconfld" layoutX="174.0" layoutY="217.0" />
+                    <TextField fx:id="huidAandfld" layoutX="174.0" layoutY="244.0" />
+                    <TextField fx:id="nagelconfld" layoutX="174.0" layoutY="270.0" />
+                    <TextField fx:id="nagelAandfld" layoutX="174.0" layoutY="299.0" />
+                    <Label fx:id="HuisartsID" layoutX="348.0" layoutY="9.0" text="Label" visible="false" />
+                </children></AnchorPane>
+            <AnchorPane fx:id="KanchorPane" layoutY="316.0" prefHeight="200.0" prefWidth="400.0" visible="false">
+                <children>
+                    <Label layoutX="14.0" layoutY="5.0" text="Behandelmethode" />
+                    <CheckBox fx:id="chemoCB" layoutX="14.0" layoutY="33.0" mnemonicParsing="false" text="Chemos" />
+                    <CheckBox fx:id="uitzaaiingCB" layoutX="14.0" layoutY="59.0" mnemonicParsing="false" text="Uitzaaingen" />
+                    <CheckBox fx:id="medicijnenCB" layoutX="14.0" layoutY="90.0" mnemonicParsing="false" text="Medicijnen" />
+                </children>
+            </AnchorPane>
+            <Button layoutX="1025.0" layoutY="860.0" mnemonicParsing="false" onAction="#slaKlantOp" text="Sla op" />
+            <ScrollPane layoutX="444.0" layoutY="248.0" prefHeight="221.0" prefWidth="354.0">
+                <content>
+                    <AnchorPane fx:id="HuisartsField" />
+                </content>
+            </ScrollPane>
+            <Button layoutX="703.0" layoutY="193.0" mnemonicParsing="false" onAction="#loadHuisartsen" text="zoek" />
+            <TextField fx:id="zoekField" layoutX="444.0" layoutY="193.0" onAction="#loadHuisartsen" />
+            <Label layoutX="466.0" layoutY="229.0" text="Naam" />
+            <Label layoutX="666.0" layoutY="229.0" text="Huisartsenpost" />
+            <Label fx:id="Errorlabel" layoutX="990.0" layoutY="834.0" visible="false" text="Velden zijn leeg" textFill="RED" />
+        </children>
+</AnchorPane>

@@ -11,8 +11,7 @@ public class Behandelingen {
     private static Behandelingen instance;
 
     public Behandelingen(){
-        FileReader reader = new FileReader();
-        MaxBehandelingen = Integer.parseInt(reader.getUniqueNumber("src/db/MaxBehandelingen.txt"));
+        MaxBehandelingen = Integer.parseInt(UniqueNumber.getUniqueNumber("src/db/MaxBehandelingen.txt"));
         fillBehandelingenList();
     }
 
@@ -50,8 +49,9 @@ public class Behandelingen {
     }
     public void makeBehandeling(ArrayList<String> data) {
         CreateFile createFile = new CreateFile();
+        String id = UniqueNumber.getUniqueNumber("src/db/MaxBehandelingen.txt");
         createFile.CreatePersoon("Behandelingen", data.toArray());
-        behandelingen.add(new Behandeling(data));
+        behandelingen.add(new Behandeling(new FileReader().getFile("behandelingen/"+id+".txt")));
     }
 
 }

@@ -1,33 +1,33 @@
 0
-Klaas van der Gouw
+Klaas van der Gouw 2
 06-21580827
 Leemidden 67
 2678 ME
 Kwintsheul
 KvdGouw@Gmail.com
-22-10-1989
+04-10-1989
 01
 1
-true
-1
 false
-null
+leeg
 false
-null
+leeg
+false
+leeg
+false
+leeg
+false
+leeg
+false
+leeg
+false
+false
+false
+false
+false
 false
 geen
-false
-geen
-false
-geen
-false
-normale voet
-geen
-false
-false
-false
-geen
-geen
-geen
-geen
-fin
+Geen
+Geen
+Geen
+-

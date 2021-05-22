@@ -1,6 +1,7 @@
 package sample.modals;
 
 import sample.Database.Context;
+import sample.Database.DateMaker;
 import sample.Database.FileReader;
 import sample.Database.FileUpdater;
 
@@ -51,7 +52,7 @@ public class Client extends Persoon{
         this.postcode = data.get(4);
         this.plaats = data.get(5);
         this.email = data.get(6);
-        this.geboortedatum = context.maakDate(data.get(7));
+        this.geboortedatum = DateMaker.maakDate(data.get(7));
         this.registratieNummer = data.get(8);
         this.huisarts = context.getHuisartsen().getArts(data.get(9));
         this.diabetes = makeBoolean(data.get(10));
@@ -98,7 +99,7 @@ public class Client extends Persoon{
             //Hier worden de 2 gegeven in verwerkt
             for(int i=0;i<data.size();i=i+3){
                 BehandelingHistory behandelingHistory = new BehandelingHistory();
-                behandelingHistory.datum = context.maakDate(data.get(i));
+                behandelingHistory.datum = DateMaker.maakDate(data.get(i));
                 behandelingHistory.type = context.getBehandelingen().getBehandeling(data.get(i+1));
                 behandelingHistory.bijzonderheden= data.get(i);
                 behandelingen.add(behandelingHistory);

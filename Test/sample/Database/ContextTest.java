@@ -51,7 +51,7 @@ public class ContextTest {
     }
     @org.junit.Test
     public void addBehandeling(){
-        String clientId = r.getUniqueNumber("src/db/MaxBehandeling.txt");
+        String clientId = UniqueNumber.getUniqueNumber("src/db/MaxBehandeling.txt");
         ArrayList<String> data = new ArrayList<>();
         data.add("Voetmassage Deluxe");
         data.add("test");
@@ -108,7 +108,7 @@ public class ContextTest {
         data.add("Geen");//nagelaandoening
         data.add("-");
         context.clients.makeNewClient(data);
-        String clientId = r.getUniqueNumber("src/db/MaxKlanten.txt");
+        String clientId = UniqueNumber.getUniqueNumber("src/db/MaxKlanten.txt");
         Assert.assertTrue(context.clients.getClient(clientId).naam.equals("Thea van der Meijer"));
         Assert.assertTrue(context.clients.getClient(clientId).postcode.equals("Poeldijk"));
         c.removeFile("src/db/klanten/"+clientId+"/"+clientId+".txt");

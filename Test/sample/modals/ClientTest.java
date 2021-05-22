@@ -2,6 +2,7 @@ package sample.modals;
 
 import org.junit.Assert;
 import sample.Database.Context;
+import sample.Database.DateMaker;
 import sample.modals.Client;
 import sample.modals.Huisarts;
 import sample.modals.Specialist;
@@ -20,7 +21,7 @@ public class ClientTest {
 
     @org.junit.Test
     public void maakDatum() {
-        Date datum = context.maakDate("26-03-2002");
+        Date datum = DateMaker.maakDate("26-03-2002");
         Date correctDate = new Date(102, 2,26);
         Assert.assertEquals(datum,correctDate);
     }

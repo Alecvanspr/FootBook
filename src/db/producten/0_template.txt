@@ -1,0 +1,6 @@
+id
+naam
+leverancier
+omschrijving
+inkoopprijs
+verkoopprijs

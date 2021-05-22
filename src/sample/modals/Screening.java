@@ -1,6 +1,7 @@
 package sample.modals;
 
 import sample.Database.Context;
+import sample.Database.DateMaker;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -15,7 +16,7 @@ public class Screening {
     public String opmerkingGevoelL;
 
     public Screening(ArrayList<String> data){
-        datum = context.maakDate(data.get(0));
+        datum = DateMaker.maakDate(data.get(0));
         koudeVoeten = Boolean.parseBoolean(data.get(1));
         gevoelR = data.get(2);
         opmerkingGevoelR = data.get(3);

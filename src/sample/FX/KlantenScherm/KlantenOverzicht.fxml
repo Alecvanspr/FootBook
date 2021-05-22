@@ -19,7 +19,7 @@
       <AnchorPane layoutX="358.0" layoutY="53.0" prefHeight="796.0" prefWidth="678.0">
          <children>
             <Label layoutX="25.0" layoutY="22.0" text="Naam:" />
-            <Button layoutX="609.0" layoutY="756.0" mnemonicParsing="false" text="Bewerk" />
+            <Button fx:id="edit" layoutX="609.0" layoutY="756.0" mnemonicParsing="false" text="Bewerk" />
             <Label layoutX="25.0" layoutY="47.0" text="Adress:" />
             <Label layoutX="246.0" layoutY="22.0" text="Registratienr:" />
             <Label fx:id="naamlbl" layoutX="79.0" layoutY="22.0" text="naam" />

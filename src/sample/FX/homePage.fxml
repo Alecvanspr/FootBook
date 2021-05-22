@@ -8,10 +8,11 @@
        <AnchorPane layoutY="14.0" prefHeight="890.0" prefWidth="1080.0">
            <children>
                <Button fx:id="KlantenBtn" layoutX="77.0" layoutY="83.0" mnemonicParsing="false" onAction="#gaNaarKlantenOverzicht" prefHeight="50.0" prefWidth="150.0" text="Klanten" />
-            <Button layoutX="77.0" layoutY="159.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Factuur maken" />
-            <Button layoutX="77.0" layoutY="230.0" mnemonicParsing="false" onAction="#gaNaarInvetarisOverzicht" prefHeight="50.0" prefWidth="150.0" text="Inevaris" />
-            <Button layoutX="77.0" layoutY="302.0" mnemonicParsing="false" onAction="#gaNaarHuisartenOverzicht" prefHeight="50.0" prefWidth="150.0" text="Huisartsen" />
-            <Button layoutX="77.0" layoutY="389.0" mnemonicParsing="false" onAction="#gaNaarSpecialistenOverzicht" prefHeight="50.0" prefWidth="150.0" text="Specialisten" />
+            <Button layoutX="77.0" layoutY="488.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Factuur maken" />
+            <Button layoutX="77.0" layoutY="420.0" mnemonicParsing="false" onAction="#gaNaarInvetarisOverzicht" prefHeight="50.0" prefWidth="150.0" text="Inevaris" />
+            <Button layoutX="77.0" layoutY="151.0" mnemonicParsing="false" onAction="#gaNaarHuisartenOverzicht" prefHeight="50.0" prefWidth="150.0" text="Huisartsen" />
+            <Button layoutX="77.0" layoutY="226.0" mnemonicParsing="false" onAction="#gaNaarSpecialistenOverzicht" prefHeight="50.0" prefWidth="150.0" text="Specialisten" />
+            <Button layoutX="77.0" layoutY="297.0" mnemonicParsing="false" onAction="#gaNaarBehandelingsOverzicht" prefHeight="50.0" prefWidth="150.0" text="Behandelingen" />
            </children>
        </AnchorPane>
    </children>

@@ -25,22 +25,4 @@ public class FileReader {
         }
         return ret;
     }
-
-    public String getUniqueNumber(String path){
-        String ret = "";
-        if(path!=(null)) {
-            try {
-                File myObj = new File(path);
-                Scanner myReader = new Scanner(myObj);
-                while (myReader.hasNextLine()) {
-                    ret = myReader.nextLine();
-                }
-                myReader.close();
-            } catch (FileNotFoundException e) {
-                System.out.println("An error occurred.");
-                e.printStackTrace();
-            }
-        }
-        return ret;
-    }
 }

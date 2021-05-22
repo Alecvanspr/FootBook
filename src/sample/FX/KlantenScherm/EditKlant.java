@@ -1,6 +1,5 @@
 package sample.FX.KlantenScherm;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,16 +12,17 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import sample.Database.Context;
+import sample.Database.DateMaker;
+import sample.modals.Client;
 import sample.modals.Huisarts;
 
-import javax.print.DocFlavor;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-public class NieuweKlant {
+public class EditKlant {
     @FXML
     private TextField NaamFld,straatfld,postcodefld,regnrfld,datumfld,telNrfld,plaatsfld,emailfld,SoaTF,huisartsTF,Voettypetld,orthAffld,huidconfld,huidAandfld,nagelconfld,nagelAandfld,zoekField;
 
@@ -37,23 +37,47 @@ public class NieuweKlant {
     @FXML
     private CheckBox diabetisCheckBox,ReumaCB,soaCB,kankerCB,elasKousCB,steunZolCB,confZolCB,OrthSchoenCB,chemoCB,uitzaaiingCB,medicijnenCB;
 
-    public void GaTerug() throws IOException {
-        URL url = new File("src/sample/FX/KlantenScherm/KlantenOverzicht.fxml").toURI().toURL();
+    private Context context = Context.getContext();
+    private int id;
 
-        FXMLLoader fxmlLoader = new FXMLLoader(url);
-        Parent root = fxmlLoader.load();
-
-        KlantenOverzicht controller =(KlantenOverzicht) fxmlLoader.getController();
-        controller.load();
-
-        Stage window = (Stage)zoekField.getScene().getWindow();
-        window.setScene(new Scene(root,1080, 900));
-    }
     public void slaKlantOp() throws IOException {
         if(checkBenodigdeVelden()) {
-            saveClient();
-            GoToScreen("KlantenOverzicht");
+            context.getClients().editClient(getData());
+            GaKlantenOverzicht();
+        }else{
+            Errorlabel.setVisible(true);
         }
+
+    }
+    public void load(int id){
+        this.id = id;
+        NaamFld.setText(context.getClients().getClients().get(id).naam);
+        straatfld.setText(context.getClients().getClients().get(id).adres);
+        postcodefld.setText(context.getClients().getClients().get(id).postcode);
+        regnrfld.setText(context.getClients().getClients().get(id).registratieNummer);
+        datumfld.setText(DateMaker.maakDate(context.getClients().getClients().get(id).geboortedatum));
+        telNrfld.setText(context.getClients().getClients().get(id).telefoonnr);
+        plaatsfld.setText(context.getClients().getClients().get(id).plaats);
+        emailfld.setText(context.getClients().getClients().get(id).email);
+        SoaTF.setText(context.getClients().getClients().get(id).soa+"");
+        huisartsTF.setText(context.getClients().getClients().get(id).huisarts.naam);
+        Voettypetld.setText(context.getClients().getClients().get(id).voettype);
+        orthAffld.setText(context.getClients().getClients().get(id).orthopedischeAfwijkingen);
+        huidconfld.setText(context.getClients().getClients().get(id).huidconditie);
+        huidAandfld.setText(context.getClients().getClients().get(id).huidaandoening);
+        nagelconfld.setText(context.getClients().getClients().get(id).nagelConditie);
+        nagelAandfld.setText(context.getClients().getClients().get(id).nagelAandoening);
+
+        diabetisCheckBox.setSelected(context.getClients().getClients().get(id).diabetes);
+        ReumaCB.setSelected(context.getClients().getClients().get(id).reuma);
+        soaCB.setSelected(context.getClients().getClients().get(id).soa);
+        kankerCB.setSelected(context.getClients().getClients().get(id).kanker);
+        elasKousCB.setSelected(context.getClients().getClients().get(id).kousen);
+        steunZolCB.setSelected(context.getClients().getClients().get(id).steunzolen);
+        confZolCB.setSelected(context.getClients().getClients().get(id).confectieSchoenen);
+        OrthSchoenCB.setSelected(context.getClients().getClients().get(id).orthopedischeSchoenen);
+        //chemoCB.setSelected(context.getClients().getClients().get(id).chemos);
+        //uitzaaiingCB.setSelected(context.getClients().getClients().get(id).uitzaaingen); todo deze zorgen dat ze geen errors geven
     }
     private void zoek(){
         if(zoekField.getText()!=null) {
@@ -63,7 +87,6 @@ public class NieuweKlant {
             Errorlabel.setVisible(true);
         }
     }
-
     public void loadHuisartsen(){
         int hoogte = 45;
         zoek();
@@ -93,9 +116,9 @@ public class NieuweKlant {
             HuisartsField.getChildren().addAll(rectangle,naam,huisartsenpost);
         }
     }
-
     private ArrayList<String> getData(){
         ArrayList<String> data= new ArrayList<>();
+        data.add(context.getClients().getClients().get(id).id);
         data.add(NaamFld.getText());
         data.add(telNrfld.getText());
         data.add(straatfld.getText());
@@ -104,7 +127,7 @@ public class NieuweKlant {
         data.add(emailfld.getText());
         data.add(datumfld.getText());
         data.add(regnrfld.getText());
-        data.add(HuisartsID.getText());//Huisarts nr
+        data.add(context.getHuisartsen().getHuisartsen(huisartsTF.getText()).getFirst().id);//Huisarts nr
         data.add(""+diabetisCheckBox.isSelected());//diabetus
         data.add(checkleeg("leeg"));//diabetusspecialist
         data.add(""+ReumaCB.isSelected());//reuma
@@ -131,26 +154,23 @@ public class NieuweKlant {
         return data;
     }
     public boolean checkBenodigdeVelden(){
-        return checkfield(NaamFld)&&checkfield(telNrfld)&&checkfield(straatfld)&&checkfield(postcodefld)&&checkfield(plaatsfld)&&checkfield(emailfld)&&checkfield(regnrfld)&&HuisartsID.getText().equals("");
+        return checkfield(NaamFld)&&checkfield(telNrfld)&&checkfield(straatfld)&&checkfield(postcodefld)&&checkfield(plaatsfld)&&checkfield(emailfld)&&checkfield(regnrfld)&&(!(HuisartsID.getText().equals("")));
     }
     private boolean checkfield(TextField textField){
         if(textField.getText().equals(""))
             return false;
-            return true;
-    }
-
-    public void saveClient(){
-            Context context = Context.getContext();
-            context.getClients().makeNewClient(getData());
+        return true;
     }
     public String checkleeg(String text){
-        if(text.equals("")||text==null){
-            return "geen";
+        try {
+            if (text.equals("")) {
+                return "geen";
+            }
+            return text;
+        }catch(NullPointerException nullPointerException){
+            return "Geen";
         }
-        return text;
     }
-
-
     public void makeDiabetisVisable(){
         if(diabetisCheckBox.isSelected()){
             System.out.println(true);
@@ -171,6 +191,18 @@ public class NieuweKlant {
         }else{
             SoaTF.setVisible(false);
         }
+    }
+    public void GaKlantenOverzicht() throws IOException {
+        URL url = new File("src/sample/FX/KlantenScherm/KlantenOverzicht.fxml").toURI().toURL();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(url);
+        Parent root = fxmlLoader.load();
+
+        KlantenOverzicht controller =(KlantenOverzicht) fxmlLoader.getController();
+        controller.load();
+
+        Stage window = (Stage)zoekField.getScene().getWindow();
+        window.setScene(new Scene(root,1080, 900));
     }
     public void GoToScreen(String file) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource(file+".fxml"));

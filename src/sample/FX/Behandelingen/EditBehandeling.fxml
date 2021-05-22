@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="sample.FX.Behandelingen.EditBehandeling"
+            prefHeight="900.0" prefWidth="1080.0">
+    <children>
+        <Button layoutX="1014.0" layoutY="860.0" mnemonicParsing="false" onAction="#slaOp" text="Sla op" />
+        <Button layoutX="27.0" layoutY="860.0" mnemonicParsing="false" onAction="#gaNaarBehandelingsOverzicht" text="Terug" />
+        <TextField fx:id="naam" layoutX="235.0" layoutY="196.0" />
+        <Label layoutX="140.0" layoutY="200.0" text="Naam" />
+        <Label layoutX="141.0" layoutY="255.0" text="Omschrijving" />
+        <TextField fx:id="omschrijving" layoutX="235.0" layoutY="251.0" prefHeight="26.0" prefWidth="367.0" />
+        <TextField fx:id="prijs" layoutX="235.0" layoutY="302.0" text="0.00" />
+        <Label layoutX="141.0" layoutY="306.0" text="Prijs" />
+    </children>
+</AnchorPane>

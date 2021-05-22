@@ -1,5 +1,7 @@
 package sample.Database;
 
+import sun.management.counter.Units;
+
 import java.io.*;
 
 //CreateFile
@@ -14,7 +16,7 @@ public class CreateFile {
     //Dit is voor het maken het vullen van een textbestand
     public void CreatePersoon(String type, Object[] data) {
         try {
-            int UniqueNumber = getUniqueNumber(type);
+            int UniqueNumber = sample.Database.UniqueNumber.getNewUniqueNumber(getPath(type));
             String path = createPath(type,UniqueNumber);
             File nieuwBestand = new File(path);
             if (nieuwBestand.createNewFile()) {
@@ -57,23 +59,6 @@ public class CreateFile {
             }
         }
         return null;
-    }
-    //deze methode die haalt het Unique number uit de file en Update deze ook gelijk.
-    private int getUniqueNumber(String type) {
-            int UniqueNumber = 0;
-            try {
-                FileReader reader = new FileReader();
-                String path = getPath(type);
-                System.out.println(path);
-                UniqueNumber = Integer.parseInt(reader.getUniqueNumber(path));
-                PrintWriter UniqueNumberFile = new PrintWriter(path);
-                UniqueNumberFile.println((UniqueNumber + 1)+""); // hier wordt het nummer wat in het bestand staat geüpdate;
-                UniqueNumberFile.close();
-            }catch (IOException e){
-                System.out.println("An error occurred.");
-                e.printStackTrace();
-            }
-            return UniqueNumber;
     }
 
     public String createPath(String type,int UniqueNumber){

@@ -11,8 +11,7 @@ public class Specialisten {
     private static Specialisten instance;
 
     public Specialisten(){
-        FileReader reader = new FileReader();
-        MaxSpecialisten = Integer.parseInt(reader.getUniqueNumber("src/db/MaxSpecialisten.txt"));
+        MaxSpecialisten = Integer.parseInt(UniqueNumber.getUniqueNumber("src/db/MaxSpecialisten.txt"));
         fillSpecialisten();
     }
     public void fillSpecialisten(){
