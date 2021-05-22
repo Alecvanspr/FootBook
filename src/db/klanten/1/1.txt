@@ -1,33 +1,33 @@
 1
-Thea van der Meijer
+Thea van der Meijer 2
 06-26896878
 De Boerstraat 7
 2685 RE
 Poeldijk
 TheaMeijer
-23-05-1942
+08-05-1942
 058
-3
+1
 false
-null
+leeg
 false
-null
+leeg
 false
-null
+leeg
 false
-null
+leeg
 false
-null
+leeg
 false
-null
-false
-Platvoet
-Geen
+leeg
 false
 false
 false
-Normaal
-Geen
+false
+false
+false
 Verzorgd
+Geen
+Geen
 Geen
 -

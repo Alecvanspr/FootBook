@@ -15,6 +15,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import sample.Database.Clients;
 import sample.Database.Context;
+import sample.FX.Huisartsen.HuisartsBewerken;
 import sample.modals.Client;
 
 import java.io.File;
@@ -31,7 +32,7 @@ public class KlantenOverzicht {
     @FXML
     private Label naamlbl,straatlbl,postcodelbl,plaatslbl,telefoonlbl,geboortedatumlbl,registratienrlbl;
     @FXML
-    private Button zoekBtn;
+    private Button zoekBtn, edit;
     @FXML
     private TextField zoekField;
 
@@ -66,9 +67,30 @@ public class KlantenOverzicht {
                 telefoonlbl.setText(clients.get(gebruikerID).telefoonnr);
                 geboortedatumlbl.setText(clients.get(gebruikerID).geboortedatum+"");
                 registratienrlbl.setText(clients.get(gebruikerID).registratieNummer);
+                edit.setOnAction(Event->{
+                    try {
+                        goKlantBewerken(gebruikerID);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
             });
             klantenOverzicht.getChildren().addAll(rectangle,id,naam);
         }
+    }
+    public void goKlantBewerken(int id) throws IOException
+    {
+        URL url = new File("src/sample/FX/KlantenScherm/EditKlant.fxml").toURI().toURL();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(url);
+        Parent root = fxmlLoader.load();
+
+        EditKlant controller =(EditKlant) fxmlLoader.getController();
+        controller.load(id);
+
+        Stage window = (Stage)naamlbl.getScene().getWindow();
+        window.setScene(new Scene(root,1080, 900));
+
     }
 
     public void GaNaarHomescreen() throws IOException
@@ -87,6 +109,6 @@ public class KlantenOverzicht {
         Parent root = fxmlLoader.load();
 
         Stage window = (Stage)zoekField.getScene().getWindow();
-        window.setScene(new Scene(root,800,600));
+        window.setScene(new Scene(root,1080,900));
     }
 }

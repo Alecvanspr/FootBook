@@ -51,13 +51,5 @@ public class Context {
         return producten;
     }
 
-    public Date maakDate(String datum) {
-        //Deze maakt de substrings
-        int day = Integer.parseInt(datum.substring(0, 2));
-        int month = Integer.parseInt(datum.substring(3, 5));
-        int year = Integer.parseInt(datum.substring(6, 10));
-        //Deze maakt de Datum die uiteindelijk gereturned wordt.
-        Date date = new GregorianCalendar(year, month - 1, day).getTime();
-        return date;
-    }
+
 }

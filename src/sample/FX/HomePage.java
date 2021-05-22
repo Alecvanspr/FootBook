@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import sample.Database.Huisartsen;
+import sample.FX.Behandelingen.BehandelingsOverzicht;
 import sample.FX.Huisartsen.HuisartsenOverzicht;
 import sample.FX.Inevaris.Invetaris;
 import sample.FX.KlantenScherm.KlantenOverzicht;
@@ -23,7 +24,7 @@ public class HomePage {
     @FXML
     private Button KlantenBtn;
 
-    //opzich zit hier veel code duplication in, maar het is lastig om dit kleiner te maken.
+    //opzich zit hier veel code duplication in, maar vrijwel zinloos en niet mogelijk om dit kleiner te maken.
     public void gaNaarInvetarisOverzicht() throws IOException {
         URL url = new File("src/sample/FX/Inevaris/Invetaris.fxml").toURI().toURL();
 
@@ -32,6 +33,18 @@ public class HomePage {
 
         Invetaris controller = (Invetaris) fxmlLoader.getController();
         controller.enterTextMouse();
+
+        Stage window = (Stage)KlantenBtn.getScene().getWindow();
+        window.setScene(new Scene(root,1080, 900));
+    }
+    public void gaNaarBehandelingsOverzicht() throws IOException {
+        URL url = new File("src/sample/FX/Behandelingen/BehandelingsOverzicht.fxml").toURI().toURL();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(url);
+        Parent root = fxmlLoader.load();
+
+        BehandelingsOverzicht controller = (BehandelingsOverzicht) fxmlLoader.getController();
+        controller.load();
 
         Stage window = (Stage)KlantenBtn.getScene().getWindow();
         window.setScene(new Scene(root,1080, 900));

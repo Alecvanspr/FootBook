@@ -29,7 +29,6 @@ public class FileUpdater {
         try{
             //int id = Integer.parseInt(newData.get(0));
             //String path = createPath(type,id);
-            CreateFile createFile = new CreateFile();
             PrintWriter writer = new PrintWriter(path);
             for(int i = 0;i<newData.size();i++) {
                 writer.println(newData.toArray()[i]);
@@ -51,15 +50,5 @@ public class FileUpdater {
         }
 
         return path+"/"+ UniqueNumber+ ".txt";
-    }
-    public String maakDatum(Date datum){
-        String jaar = ""+(datum.getYear()+1900);
-        String maand = ""+ (datum.getMonth()+1);
-        String dag = ""+ (datum.getDay()+2);
-        if(maand.length()==1)
-            maand=0+maand;
-        if(dag.length()==1)
-            dag=0+dag;
-        return dag+"-"+maand+"-"+jaar;
     }
 }

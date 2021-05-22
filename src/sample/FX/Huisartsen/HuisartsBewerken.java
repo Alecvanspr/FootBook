@@ -38,7 +38,6 @@ public class HuisartsBewerken {
     }
 
     public void slaOp() throws IOException {
-        System.out.println(isLeeg());
         if(!isLeeg()) {
             context.getHuisartsen().editHuisarts(getData());
             gaNaarHuisartenOverzicht();

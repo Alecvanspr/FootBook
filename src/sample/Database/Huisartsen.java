@@ -11,8 +11,7 @@ public class Huisartsen {
     private static Huisartsen instance;
 
     public Huisartsen(){
-        FileReader reader = new FileReader();
-        MaxArtsen = Integer.parseInt(reader.getUniqueNumber("src/db/MaxHuisartsen.txt"));
+        MaxArtsen = Integer.parseInt(UniqueNumber.getUniqueNumber("src/db/MaxHuisartsen.txt"));
         fillArtsen();
     }
     public void fillArtsen(){

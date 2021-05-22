@@ -23,7 +23,6 @@ import java.util.LinkedList;
 public class Invetaris {
     private Context context = Context.getContext();
     private int hoogte = 45;
-    private int breedte = 45;
     @FXML
     private AnchorPane ancorPane;
 
@@ -46,13 +45,13 @@ public class Invetaris {
             omschrijving.setLayoutX(250);
             omschrijving.setLayoutY(h);
             Label inkPrijs = new Label(producten.get(i).inkoopPrijs+"");
-            inkPrijs.setLayoutX(490);
+            inkPrijs.setLayoutX(800);
             inkPrijs.setLayoutY(h);
             Label verkPrijs = new Label(producten.get(i).verkoopPrijs+"");
-            verkPrijs.setLayoutX(605);
+            verkPrijs.setLayoutX(900);
             verkPrijs.setLayoutY(h);
             Button bewerk = new Button("Edit");
-            bewerk.setLayoutX(725);
+            bewerk.setLayoutX(1000);
             bewerk.setLayoutY(h);
             int finalI = i;
             bewerk.setOnAction(e->{
@@ -65,28 +64,30 @@ public class Invetaris {
             ancorPane.getChildren().addAll(id,naam,omschrijving,inkPrijs,verkPrijs,bewerk);
         }
     }
+    public void makeProduct() throws  IOException{
+        WisselScreen("src/sample/FX/Inevaris/newProduct.fxml");
+    }
     public void editProduct(int i) throws IOException {
         URL url = new File("src/sample/FX/Inevaris/EditProduct.fxml").toURI().toURL();
         FXMLLoader fxmlLoader = new FXMLLoader(url);
         Parent root = fxmlLoader.load();
         EditProduct controller = (EditProduct) fxmlLoader.getController();
         controller.setProduct(i);
-        Stage window = (Stage)btnNext.getScene().getWindow();
+        Stage window = (Stage)ancorPane.getScene().getWindow();
         window.setScene(new Scene(root,1080, 900));
     }
     public void Homepage() throws IOException {
-        URL url = new File("src/sample/FX/homePage.fxml").toURI().toURL();
-        FXMLLoader fxmlLoader = new FXMLLoader(url);
-        Parent root = fxmlLoader.load();
-        Stage window = (Stage)btnNext.getScene().getWindow();
-        window.setScene(new Scene(root,1080, 900));
+        WisselScreen("src/sample/FX/homePage.fxml");
     }
     private void WisselScreen(String scherm) throws IOException
     {
         URL url = new File(scherm).toURI().toURL();
+
         FXMLLoader fxmlLoader = new FXMLLoader(url);
         Parent root = fxmlLoader.load();
-        Stage window = (Stage)btnNext.getScene().getWindow();
+
+
+        Stage window = (Stage)ancorPane.getScene().getWindow();
         window.setScene(new Scene(root,1080, 900));
     }
 }

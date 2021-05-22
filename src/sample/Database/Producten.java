@@ -11,8 +11,7 @@ public class Producten {
     private static Producten instance;
 
     public Producten(){
-        FileReader reader = new FileReader();
-        MaxProducten = Integer.parseInt(reader.getUniqueNumber("src/db/MaxProducten.txt"));
+        MaxProducten = Integer.parseInt(UniqueNumber.getUniqueNumber("src/db/MaxProducten.txt"));
         fillProducten();
     }
     public static Producten getInstance(){
@@ -40,9 +39,9 @@ public class Producten {
     public void makeNewProduct(ArrayList<String> data){
         CreateFile createFile = new CreateFile();
         createFile.CreatePersoon("producten",data.toArray());
-        FileReader fileReader = new FileReader();
-        ArrayList<String> quantiteitData = fileReader.getFile("src/db/producten/quantiteit.txt");
-        quantiteitData.add("0");
+        //FileReader fileReader = new FileReader();
+        //ArrayList<String> quantiteitData = fileReader.getFile("src/db/producten/quantiteit.txt");
+        //quantiteitData.add("0");
         producten.add(new Product(data));
     }
     public void editProducten(ArrayList<String> data){
