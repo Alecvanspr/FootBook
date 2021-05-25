@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import sample.Database.Context;
 import sample.Database.UniqueNumber;
 import sample.modals.Product;
+import sample.modals.Voorraad;
 
 import java.io.File;
 import java.io.IOException;
@@ -26,7 +27,7 @@ public class newProduct {
         ArrayList<String> temp = new ArrayList<>();
         temp.add(UniqueNumber.getUniqueNumber("src/db/MaxProducten.txt")+"");
         temp.addAll(getData());
-        context.getProducten().getProducten().add(new Product(temp));
+        context.getProducten().getProducten().add(new Voorraad(new Product(temp),1));
         gaNaarInvetarisOverzicht();
 
     }

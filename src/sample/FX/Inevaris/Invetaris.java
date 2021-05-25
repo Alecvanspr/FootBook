@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import sample.Database.Context;
 import sample.Database.Producten;
 import sample.modals.Product;
+import sample.modals.Voorraad;
 
 import java.io.File;
 import java.io.IOException;
@@ -32,22 +33,22 @@ public class Invetaris {
 
     @FXML
     public void enterTextMouse(){
-        LinkedList<Product> producten = context.getProducten().getProducten();
+        LinkedList<Voorraad> producten = context.getProducten().getProducten();
         for(int i =0; i<producten.size();i++){
             int h = i*hoogte;
-            Label id = new Label(producten.get(i).id);
+            Label id = new Label(producten.get(i).aantal+ "");
             id.setLayoutX(10);
             id.setLayoutY(h);
-            Label naam = new Label(producten.get(i).naam);
+            Label naam = new Label(producten.get(i).product.naam);
             naam.setLayoutX(55);
             naam.setLayoutY(h);
-            Label omschrijving = new Label(producten.get(i).omschrijving);
+            Label omschrijving = new Label(producten.get(i).product.omschrijving);
             omschrijving.setLayoutX(250);
             omschrijving.setLayoutY(h);
-            Label inkPrijs = new Label(producten.get(i).inkoopPrijs+"");
+            Label inkPrijs = new Label(producten.get(i).product.inkoopPrijs+"");
             inkPrijs.setLayoutX(800);
             inkPrijs.setLayoutY(h);
-            Label verkPrijs = new Label(producten.get(i).verkoopPrijs+"");
+            Label verkPrijs = new Label(producten.get(i).product.verkoopPrijs+"");
             verkPrijs.setLayoutX(900);
             verkPrijs.setLayoutY(h);
             Button bewerk = new Button("Edit");

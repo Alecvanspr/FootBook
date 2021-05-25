@@ -19,7 +19,6 @@ public class Context {
     public static Behandelingen behandelingen;
     public static Producten producten;
 
-
     //Deze methode maakt haalt alle clients op en plaatst ze in een list.
     public Context(){
         huisartsen = new Huisartsen();
@@ -33,6 +32,7 @@ public class Context {
         }
         return context;
     }
+
     public static Clients getClients(){
         if (clients==null)
             clients = new Clients();

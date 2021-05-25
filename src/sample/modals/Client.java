@@ -93,8 +93,7 @@ public class Client extends Persoon{
             behandelingen = new ArrayList<>();
             Context context = new Context();
             FileReader fileReader = new FileReader();
-            ArrayList<String> data = new ArrayList<>();
-            data = fileReader.getFile("klanten/"+id+"/BehandelingLog.txt.txt");
+            ArrayList<String> data = fileReader.getFile("klanten/"+id+"/BehandelingLog.txt");
 
             //Hier worden de 2 gegeven in verwerkt
             for(int i=0;i<data.size();i=i+3){

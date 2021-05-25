@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="900.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FX.KlantenScherm.AddBehandelingHistory">
+   <children>
+      <Label layoutX="68.0" layoutY="205.0" text="Datum" />
+      <Label layoutX="68.0" layoutY="242.0" text="Behandeling" />
+      <Label layoutX="65.0" layoutY="279.0" text="Opmerkingen" />
+      <TextArea layoutX="150.0" layoutY="279.0" prefHeight="146.0" prefWidth="314.0" />
+      <TextField layoutX="157.0" layoutY="201.0" text="DD-MM-YYYY" />
+      <ComboBox layoutX="156.0" layoutY="238.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>

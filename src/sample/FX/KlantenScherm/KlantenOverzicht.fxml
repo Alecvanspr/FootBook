@@ -34,6 +34,7 @@
             <Label fx:id="telefoonlbl" layoutX="352.0" layoutY="75.0" text="Label" />
             <Label layoutX="246.0" layoutY="75.0" text="Telefoonnr:" />
             <Label layoutX="28.0" layoutY="147.0" text="Huisarts" />
+            <Button fx:id="behandelingenBtn" layoutX="316.0" layoutY="756.0" mnemonicParsing="false" text="Behandelingen historie" />
          </children>
       </AnchorPane>
       <Label layoutX="24.0" layoutY="123.0" text="Naam" />

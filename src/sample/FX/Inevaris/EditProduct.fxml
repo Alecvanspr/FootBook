@@ -3,10 +3,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FX.Inevaris.EditProduct">
+<AnchorPane prefHeight="900.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FX.Inevaris.EditProduct">
    <children>
-      <Button layoutX="527.0" layoutY="360.0" onAction="#slaOp" mnemonicParsing="false" text="Sla op" />
-      <Button layoutX="22.0" layoutY="360.0" onAction="#WisselScreen" mnemonicParsing="false" text="Terug" />
+      <Button layoutX="1007.0" layoutY="851.0" mnemonicParsing="false" onAction="#slaOp" text="Sla op" />
+      <Button layoutX="23.0" layoutY="851.0" mnemonicParsing="false" onAction="#WisselScreen" text="Terug" />
       <TextField fx:id="naamfld" layoutX="173.0" layoutY="53.0" />
       <TextField fx:id="leverancierfld" layoutX="173.0" layoutY="91.0" />
       <TextField fx:id="omschrijvingfld" layoutX="173.0" layoutY="132.0" />
@@ -17,5 +17,7 @@
       <Label layoutX="55.0" layoutY="136.0" text="Omschrijving" />
       <Label layoutX="55.0" layoutY="179.0" text="Inkoop prijs" />
       <Label layoutX="55.0" layoutY="222.0" text="Verkoop prijs" />
+      <Label layoutX="71.0" layoutY="280.0" text="Aantal" />
+      <TextField fx:id="aantalfld" layoutX="173.0" layoutY="276.0" />
    </children>
 </AnchorPane>
