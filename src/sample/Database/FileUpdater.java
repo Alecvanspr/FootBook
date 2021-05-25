@@ -14,10 +14,10 @@ public class FileUpdater {
     public void addBehandeling(String id,ArrayList<String> new_Data){
         FileReader r = new FileReader();
         //hieronder wordt de data van het gevraagde bestand opgehaald en aan het einde wordt daar de nieuwe data toegevoegd
-        ArrayList<String> data = r.getFile("klanten/"+id+"/BehandelingLog.txt.txt");
+        ArrayList<String> data = r.getFile("klanten/"+id+"/BehandelingLog.txt");
         data.addAll(new_Data);
         try {
-            FileWriter writer = new FileWriter("src/db/klanten/"+id+"/BehandelingLog.txt.txt");
+            FileWriter writer = new FileWriter("src/db/klanten/"+id+"/BehandelingLog.txt");
             for (String datum : data) writer.write(datum + "\n");
             writer.close();
         } catch (IOException e) {

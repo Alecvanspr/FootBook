@@ -32,7 +32,7 @@ public class KlantenOverzicht {
     @FXML
     private Label naamlbl,straatlbl,postcodelbl,plaatslbl,telefoonlbl,geboortedatumlbl,registratienrlbl;
     @FXML
-    private Button zoekBtn, edit;
+    private Button zoekBtn, edit,behandelingenBtn;
     @FXML
     private TextField zoekField;
 
@@ -74,6 +74,13 @@ public class KlantenOverzicht {
                         e.printStackTrace();
                     }
                 });
+                behandelingenBtn.setOnAction(Event->{
+                    try {
+                        goBehandelGeschiedenis(gebruikerID);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
             });
             klantenOverzicht.getChildren().addAll(rectangle,id,naam);
         }
@@ -90,7 +97,19 @@ public class KlantenOverzicht {
 
         Stage window = (Stage)naamlbl.getScene().getWindow();
         window.setScene(new Scene(root,1080, 900));
+    }
+    public void goBehandelGeschiedenis(int id) throws IOException
+    {
+        URL url = new File("src/sample/FX/KlantenScherm/BehandelingGeschiedenis.fxml").toURI().toURL();
 
+        FXMLLoader fxmlLoader = new FXMLLoader(url);
+        Parent root = fxmlLoader.load();
+
+        BehandelingGeschiedenis controller =(BehandelingGeschiedenis) fxmlLoader.getController();
+        controller.load(id);
+
+        Stage window = (Stage)naamlbl.getScene().getWindow();
+        window.setScene(new Scene(root,1080, 900));
     }
 
     public void GaNaarHomescreen() throws IOException

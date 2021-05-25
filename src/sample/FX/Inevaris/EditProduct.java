@@ -18,15 +18,18 @@ public class EditProduct {
     Context context = Context.getContext();
     private Product product;
     @FXML
-    private TextField naamfld, leverancierfld,omschrijvingfld,inkoopprijsfld, verkoopprijsfld;
+    private TextField naamfld, leverancierfld,omschrijvingfld,inkoopprijsfld, verkoopprijsfld,aantalfld;
+    private int id;
 
     public void setProduct(int i){
-        product = context.getProducten().getProducten().get(i);
+        this.id = i;
+        product = context.getProducten().getProducten().get(i).product;
         naamfld.setText(product.naam);
         leverancierfld.setText(product.leverancier);
         omschrijvingfld.setText(product.omschrijving);
         inkoopprijsfld.setText(product.inkoopPrijs+"");
         verkoopprijsfld.setText(product.verkoopPrijs+"");
+        aantalfld.setText(context.getProducten().getProducten().get(i).aantal+"");
     }
 
     public void slaOp() throws IOException {
@@ -37,7 +40,8 @@ public class EditProduct {
         data.add(omschrijvingfld.getText());
         data.add(inkoopprijsfld.getText());
         data.add(verkoopprijsfld.getText());
-        context.getProducten().editProducten(data);
+        data.add(aantalfld.getText());
+        context.getProducten().editProducten(data,id);
         WisselScreen();
     }
 

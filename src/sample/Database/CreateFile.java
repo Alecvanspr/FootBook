@@ -24,7 +24,7 @@ public class CreateFile {
                     if (type.equalsIgnoreCase(typen[i])) {
                         WriteNewFile(data, path, UniqueNumber);
                         if(typen[i].equalsIgnoreCase("Klanten")){
-                            File behandelingen = new File("src/db/klanten/"+UniqueNumber+"/BehandelingLog.txt.txt");
+                            File behandelingen = new File("src/db/klanten/"+UniqueNumber+"/BehandelingLog.txt");
                             behandelingen.createNewFile();
                         }
                     }
