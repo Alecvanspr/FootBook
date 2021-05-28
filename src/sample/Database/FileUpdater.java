@@ -27,8 +27,6 @@ public class FileUpdater {
     }
     public void updateFile(String path,ArrayList<String> newData){
         try{
-            //int id = Integer.parseInt(newData.get(0));
-            //String path = createPath(type,id);
             PrintWriter writer = new PrintWriter(path);
             for(int i = 0;i<newData.size();i++) {
                 writer.println(newData.toArray()[i]);
@@ -38,17 +36,5 @@ public class FileUpdater {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
-    }
-
-    public String createPath(String type,int UniqueNumber){
-        FileReader reader = new FileReader();
-        String path ="src/db/"+type;
-
-        //dit is voor het maken voor de dossiers
-        if(type.equals("klanten")) {
-            path = "src/db/" + type + "/" + UniqueNumber;
-        }
-
-        return path+"/"+ UniqueNumber+ ".txt";
     }
 }

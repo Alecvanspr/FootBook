@@ -14,6 +14,6 @@
       <Label layoutX="270.0" layoutY="102.0" text="Type Behandeling" />
        <Label layoutX="500.0" layoutY="102.0" text="Opmerkingen" />
       <Button onAction="#GaNaarHomescreen" layoutX="24.0" layoutY="855.0" mnemonicParsing="false" text="Terug"/>
-      <Button onAction="#gaNaarAddBehandelHistory" layoutX="45.0" layoutY="60.0" mnemonicParsing="false" text="Voeg behandeling toe" />
+      <Button fx:id="voegToe" layoutX="45.0" layoutY="60.0" mnemonicParsing="false" text="Voeg behandeling toe" />
    </children>
 </AnchorPane>

@@ -13,6 +13,7 @@ public class DateMaker {
         Date date = new GregorianCalendar(year, month - 1, day).getTime();
         return date;
     }
+    //Deze method maakt van de datums een string.
     public static String maakDate(Date datum){
         String jaar = ""+(datum.getYear()+1900);
         String maand = ""+ (datum.getMonth()+1);

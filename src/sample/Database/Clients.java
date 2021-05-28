@@ -38,7 +38,7 @@ public class Clients {
         }
         return matchingClients;
     }
-
+    //deze methode is verantwoordelijk voor het ophalen van het txt bestand en het veranderen hiervan in een arraylist.
     private Client getClientFile(String id) {
         FileReader r = new FileReader();
         if (r.getFile("klanten/" + id + "/" + id + ".txt") != null)
@@ -46,7 +46,7 @@ public class Clients {
         return null;
     }
 
-    //hier wordt gesorteerd op het klantId
+    //met deze methode kan je de client opvragen uit de arraylist op id.
     public Client getClient(String id) {
         for (int i = 0; i < clients.size(); i++) {
             if (id.equals(clients.get(i).id))
@@ -59,16 +59,19 @@ public class Clients {
         return clients;
     }
 
+    //hiermee wordt een nieuwe client aangemaakt
     public void makeNewClient(ArrayList<String> data){
         CreateFile createFile = new CreateFile();
         createFile.CreatePersoon("klanten",data.toArray());
         clients.add(new Client(data));
     }
+    //hiermee kan je een client bewerken.
     public void editClient(ArrayList<String> data){
         FileUpdater fileUpdater = new FileUpdater();
         fileUpdater.updateFile("src/db/Klanten/"+data.get(0)+"/"+data.get(0)+".txt",data);
         changeClient(data);
     }
+    //met deze method wordt de client aangepast en alle gegevens ook.
     private void changeClient(ArrayList<String> data){
         for(int i=0;i<clients.size();i++){
             if(clients.get(i).id.equals(data.get(0))){

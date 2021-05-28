@@ -15,12 +15,6 @@ public class Behandelingen {
         fillBehandelingenList();
     }
 
-    public static Behandelingen getInstance(){
-        if(instance==null){
-            instance = new Behandelingen();
-        }
-        return instance;
-    }
     private void fillBehandelingenList(){
         behandelingen = new LinkedList<>();
         for (int i = 0; i < MaxBehandelingen; i++) {
@@ -43,6 +37,13 @@ public class Behandelingen {
             }
         }
         return null;
+    }
+    public int getBehandelingID(String behandelingName){
+        for(int i=0;i<behandelingen.size();i++){
+            if(behandelingen.get(i).naam.equals(behandelingName))
+                return Integer.parseInt(behandelingen.get(i).id);
+        }
+        return 1;
     }
     public LinkedList<Behandeling> getBehandelingen() {
         return behandelingen;
