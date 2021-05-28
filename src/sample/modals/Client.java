@@ -97,11 +97,11 @@ public class Client extends Persoon{
 
             //Hier worden de 2 gegeven in verwerkt
             for(int i=0;i<data.size();i=i+3){
-                BehandelingHistory behandelingHistory = new BehandelingHistory();
-                behandelingHistory.datum = DateMaker.maakDate(data.get(i));
-                behandelingHistory.type = context.getBehandelingen().getBehandeling(data.get(i+1));
-                behandelingHistory.bijzonderheden= data.get(i);
-                behandelingen.add(behandelingHistory);
+                ArrayList<String> behandelData= new ArrayList<>();
+                behandelData.add(data.get(i));
+                behandelData.add(data.get(i+1));
+                behandelData.add(data.get(i+2));
+                behandelingen.add(new BehandelingHistory(behandelData));
             }
         }
         return behandelingen;

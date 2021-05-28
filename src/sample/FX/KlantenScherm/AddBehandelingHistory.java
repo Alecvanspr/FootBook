@@ -1,14 +1,75 @@
 package sample.FX.KlantenScherm;
 
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import sample.Database.Context;
+import sample.Database.FileUpdater;
+import sample.modals.Behandeling;
+import sample.modals.BehandelingHistory;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
 
 public class AddBehandelingHistory {
+    @FXML
     public ComboBox BehandelingBox;
-    private Context context;
+    @FXML
+    public TextField datumVeld;
 
-    public void load(){
+    @FXML
+    public TextArea opmerkingen;
+
+    private Context context;
+    private int id;
+
+    public void load(int id){
+        this.id = Integer.parseInt(Context.getClients().getClient(id+"").id);
         context = Context.getContext();
-        BehandelingBox.getItems().addAll(context.getBehandelingen().getBehandelingen());
+        for(int i=0; i< context.getBehandelingen().getBehandelingen().size();i++){
+            BehandelingBox.getItems().add(context.getBehandelingen().getBehandelingen().get(i).naam);
+        }
+    }
+    public void slaOp() throws IOException {
+        FileUpdater fileUpdater = new FileUpdater();
+        fileUpdater.addBehandeling(
+                context.getClients().getClients().get(id).id //deze arraylist is teout if indext
+                ,getData());
+        context.getClients().getClients().get(id).getBehandelingGeschiedenis().add(new BehandelingHistory(getData()));
+        goBehandelHistorY();
+
+    }
+    private ArrayList<String> getData(){
+        ArrayList<String> data = new ArrayList<>();
+        data.add(datumVeld.getText());
+        data.add(Context.getBehandelingen().getBehandelingID(BehandelingBox.getValue() + "")+"");//dit slaat een nummer op
+        data.add(checkLeeg(opmerkingen.getText()));
+        return data;
+    }
+    private String checkLeeg(String inhoud){
+        if(inhoud.equals("")){
+            return "Geen opmerking";
+        }
+        return inhoud;
+    }
+
+    public void goBehandelHistorY() throws IOException {
+        URL url = new File("src/sample/FX/KlantenScherm/BehandelingGeschiedenis.fxml").toURI().toURL();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(url);
+        Parent root = fxmlLoader.load();
+
+        BehandelingGeschiedenis controller = (BehandelingGeschiedenis) fxmlLoader.getController();
+        controller.load(id);
+
+        Stage window = (Stage)BehandelingBox.getScene().getWindow();
+        window.setScene(new Scene(root,1080,900));
     }
 }

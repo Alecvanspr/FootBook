@@ -9,21 +9,21 @@ import java.io.*;
 //CreatePath
 
 public class CreateFile {
-    public String[] typen = new String[]{"Klanten","Huisartsen","Specialisten","Behandelingen","Producten"};
+
     public CreateFile(){
 
     }
     //Dit is voor het maken het vullen van een textbestand
     public void CreatePersoon(String type, Object[] data) {
         try {
-            int UniqueNumber = sample.Database.UniqueNumber.getNewUniqueNumber(getPath(type));
-            String path = createPath(type,UniqueNumber);
+            int UniqueNumber = sample.Database.UniqueNumber.getNewUniqueNumber(Pathmaker.getPath(type));
+            String path = Pathmaker.createPath(type,UniqueNumber);
             File nieuwBestand = new File(path);
             if (nieuwBestand.createNewFile()) {
-                for(int i=0;i<typen.length;i++) {
-                    if (type.equalsIgnoreCase(typen[i])) {
+                for(int i=0;i<Pathmaker.getTypen().length;i++) {
+                    if (type.equalsIgnoreCase(Pathmaker.getTypen()[i])) {
                         WriteNewFile(data, path, UniqueNumber);
-                        if(typen[i].equalsIgnoreCase("Klanten")){
+                        if(Pathmaker.getTypen()[i].equalsIgnoreCase("Klanten")){
                             File behandelingen = new File("src/db/klanten/"+UniqueNumber+"/BehandelingLog.txt");
                             behandelingen.createNewFile();
                         }
@@ -51,29 +51,9 @@ public class CreateFile {
         }
     }
 
-    //dit is voor het maken van een pad voor de file. Dit zorgt ervoor dat ik niet 3 verschillende methods heb.
-    private String getPath(String type){
-        for(int i =0; i<typen.length;i++){
-            if(type.equalsIgnoreCase(typen[i])){
-                return "src/db/Max"+typen[i]+".txt";
-            }
-        }
-        return null;
-    }
+    //dit is voor het vinden van de MaxFiles file.
 
-    public String createPath(String type,int UniqueNumber){
-        FileReader reader = new FileReader();
-        String path ="src/db/" + type;
 
-        //dit is voor het maken voor de dossiers
-        if(type.equals("klanten")) {
-            path = "src/db/" + type + "/" + UniqueNumber;
-            File map = new File(path);
-            map.mkdirs();
-        }
-
-        return path+"/"+ UniqueNumber+ ".txt";
-    }
     public void removeFile(String path){
         File file = new File(path);
         if(file.delete()){
