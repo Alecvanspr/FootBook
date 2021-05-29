@@ -17,7 +17,7 @@ public class DateMaker {
     public static String maakDate(Date datum){
         String jaar = ""+(datum.getYear()+1900);
         String maand = ""+ (datum.getMonth()+1);
-        String dag = ""+ (datum.getDay()+2);
+        String dag = ""+ (datum.getDate());
         if(maand.length()==1)
             maand=0+maand;
         if(dag.length()==1)
