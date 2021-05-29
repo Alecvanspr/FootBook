@@ -8,7 +8,6 @@ import java.util.LinkedList;
 public class Huisartsen {
     private static LinkedList<Huisarts> Huisartsen;
     private static int MaxArtsen;
-    private static Huisartsen instance;
 
     public Huisartsen(){
         MaxArtsen = Integer.parseInt(UniqueNumber.getUniqueNumber("src/db/MaxHuisartsen.txt"));
@@ -22,12 +21,6 @@ public class Huisartsen {
                 Huisartsen.addLast(arts);
             }
         }
-    }
-    public static Huisartsen getInstance(){
-        if(instance==null){
-            instance = new Huisartsen();
-        }
-        return instance;
     }
     //hier wordt de arts gehaald uit de linked list.
     public Huisarts getArts(String id){

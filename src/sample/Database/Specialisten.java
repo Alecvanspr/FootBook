@@ -8,7 +8,6 @@ import java.util.LinkedList;
 public class Specialisten {
     private static LinkedList<Specialist> specialisten;
     private static int MaxSpecialisten;
-    private static Specialisten instance;
 
     public Specialisten(){
         MaxSpecialisten = Integer.parseInt(UniqueNumber.getUniqueNumber("src/db/MaxSpecialisten.txt"));
@@ -22,12 +21,6 @@ public class Specialisten {
                 specialisten.addLast(specialist);
             }
         }
-    }
-    public static Specialisten getInstance(){
-        if(instance==null){
-            instance = new Specialisten();
-        }
-        return instance;
     }
     //hier wordt gesorteerd op het klantId
     public Specialist getSpecialist(String id){
