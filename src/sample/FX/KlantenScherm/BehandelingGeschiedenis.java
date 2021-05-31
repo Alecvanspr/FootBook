@@ -31,13 +31,13 @@ public class BehandelingGeschiedenis {
         loadbehandelingen();
     }
     private void loadbehandelingen(){
-        for(int i=0;i<client.getBehandelingGeschiedenis().size();i++){
-            Label datum = new Label(DateMaker.maakDate(client.getBehandelingGeschiedenis().get(i).datum));
+        for(int i = 0; i<client.behandelList.getBehandelingGeschiedenis().size(); i++){
+            Label datum = new Label(DateMaker.maakDate(client.behandelList.getBehandelingGeschiedenis().get(i).datum));
             datum.setLayoutY(height*i);
-            Label typeBehandeling = new Label(client.getBehandelingGeschiedenis().get(i).type.naam);
+            Label typeBehandeling = new Label(client.behandelList.getBehandelingGeschiedenis().get(i).type.naam);
             typeBehandeling.setLayoutY(height*i);
             typeBehandeling.setLayoutX(220);
-            Label opmerkingen = new Label(client.getBehandelingGeschiedenis().get(i).bijzonderheden);
+            Label opmerkingen = new Label(client.behandelList.getBehandelingGeschiedenis().get(i).bijzonderheden);
             opmerkingen.setLayoutY(height*i);
             opmerkingen.setLayoutX(460);
             int finalI = i;

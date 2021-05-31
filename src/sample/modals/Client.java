@@ -3,7 +3,6 @@ package sample.modals;
 import sample.Database.Context;
 import sample.Database.DateMaker;
 import sample.Database.FileReader;
-import sample.Database.FileUpdater;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,7 +12,7 @@ import java.util.Date;
 //makeDate
 
 public class Client extends Persoon{
-    public ArrayList<BehandelingHistory> behandelingen;
+    public BehandelList behandelList;
     public ArrayList<Screening> screenings;
     public Date geboortedatum;
     public String registratieNummer;
@@ -82,39 +81,14 @@ public class Client extends Persoon{
         this.huidaandoening = data.get(30);
         this.nagelConditie = data.get(31);
         //this.nagelAandoening = data.get(32);
+        this.behandelList = new BehandelList(id);
     }
     public Boolean makeBoolean(String bool){
         if(bool.equalsIgnoreCase("true"))
             return true;
         return false;
     }
-    public ArrayList<BehandelingHistory> getBehandelingGeschiedenis() {
-        if(behandelingen==null){
-            behandelingen = new ArrayList<>();
-            Context context = new Context();
-            FileReader fileReader = new FileReader();
-            ArrayList<String> data = fileReader.getFile("klanten/"+id+"/BehandelingLog.txt");
 
-            //Hier worden de 2 gegeven in verwerkt
-            for(int i=0;i<data.size();i=i+3){
-                ArrayList<String> behandelData= new ArrayList<>();
-                behandelData.add(data.get(i));
-                behandelData.add(data.get(i+1));
-                behandelData.add(data.get(i+2));
-                behandelingen.add(new BehandelingHistory(behandelData));
-            }
-        }
-        return behandelingen;
-    }
-    //deze class is voor de behandel geschiedenis.
-    public void addBehandeling(String date,String type,String sideNote){
-        FileUpdater fileUpdater = new FileUpdater();
-        ArrayList<String> data = new ArrayList<>();
-        data.add(date);
-        data.add(type);
-        data.add(sideNote);
-        fileUpdater.addBehandeling(id,data);
-    }
     public double travelDistance(){
         FileReader reader = new FileReader();
         ArrayList<String> plaatsen = reader.getFile("Plaatsen.txt");

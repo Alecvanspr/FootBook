@@ -8,7 +8,6 @@ import java.util.LinkedList;
 public class Behandelingen {
     private static LinkedList<Behandeling> behandelingen;
     private static int MaxBehandelingen;
-    private static Behandelingen instance;
 
     public Behandelingen(){
         MaxBehandelingen = Integer.parseInt(UniqueNumber.getUniqueNumber("src/db/MaxBehandelingen.txt"));
