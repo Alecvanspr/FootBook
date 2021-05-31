@@ -7,7 +7,6 @@ import java.util.LinkedList;
 
 public class Clients {
     private static LinkedList<Client> clients;
-    private static Clients instance;
     private static int MaxKlanten;
 
     public Clients(){
@@ -23,12 +22,7 @@ public class Clients {
             }
         }
     }
-    public static Clients getInstance(){
-        if(instance==null) {
-            instance = new Clients();
-        }
-        return  instance;
-    }
+
 
     public LinkedList<Client> getClients(String filter) {
         LinkedList<Client> matchingClients = new LinkedList<>();

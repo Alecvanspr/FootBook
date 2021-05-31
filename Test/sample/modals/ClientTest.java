@@ -3,13 +3,8 @@ package sample.modals;
 import org.junit.Assert;
 import sample.Database.Context;
 import sample.Database.DateMaker;
-import sample.modals.Client;
-import sample.modals.Huisarts;
-import sample.modals.Specialist;
 
 import java.util.*;
-
-import static org.junit.Assert.*;
 
 public class ClientTest {
     public Context context= Context.getContext();
@@ -27,9 +22,9 @@ public class ClientTest {
     @org.junit.Test
     public void getBehandelingen(){
         Client client = context.getClients().getClient("1");
-        client.addBehandeling("26-03-2021","1","SideNoteTest");
-        client.addBehandeling("27-03-2021","2","Opmerking");
-        client.addBehandeling("08-05-2021","3","een goede Opmerking");
+        client.behandelList.addBehandeling("26-03-2021","1","SideNoteTest");
+        client.behandelList.addBehandeling("27-03-2021","2","Opmerking");
+        client.behandelList.addBehandeling("08-05-2021","3","een goede Opmerking");
         //BehandelingHistory behandelingHistory = new BehandelingHistory();
         //Assert.assertTrue(client.getBehandelingGeschiedenis().get(0).type.equals("Test"));
         //Assert.assertTrue(client.getBehandelingGeschiedenis().get(1).type.equals("TestGeval"));

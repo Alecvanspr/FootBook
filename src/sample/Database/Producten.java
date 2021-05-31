@@ -10,17 +10,10 @@ public class Producten {
     //private static LinkedList<Product> producten;
     private static LinkedList<Voorraad> opslag;
     private static int MaxProducten;
-    private static Producten instance;
 
     public Producten(){
         MaxProducten = Integer.parseInt(UniqueNumber.getUniqueNumber("src/db/MaxProducten.txt"));
         fillProducten();
-    }
-    public static Producten getInstance(){
-        if(instance==null){
-            instance = new Producten();
-        }
-        return instance;
     }
     private void fillProducten(){
         opslag = new LinkedList<>();

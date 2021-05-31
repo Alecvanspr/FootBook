@@ -10,7 +10,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import sample.Database.Context;
 import sample.Database.FileUpdater;
-import sample.modals.Behandeling;
 import sample.modals.BehandelingHistory;
 
 import java.io.File;
@@ -42,7 +41,7 @@ public class AddBehandelingHistory {
         fileUpdater.addBehandeling(
                 context.getClients().getClients().get(id).id //deze arraylist is teout if indext
                 ,getData());
-        context.getClients().getClients().get(id).getBehandelingGeschiedenis().add(new BehandelingHistory(getData()));
+        context.getClients().getClients().get(id).behandelList.getBehandelingGeschiedenis().add(new BehandelingHistory(getData()));
         goBehandelHistorY();
 
     }
