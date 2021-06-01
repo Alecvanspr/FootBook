@@ -3,6 +3,7 @@ package sample.modals;
 import sample.Database.Context;
 import sample.Database.DateMaker;
 import sample.Database.FileReader;
+import sample.modals.ClientsExtentions.KankerInfo;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -11,9 +12,8 @@ import java.util.Date;
 //Getbahndelgeschiedenis
 //makeDate
 
-public class Client extends Persoon{
+public abstract class Client extends Persoon{
     public BehandelList behandelList;
-    public ArrayList<Screening> screenings;
     public Date geboortedatum;
     public String registratieNummer;
     public Huisarts huisarts;
@@ -22,11 +22,12 @@ public class Client extends Persoon{
     public Boolean reuma;
     public Specialist reumatoloog;
     public Boolean kanker;
-    public Specialist oncoloog;
-    public Boolean chemos;
-    public String medicijnen;
-    public Boolean uitzaaingen;
-    public String terapien;
+    public KankerInfo kankerInfo;
+//    public Specialist oncoloog;
+//    public Boolean chemos;
+//    public String medicijnen;
+//    public Boolean uitzaaingen;
+//    public String terapien;
     public Boolean soa;
     public String soanaam;
     public String allergenen;
@@ -62,11 +63,11 @@ public class Client extends Persoon{
         this.reumatoloog = context.getSpecialisten().getSpecialist(data.get(13));
         this.kanker = makeBoolean(data.get(14));
         if(kanker) {
-            this.oncoloog = context.getSpecialisten().getSpecialist(data.get(15));
-            this.chemos  = makeBoolean(data.get(16));
-            this.medicijnen = data.get(17);
-            this.uitzaaingen = makeBoolean(data.get(18));
-            this.terapien = data.get(19);
+//            this.oncoloog = context.getSpecialisten().getSpecialist(data.get(15));
+//            this.chemos  = makeBoolean(data.get(16));
+//            this.medicijnen = data.get(17);
+//            this.uitzaaingen = makeBoolean(data.get(18));
+//            this.terapien = data.get(19);
         }
         this.soa = makeBoolean(data.get(20));
         this.soanaam = data.get(21);

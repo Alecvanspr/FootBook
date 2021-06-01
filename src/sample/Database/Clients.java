@@ -1,6 +1,7 @@
 package sample.Database;
 
 import sample.modals.Client;
+import sample.modals.Klant;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -33,10 +34,10 @@ public class Clients {
         return matchingClients;
     }
     //deze methode is verantwoordelijk voor het ophalen van het txt bestand en het veranderen hiervan in een arraylist.
-    private Client getClientFile(String id) {
+    private Klant getClientFile(String id) {
         FileReader r = new FileReader();
         if (r.getFile("klanten/" + id + "/" + id + ".txt") != null)
-            return new Client(r.getFile("klanten/" + id + "/" + id + ".txt"));
+            return new Klant(r.getFile("klanten/" + id + "/" + id + ".txt"));
         return null;
     }
 
@@ -57,7 +58,7 @@ public class Clients {
     public void makeNewClient(ArrayList<String> data){
         CreateFile createFile = new CreateFile();
         createFile.CreatePersoon("klanten",data.toArray());
-        clients.add(new Client(data));
+        clients.add(new Klant(data));
     }
     //hiermee kan je een client bewerken.
     public void editClient(ArrayList<String> data){
@@ -86,12 +87,12 @@ public class Clients {
                 if(clients.get(i).reuma)
                     clients.get(i).reumatoloog = context.getSpecialisten().getSpecialist(data.get(13));
                 clients.get(i).kanker = Boolean.getBoolean(data.get(14));
-                if(clients.get(i).kanker) {
-                    clients.get(i).oncoloog = context.getSpecialisten().getSpecialist(data.get(15));
-                    clients.get(i).chemos  = Boolean.getBoolean(data.get(16));
-                    clients.get(i).medicijnen = data.get(17);
-                    clients.get(i).uitzaaingen = Boolean.getBoolean(data.get(18));
-                    clients.get(i).terapien = data.get(19);
+                if(clients.get(i).kanker) {//TODO dit
+//                    clients.get(i).oncoloog = context.getSpecialisten().getSpecialist(data.get(15));
+//                    clients.get(i).chemos  = Boolean.getBoolean(data.get(16));
+//                    clients.get(i).medicijnen = data.get(17);
+//                    clients.get(i).uitzaaingen = Boolean.getBoolean(data.get(18));
+//                    clients.get(i).terapien = data.get(19);
                 }
                 clients.get(i).soa = Boolean.getBoolean(data.get(20));
                 clients.get(i).soanaam = data.get(21);
