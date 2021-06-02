@@ -86,7 +86,7 @@ public class KlantenOverzicht {
                     KankerInfo.setVisible(true);
                     KankerInfo.setText(clients.get(gebruikerID).kankerInfo.getInfo());
                     KankerInfo.setLayoutY(extraInfoHeight);
-                    makeSpecialistButton(oncoloog, 0); //Context.getSpecialisten().getPlace(clients.get(gebruikerID).oncoloog.id)
+                    makeSpecialistButton(oncoloog, Context.getSpecialisten().getPlace(clients.get(gebruikerID).oncoloog.id)); //Context.getSpecialisten().getPlace(clients.get(gebruikerID).oncoloog.id)
                     extraInfoHeight+=75;
                 }else{
                     KankerInfo.setText("");
@@ -166,7 +166,7 @@ public class KlantenOverzicht {
         controller.load(id);
 
         Stage window = (Stage)naamlbl.getScene().getWindow();
-        window.setScene(new Scene(root,1080, 900));
+        window.setScene(new Scene(root,1500, 900));
     }
     public void goBehandelGeschiedenis(int id) throws IOException
     {
@@ -216,7 +216,17 @@ public class KlantenOverzicht {
     }
 
     public void MaakNieuweKlant() throws IOException {
-        GoToScreen("KlantenScherm/NieuweKlant");
+        URL url = new File("src/sample/FX/KlantenScherm/NieuweKlant.fxml").toURI().toURL();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(url);
+        Parent root = fxmlLoader.load();
+
+        NieuweKlant controller =(NieuweKlant) fxmlLoader.getController();
+        controller.laadVelden();
+
+        Stage window = (Stage)naamlbl.getScene().getWindow();
+        window.setScene(new Scene(root,1500, 900));
+
     }
 
     public void GoToScreen(String file) throws IOException {

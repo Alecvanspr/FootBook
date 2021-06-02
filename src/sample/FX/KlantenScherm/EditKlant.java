@@ -15,6 +15,7 @@ import sample.Database.Context;
 import sample.Database.DateMaker;
 import sample.modals.Client;
 import sample.modals.Huisarts;
+import sample.modals.Specialist;
 
 import java.io.File;
 import java.io.IOException;
@@ -27,10 +28,10 @@ public class EditKlant {
     private TextField NaamFld,straatfld,postcodefld,regnrfld,datumfld,telNrfld,plaatsfld,emailfld,SoaTF,huisartsTF,Voettypetld,orthAffld,huidconfld,huidAandfld,nagelconfld,nagelAandfld,zoekField;
 
     @FXML
-    private Label HuisartsID,Errorlabel;
+    private Label HuisartsID,Errorlabel,reumatolooglbl,oncolooglbl,diabetistelbl,oncoloogidlbl,reumatoloogidlbl,diabetistelidbl;
 
     @FXML
-    private AnchorPane KanchorPane,HuisartsField;
+    private AnchorPane KanchorPane,HuisartsField, oncoloogField,diabetistField,reumatoloogField;
 
     private LinkedList<Huisarts> huisarts = Context.getContext().getHuisartsen().getHuisartsen();
 
@@ -76,8 +77,8 @@ public class EditKlant {
         steunZolCB.setSelected(context.getClients().getClients().get(id).steunzolen);
         confZolCB.setSelected(context.getClients().getClients().get(id).confectieSchoenen);
         OrthSchoenCB.setSelected(context.getClients().getClients().get(id).orthopedischeSchoenen);
-        //chemoCB.setSelected(context.getClients().getClients().get(id).chemos);
-        //uitzaaiingCB.setSelected(context.getClients().getClients().get(id).uitzaaingen); todo deze zorgen dat ze geen errors geven
+
+        loadVelden(id);
     }
     private void zoek(){
         if(zoekField.getText()!=null) {
@@ -87,27 +88,50 @@ public class EditKlant {
             Errorlabel.setVisible(true);
         }
     }
+    private void loadVelden(int id){
+        loadHuisartsen();
+        loadOncoloog(id);
+        loadDiabetiste(id);
+        loadReumatoloog(id);
+
+    }
+    private void loadOncoloog(int id){
+        loadSpecialisten("Oncoloog",oncoloogField,oncolooglbl,oncoloogidlbl);
+        if(context.getClients().getClients().get(id).kanker) {
+            oncolooglbl.setText(context.getClients().getClients().get(id).oncoloog.naam);
+            oncoloogidlbl.setText(context.getClients().getClients().get(id).oncoloog.id);
+        }
+    }
+    private void loadDiabetiste(int id){
+        loadSpecialisten("diabetiste",diabetistField,diabetistelbl,diabetistelidbl);
+        if(context.getClients().getClients().get(id).diabetes!=null) {
+            oncolooglbl.setText(context.getClients().getClients().get(id).diatusSpecialist.naam);
+            oncoloogidlbl.setText(context.getClients().getClients().get(id).diatusSpecialist.id);
+        }
+    }
+    private void loadReumatoloog(int id){
+        loadSpecialisten("Reumatoloog",reumatoloogField,reumatolooglbl,reumatoloogidlbl);
+        if(context.getClients().getClients().get(id).reuma!=null) {
+            oncolooglbl.setText(context.getClients().getClients().get(id).reumatoloog.naam);
+            oncoloogidlbl.setText(context.getClients().getClients().get(id).reumatoloog.id);
+        }
+    }
+
     public void loadHuisartsen(){
         int hoogte = 45;
         zoek();
         HuisartsField.getChildren().clear();
         for(int i = 0;i<huisarts.size();i++){
-            Rectangle rectangle = new Rectangle(325,40);
-            rectangle.setFill(Color.TRANSPARENT);
-            rectangle.setStroke(Color.BLACK);
-            rectangle.setLayoutX(5);
-            rectangle.setLayoutY(hoogte*i);
+            Rectangle rectangle = makeBorder(hoogte*i);
             int id = i;
             rectangle.setOnMouseClicked(E->{
                 System.out.println("klik");
                 huisartsTF.setText(huisarts.get(id).naam);
                 HuisartsID.setText(huisarts.get(id).id);
             });
-
             Label naam = new Label(huisarts.get(i).naam);
             naam.setLayoutY(hoogte*i);
             naam.setLayoutX(15);
-
 
             Label huisartsenpost = new Label(huisarts.get(i).huisartsenpost);
             huisartsenpost.setLayoutY(hoogte*i);
@@ -116,6 +140,40 @@ public class EditKlant {
             HuisartsField.getChildren().addAll(rectangle,naam,huisartsenpost);
         }
     }
+    public void loadSpecialisten(String specialiteit,AnchorPane pane,Label naamlabel,Label idLabel){
+        int hoogte = 45;
+        zoek();
+        pane.getChildren().clear();
+        LinkedList<Specialist> specialisten = Context.getContext().getSpecialisten().getSpecialisten(specialiteit);
+        for(int i = 0;i<specialisten.size();i++){
+            Rectangle rectangle = makeBorder(hoogte*i);
+            int id = i;
+            rectangle.setOnMouseClicked(E->{
+                naamlabel.setText(specialisten.get(id).naam);
+                idLabel.setText(specialisten.get(id).id);
+            });
+
+            Label naam = new Label(specialisten.get(i).naam);
+            naam.setLayoutY(hoogte*i);
+            naam.setLayoutX(15);
+
+
+            Label ziekenhuis = new Label(specialisten.get(i).ziekenhuis);
+            ziekenhuis.setLayoutY(hoogte*i);
+            ziekenhuis.setLayoutX(200);
+            pane.setLayoutY(HuisartsField.getLayoutY()+30);
+            pane.getChildren().addAll(rectangle,naam,ziekenhuis);
+        }
+    }
+    private Rectangle makeBorder(int y){
+        Rectangle rectangle = new Rectangle(325,40);
+        rectangle.setFill(Color.TRANSPARENT);
+        rectangle.setStroke(Color.BLACK);
+        rectangle.setLayoutX(5);
+        rectangle.setLayoutY(y);
+        return rectangle;
+    }
+
     private ArrayList<String> getData(){
         ArrayList<String> data= new ArrayList<>();
         data.add(context.getClients().getClients().get(id).id);
@@ -129,13 +187,13 @@ public class EditKlant {
         data.add(regnrfld.getText());
         data.add(context.getHuisartsen().getHuisartsen(huisartsTF.getText()).getFirst().id);//Huisarts nr
         data.add(""+diabetisCheckBox.isSelected());//diabetus
-        data.add(checkleeg("leeg"));//diabetusspecialist
+        data.add(checkleeg(diabetistelidbl.getText()));//diabetusspecialist
         data.add(""+ReumaCB.isSelected());//reuma
-        data.add(checkleeg("leeg"));//reumatoloog
+        data.add(checkleeg(reumatoloogidlbl.getText()));//reumatoloog
         data.add(""+kankerCB.isSelected());//kanker
-        data.add(checkleeg("leeg"));//oncoloog
+        data.add(checkleeg(oncoloogidlbl.getText()));//oncoloog
         data.add(""+chemoCB.isSelected());//chemos
-        data.add(checkleeg("leeg"));//medicijnen
+        data.add(medicijnenCB.isSelected()+"");//medicijnen
         data.add(""+uitzaaiingCB.isSelected());//uitzaaiingen
         data.add(checkleeg("leeg"));//terapiën
         data.add(""+soaCB.isSelected());//soa

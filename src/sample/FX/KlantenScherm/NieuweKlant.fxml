@@ -2,9 +2,8 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
 
-<AnchorPane fx:id="KankerCX" prefHeight="900.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FX.KlantenScherm.NieuweKlant">
+<AnchorPane fx:id="KankerCX" prefHeight="900.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FX.KlantenScherm.NieuweKlant">
    <children>
       <AnchorPane layoutX="1.0" layoutY="2.0" prefHeight="170.0" prefWidth="400.0">
          <children>
@@ -18,7 +17,8 @@
             <Label layoutX="16.0" layoutY="134.0" text="Registratienr" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="438.0" layoutY="2.0" prefHeight="170.0" prefWidth="427.0">
+
+      <AnchorPane layoutX="960.0" layoutY="2.0" prefHeight="170.0" prefWidth="427.0">
          <children>
             <Label layoutX="20.0" layoutY="104.0" text="Plaats" />
             <Label layoutX="20.0" layoutY="63.0" text="Telefoon nr" />
@@ -30,8 +30,9 @@
             <Label layoutX="22.0" layoutY="139.0" text="e-mail" />
          </children>
       </AnchorPane>
-      <Line endX="804.300048828125" endY="-107.19999694824219" layoutX="283.0" layoutY="275.0" startX="-283.0" startY="-107.19999694824219" />
+
       <Button fx:id="btnTerug" layoutX="14.0" layoutY="860.0" mnemonicParsing="false" onAction="#GaTerug" text="Terug" />
+
       <AnchorPane layoutX="14.0" layoutY="168.0" prefHeight="132.0" prefWidth="385.0">
          <children>
             <CheckBox fx:id="diabetisCheckBox" layoutY="5.0" mnemonicParsing="false" onAction="#makeDiabetisVisable" text="Diabetus" />
@@ -43,7 +44,8 @@
             <TextField layoutX="78.0" layoutY="114.0" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="426.0" layoutY="477.0" prefHeight="341.0" prefWidth="450.0">
+
+      <AnchorPane layoutX="960.0" layoutY="496.0" prefHeight="341.0" prefWidth="450.0">
          <children>
             <Label fx:id="HuisartsLBL" layoutX="14.0" layoutY="9.0" text="Huisarts" />
             <TextField fx:id="huisartsTF" disable="true" layoutX="94.0" layoutY="5.0" />
@@ -64,25 +66,80 @@
             <TextField fx:id="nagelconfld" layoutX="174.0" layoutY="270.0" />
             <TextField fx:id="nagelAandfld" layoutX="174.0" layoutY="299.0" />
             <Label fx:id="HuisartsID" layoutX="348.0" layoutY="9.0" text="Label" visible="false" />
-         </children></AnchorPane>
-      <AnchorPane fx:id="KanchorPane" layoutY="316.0" prefHeight="200.0" prefWidth="400.0" visible="false">
+         </children>
+      </AnchorPane>
+
+      <AnchorPane fx:id="KanchorPane" layoutX="401.0" layoutY="14.0" prefHeight="342.0" prefWidth="427.0" visible="true">
          <children>
-             <Label layoutX="14.0" layoutY="5.0" text="Behandelmethode" />
+            <Label layoutX="14.0" layoutY="5.0" text="Behandelmethode" />
             <CheckBox fx:id="chemoCB" layoutX="14.0" layoutY="33.0" mnemonicParsing="false" text="Chemos" />
             <CheckBox fx:id="uitzaaiingCB" layoutX="14.0" layoutY="59.0" mnemonicParsing="false" text="Uitzaaingen" />
             <CheckBox fx:id="medicijnenCB" layoutX="14.0" layoutY="90.0" mnemonicParsing="false" text="Medicijnen" />
+            <Label layoutX="14.0" layoutY="125.0" text="Naam" />
+            <Label layoutX="273.0" layoutY="117.0" text="Ziekenhuis" />
          </children>
       </AnchorPane>
-      <Button layoutX="1025.0" layoutY="860.0" mnemonicParsing="false" onAction="#slaKlantOp" text="Sla op" />
-      <ScrollPane layoutX="444.0" layoutY="248.0" prefHeight="221.0" prefWidth="354.0">
-        <content>
-          <AnchorPane fx:id="HuisartsField" />
-        </content>
-      </ScrollPane>
-      <Button layoutX="703.0" layoutY="193.0" mnemonicParsing="false" onAction="#loadHuisartsen" text="zoek" />
-      <TextField fx:id="zoekField" layoutX="444.0" layoutY="193.0" onAction="#loadHuisartsen" />
-      <Label layoutX="466.0" layoutY="229.0" text="Naam" />
-      <Label layoutX="666.0" layoutY="229.0" text="Huisartsenpost" />
-      <Label fx:id="Errorlabel" layoutX="990.0" layoutY="834.0" visible="false" text="Velden zijn leeg" textFill="RED" />
+
+      <AnchorPane fx:id="" layoutX="401.0" layoutY="14.0" prefHeight="356.0" prefWidth="436.0" visible="true">
+         <children>
+            <Label layoutX="14.0" layoutY="5.0" text="Behandelmethode" />
+            <Label layoutX="14.0" layoutY="125.0" text="Naam" />
+            <Label layoutX="273.0" layoutY="117.0" text="Ziekenhuis" />
+            <ScrollPane layoutX="14.0" layoutY="143.0" prefHeight="250.0" prefWidth="375.0">
+               <content>
+                  <AnchorPane fx:id="oncoloogField" />
+               </content>
+            </ScrollPane>
+            <Label fx:id="oncolooglbl" layoutX="375.0" layoutY="6.0" text="" />
+            <Label fx:id="oncoloogidlbl" layoutX="375.0" layoutY="6.0" text="Label" visible="false"/>
+         </children>
+      </AnchorPane>
+
+      <Button layoutX="1426.0" layoutY="860.0" mnemonicParsing="false" onAction="#slaKlantOp" text="Sla op" />
+      <Label fx:id="Errorlabel" layoutX="990.0" layoutY="834.0" text="Velden zijn leeg" textFill="RED" visible="false" />
+
+      <AnchorPane layoutX="960.0" layoutY="185.0" prefHeight="302.0" prefWidth="386.0">
+         <children>
+            <TextField fx:id="zoekField" layoutX="4.0" layoutY="16.0" onAction="#loadHuisartsen" />
+            <Button layoutX="295.0" layoutY="15.0" mnemonicParsing="false" onAction="#loadHuisartsen" text="zoek" />
+            <ScrollPane layoutY="80.0" prefHeight="222.0" prefWidth="375.0">
+               <content>
+                  <AnchorPane fx:id="HuisartsField" />
+               </content>
+            </ScrollPane>
+            <Label layoutX="25.0" layoutY="63.0" text="naam" />
+            <Label layoutX="260.0" layoutY="62.0" text="Huisartsenpost" />
+         </children>
+      </AnchorPane>
+
+      <AnchorPane layoutX="419.0" layoutY="426.0" prefHeight="342.0" prefWidth="400.0">
+         <children>
+            <ScrollPane layoutX="23.0" layoutY="59.0" prefHeight="244.0" prefWidth="354.0">
+               <content>
+                  <AnchorPane fx:id="diabetistField" />
+               </content>
+            </ScrollPane>
+            <Label layoutX="23.0" layoutY="39.0" text="Naam" />
+            <Label layoutX="329.0" layoutY="39.0" text="Ziekenhuis" />
+            <Label layoutX="12.0" layoutY="5.0" text="Diabetiste" />
+            <Label fx:id="diabetistelbl" layoutX="357.0" layoutY="5.0" text="" />
+            <Label fx:id="diabetistelidbl" layoutX="357.0" layoutY="5.0" text="id" visible="false" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="25.0" layoutY="423.0" prefHeight="309.0" prefWidth="386.0">
+         <children>
+            <ScrollPane layoutX="16.0" layoutY="66.0" prefHeight="244.0" prefWidth="354.0">
+               <content>
+                  <AnchorPane fx:id="reumatoloogField" />
+               </content>
+            </ScrollPane>
+            <Label layoutX="23.0" layoutY="39.0" text="Naam" />
+            <Label layoutX="313.0" layoutY="39.0" text="Ziekenhuis" />
+            <Label layoutX="16.0" layoutY="6.0" text="Reumatoloog" />
+            <Label fx:id="reumatolooglbl" layoutX="327.0" layoutY="6.0" text="" />
+            <Label fx:id="reumatoloogidlbl" layoutX="327.0" layoutY="6.0" text="id" visible="false" />
+         </children>
+      </AnchorPane>
+
    </children>
 </AnchorPane>

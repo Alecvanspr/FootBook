@@ -87,16 +87,16 @@ public class Clients {
                     clients.get(i).diabetes = new DiabetisInfo();
                     clients.get(i).diatusSpecialist = context.getSpecialisten().getSpecialist(data.get(11));
                 }
-                if(Boolean.getBoolean(data.get(12))){
+                if(Boolean.parseBoolean(data.get(12))){
                     clients.get(i).reuma = new ReumaInfo();
                     clients.get(i).reumatoloog = context.getSpecialisten().getSpecialist(data.get(13));
                 }
-                clients.get(i).kanker = Boolean.getBoolean(data.get(14));
+                clients.get(i).kanker = Boolean.parseBoolean(data.get(14));
                 if(clients.get(i).kanker) {
-                    clients.get(i).kankerInfo = new KankerInfo(getKankerInfo(i,data)); //TODO zorgen dat dit ook werkt in de javaFX
+                    clients.get(i).kankerInfo = new KankerInfo(getKankerInfo(i,data));
                     clients.get(i).oncoloog = context.getSpecialisten().getSpecialist(data.get(15));
                 }
-                if(Boolean.getBoolean(data.get(20))){
+                if(Boolean.parseBoolean(data.get(20))){
                     clients.get(i).soa = new SoaInfo(data.get(21));
                 }
                 clients.get(i).allergenen = data.get(22);
@@ -119,6 +119,7 @@ public class Clients {
         ret.add(Boolean.parseBoolean(data.get(16))+"");
         ret.add(data.get(17));
         ret.add(Boolean.parseBoolean(data.get(18))+"");
+        ret.add(data.get(19)+"");
         return ret;
     }
 }
