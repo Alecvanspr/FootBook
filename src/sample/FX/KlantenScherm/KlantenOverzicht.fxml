@@ -33,8 +33,18 @@
             <Label fx:id="geboortedatumlbl" layoutX="352.0" layoutY="47.0" text="Label" />
             <Label fx:id="telefoonlbl" layoutX="352.0" layoutY="75.0" text="Label" />
             <Label layoutX="246.0" layoutY="75.0" text="Telefoonnr:" />
-            <Label layoutX="28.0" layoutY="147.0" text="Huisarts" />
+            <Label layoutX="22.0" layoutY="150.0" text="Huisarts" />
             <Button fx:id="behandelingenBtn" layoutX="316.0" layoutY="756.0" mnemonicParsing="false" text="Behandelingen historie" />
+            <Button fx:id="goViewHuisarts" layoutX="375.0" layoutY="146.0" mnemonicParsing="false" text="Button" />
+            <Label fx:id="huisartslbl" layoutX="109.0" layoutY="150.0" text="Label" />
+            <Label layoutX="28.0" layoutY="200.0" text="overige Info" />
+            <Label fx:id="KankerInfo" visible="false" layoutX="28.0" layoutY="230.0" text="Label" />
+            <Label fx:id="DiabetisInfo" visible="false" layoutX="28.0" layoutY="280.0" text="Label" />
+            <Label fx:id="ReumaInfo" visible="false" layoutX="28.0" layoutY="330.0" text="Label" />
+            <Label fx:id="SoaInfo" visible="false" layoutX="28.0" layoutY="380.0" text="Label" />
+            <Button fx:id="oncoloog" visible="false" layoutX="375.0" layoutY="226.0" mnemonicParsing="false" text="Oncoloog" />
+            <Button fx:id="diabetiste" visible="false" layoutX="375.0" layoutY="285.0" mnemonicParsing="false" text="Diabetiste" />
+            <Button fx:id="Reumatoloog" visible="false" layoutX="375.0" layoutY="326.0" mnemonicParsing="false" text="Reumatoloog" />
          </children>
       </AnchorPane>
       <Label layoutX="24.0" layoutY="123.0" text="Naam" />

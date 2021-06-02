@@ -11,13 +11,13 @@ HVogel@gmail.com
 false
 null
 True
-null
+2
 True
 2
 true
-null
+3
 true
-geen
+1
 false
 Lactose
 false

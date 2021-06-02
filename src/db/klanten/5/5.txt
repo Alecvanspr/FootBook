@@ -15,9 +15,9 @@ null
 True
 2
 true
-null
+1
 true
-geen
+1
 false
 Lactose
 false

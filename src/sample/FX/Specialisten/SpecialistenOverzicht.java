@@ -57,22 +57,7 @@ public class SpecialistenOverzicht {
             rectangle.setLayoutY(hoogte*i);
             int id = i;
             rectangle.setOnMouseClicked(E->{
-                naamlbl.setText(specialists.get(id).naam);
-                straatlbl.setText(specialists.get(id).adres);
-                plaatslbl.setText(specialists.get(id).plaats);
-                postcodelbl.setText(specialists.get(id).postcode);
-                telefoonlbl.setText(specialists.get(id).telefoonnr);
-                emaillbl.setText(specialists.get(id).email);
-                Ziekenhuisbl.setText(specialists.get(id).ziekenhuis);
-
-                Specialiteitlbl.setText(specialists.get(id).specialiteit);
-                bewerkSpecialist.setOnAction(Event->{
-                    try {
-                        GoToEditSpecialist(id);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                });
+                loadSpecialist(id);
             });
 
             Label naam = new Label(specialists.get(i).naam);
@@ -117,5 +102,24 @@ public class SpecialistenOverzicht {
 
         Stage window = (Stage)zoekField.getScene().getWindow();
         window.setScene(new Scene(root,1080,900));
+    }
+
+    public void loadSpecialist(int id) {
+        naamlbl.setText(specialists.get(id).naam);
+        straatlbl.setText(specialists.get(id).adres);
+        plaatslbl.setText(specialists.get(id).plaats);
+        postcodelbl.setText(specialists.get(id).postcode);
+        telefoonlbl.setText(specialists.get(id).telefoonnr);
+        emaillbl.setText(specialists.get(id).email);
+        Ziekenhuisbl.setText(specialists.get(id).ziekenhuis);
+
+        Specialiteitlbl.setText(specialists.get(id).specialiteit);
+        bewerkSpecialist.setOnAction(Event->{
+            try {
+                GoToEditSpecialist(id);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 }

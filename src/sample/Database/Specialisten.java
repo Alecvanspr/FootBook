@@ -1,5 +1,6 @@
 package sample.Database;
 
+import javafx.scene.control.Label;
 import sample.modals.Specialist;
 
 import java.util.ArrayList;
@@ -72,5 +73,13 @@ public class Specialisten {
                 specialisten.get(i).specialiteit = data.get(8);
             }
         }
+    }
+
+    public int getPlace(String id) {
+        for(int i = 0;i<getSpecialisten().size();i++){
+            if(getSpecialisten().get(i).id.equals(id))
+                return i;
+        }
+        return 0;
     }
 }

@@ -4,6 +4,7 @@ import sample.modals.Client;
 import sample.modals.ClientsExtentions.DiabetisInfo;
 import sample.modals.ClientsExtentions.KankerInfo;
 import sample.modals.ClientsExtentions.ReumaInfo;
+import sample.modals.ClientsExtentions.SoaInfo;
 import sample.modals.Klant;
 
 import java.util.ArrayList;
@@ -26,7 +27,6 @@ public class Clients {
             }
         }
     }
-
 
     public LinkedList<Client> getClients(String filter) {
         LinkedList<Client> matchingClients = new LinkedList<>();
@@ -96,8 +96,9 @@ public class Clients {
                     clients.get(i).kankerInfo = new KankerInfo(getKankerInfo(i,data)); //TODO zorgen dat dit ook werkt in de javaFX
                     clients.get(i).oncoloog = context.getSpecialisten().getSpecialist(data.get(15));
                 }
-                clients.get(i).soa = Boolean.getBoolean(data.get(20));
-                clients.get(i).soanaam = data.get(21);
+                if(Boolean.getBoolean(data.get(20))){
+                    clients.get(i).soa = new SoaInfo(data.get(21));
+                }
                 clients.get(i).allergenen = data.get(22);
                 clients.get(i).kousen = Boolean.getBoolean(data.get(23));
                 clients.get(i).voettype = data.get(24);

@@ -70,7 +70,7 @@ public class EditKlant {
 
         diabetisCheckBox.setSelected(context.getClients().getClients().get(id).diabetes!=null);
         ReumaCB.setSelected(context.getClients().getClients().get(id).reuma!=null);
-        soaCB.setSelected(context.getClients().getClients().get(id).soa);
+        soaCB.setSelected(context.getClients().getClients().get(id).soa!=null);
         kankerCB.setSelected(context.getClients().getClients().get(id).kanker);
         elasKousCB.setSelected(context.getClients().getClients().get(id).kousen);
         steunZolCB.setSelected(context.getClients().getClients().get(id).steunzolen);

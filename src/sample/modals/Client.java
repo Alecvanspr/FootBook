@@ -6,6 +6,7 @@ import sample.Database.FileReader;
 import sample.modals.ClientsExtentions.DiabetisInfo;
 import sample.modals.ClientsExtentions.KankerInfo;
 import sample.modals.ClientsExtentions.ReumaInfo;
+import sample.modals.ClientsExtentions.SoaInfo;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -27,8 +28,7 @@ public abstract class Client extends Persoon{
     public Boolean kanker;
     public KankerInfo kankerInfo;
     public Specialist oncoloog;
-    public Boolean soa;
-    public String soanaam;
+    public SoaInfo soa;
     public String allergenen;
     public Boolean kousen;
     public String voettype;
@@ -53,22 +53,24 @@ public abstract class Client extends Persoon{
         this.email = data.get(6);
         this.geboortedatum = DateMaker.maakDate(data.get(7));
         this.registratieNummer = data.get(8);
-        this.huisarts = context.getHuisartsen().getArts(data.get(9));
+        this.huisarts = Context.getHuisartsen().getArts(data.get(9));
         if(Boolean.parseBoolean(data.get(10))) {
-            this.diatusSpecialist = context.getSpecialisten().getSpecialist(data.get(11));
+            this.diatusSpecialist = Context.getSpecialisten().getSpecialist(data.get(11));
             this.diabetes = new DiabetisInfo();
         }
         if(Boolean.parseBoolean(data.get(12))){
             this.reuma = new ReumaInfo();
-            this.reumatoloog = context.getSpecialisten().getSpecialist(data.get(13));
+            this.reumatoloog = Context.getSpecialisten().getSpecialist(data.get(13));
         }
         this.kanker = Boolean.parseBoolean(data.get(14));
         if(kanker) {
-            this.oncoloog = context.getSpecialisten().getSpecialist(data.get(15));
+            this.oncoloog = Context.getSpecialisten().getSpecialist(data.get(15));
+            System.out.println(oncoloog.naam);
             kankerInfo = new KankerInfo(getSubArray(16,19,data));
         }
-        this.soa = Boolean.parseBoolean(data.get(20));
-        this.soanaam = data.get(21);
+        if(Boolean.parseBoolean(data.get(20))) {
+            this.soa= new SoaInfo(data.get(21));
+        }
         this.allergenen = data.get(22);
         this.kousen = Boolean.parseBoolean(data.get(23));
         this.voettype = data.get(24);
@@ -83,14 +85,13 @@ public abstract class Client extends Persoon{
         this.behandelList = new BehandelList(id);
     }
 
-    public ArrayList<String> getSubArray(int begin,int end,ArrayList<String>data){
+    private ArrayList<String> getSubArray(int begin,int end,ArrayList<String>data){
         ArrayList<String> ret = new ArrayList<>();
         for(int i = begin; i<=end;i++){
             ret.add(data.get(i));
         }
         return ret;
     }
-
 
     public double travelDistance(){
         FileReader reader = new FileReader();
@@ -107,4 +108,6 @@ public abstract class Client extends Persoon{
         }
         return false;
     }
+
+    public abstract String getInfo();
 }

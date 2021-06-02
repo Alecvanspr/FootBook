@@ -30,6 +30,13 @@ public class Huisartsen {
         }
         return null;
     }
+    public int getPlace(String id){
+        for(int i = 0;i<Huisartsen.size();i++){
+            if(id.equals(Huisartsen.get(i).id))
+                return i;
+        }
+        return 0;
+    }
     //dit haald de bestanden uit het bestand zelf
     private Huisarts getArtsFile(String id){
         FileReader r = new FileReader();

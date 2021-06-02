@@ -17,13 +17,13 @@ public class KankerInfo {
     public String getInfo(){
         String info = "Deze klant heeft kanker \r\n";
         if(uitzaaingen)
-            info+= "Deze klant heeft last van uitzaaingen \r\n";
+            info+= "\tDeze klant heeft last van uitzaaingen \r\n";
         if(medicijnen)
-            info+= "Deze klant gebruikt medicijnen \r\n";
+            info+= "\tDeze klant gebruikt medicijnen \r\n";
         if(chemos)
-            info+= "Deze klant krijgt chemos \r\n";
+            info+= "\tDeze klant krijgt chemos \r\n";
         if(terapien)
-            info+= "Deze klant krijgt Terapien \r\n";
+            info+= "\tDeze klant krijgt Terapien \r\n";
         return info;
     }
 }
