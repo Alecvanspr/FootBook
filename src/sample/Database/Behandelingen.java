@@ -60,4 +60,14 @@ public class Behandelingen implements ContextClass{
         behandelingen.add(new Behandeling(new FileReader().getFile("behandelingen/"+id+".txt")));
     }
 
+    @Override
+    public int getPlace(String id) {
+        for(int i =0;i<behandelingen.size();i++){
+            if(behandelingen.get(i).id.equals(id)){
+                return i;
+            }
+        }
+        return 0;
+    }
+
 }

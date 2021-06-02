@@ -9,4 +9,5 @@ public interface ContextClass {
     public Object get(String id);
     public int getID(String name);
     public void create(ArrayList<String> data);
+    public int getPlace(String id);
 }
