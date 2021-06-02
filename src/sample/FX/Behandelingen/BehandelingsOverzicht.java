@@ -59,7 +59,7 @@ public class BehandelingsOverzicht {
         wisselScreen("src/sample/FX/Behandelingen/AddBehandeling.fxml");
     }
     public void gaNaarHomescreen() throws IOException {
-        wisselScreen("src/sample/FX/KlantenScherm/KlantenOverzicht.fxml");
+        wisselScreen("src/sample/FX/HomePage.fxml");
     }
     public void editBehandeling(int id) throws IOException{
         URL url = new File("src/sample/FX/Behandelingen/EditBehandeling.fxml").toURI().toURL();
