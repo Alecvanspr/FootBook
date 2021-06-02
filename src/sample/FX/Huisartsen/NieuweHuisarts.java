@@ -25,7 +25,7 @@ public class NieuweHuisarts {
     public void slaOp() throws IOException {
         System.out.println(isLeeg());
         if(!isLeeg()) {
-            context.getHuisartsen().makeNewHuisarts(getData());
+            context.getHuisartsen().create(getData());
             gaNaarHuisartenOverzicht();
         }else{
             ErrorLabel.setVisible(true);

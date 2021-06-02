@@ -12,8 +12,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import sample.Database.Context;
-import sample.Database.Huisartsen;
-import sample.FX.Specialisten.EditSpecialist;
 import sample.modals.Huisarts;
 
 import java.io.File;
@@ -39,9 +37,9 @@ public class HuisartsenOverzicht {
     private Context context = Context.getContext();
     public void zoek(){
         if(!(zoekField.getText().equals(""))) {
-            huisarts = Context.getHuisartsen().getHuisartsen(zoekField.getText());
+            huisarts = Context.getHuisartsen().getList(zoekField.getText());
         }else{
-            huisarts = Context.getHuisartsen().getHuisartsen();
+            huisarts = Context.getHuisartsen().getList();
         }
     }
     public void loadHuisartsen(){

@@ -34,16 +34,16 @@ public class EditSpecialist {
     }
     private void setContents(int id){
         this.id = id;
-        NaamFld.setText(specialisten.getSpecialisten().get(id).naam);
-        straatfld.setText(specialisten.getSpecialisten().get(id).adres);
-        postcodefld.setText(specialisten.getSpecialisten().get(id).postcode);
-        plaatsfld.setText(specialisten.getSpecialisten().get(id).plaats);
-        ziekenhuisfld.setText(specialisten.getSpecialisten().get(id).ziekenhuis);
-        Telefoonfld.setText(specialisten.getSpecialisten().get(id).telefoonnr);
-        emailfld.setText(specialisten.getSpecialisten().get(id).email);
+        NaamFld.setText(specialisten.getList().get(id).naam);
+        straatfld.setText(specialisten.getList().get(id).adres);
+        postcodefld.setText(specialisten.getList().get(id).postcode);
+        plaatsfld.setText(specialisten.getList().get(id).plaats);
+        ziekenhuisfld.setText(specialisten.getList().get(id).ziekenhuis);
+        Telefoonfld.setText(specialisten.getList().get(id).telefoonnr);
+        emailfld.setText(specialisten.getList().get(id).email);
     }
     private void loadComboBox(){
-        SpecialiteitComboBox.setValue(specialisten.getSpecialisten().get(id).specialiteit);
+        SpecialiteitComboBox.setValue(specialisten.getList().get(id).specialiteit);
         SpecialiteitComboBox.getItems().add("Oncoloog");
         SpecialiteitComboBox.getItems().add("Diabetus verpleger");
         SpecialiteitComboBox.getItems().add("Reumatoloog");
@@ -58,7 +58,7 @@ public class EditSpecialist {
     }
     private ArrayList<String> getData(){
         ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add(specialisten.getSpecialisten().get(id).id);
+        arrayList.add(specialisten.getList().get(id).id);
         arrayList.add(NaamFld.getText());
         arrayList.add(Telefoonfld.getText());
         arrayList.add(straatfld.getText());

@@ -6,20 +6,20 @@ import sample.modals.Product;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-public class Producten {
+public class Producten implements ContextClass {
     //private static LinkedList<Product> producten;
     private static LinkedList<Voorraad> opslag;
     private static int MaxProducten;
 
     public Producten(){
         MaxProducten = Integer.parseInt(UniqueNumber.getUniqueNumber("src/db/MaxProducten.txt"));
-        fillProducten();
+        fillList();
     }
-    private void fillProducten(){
+    public void fillList(){
         opslag = new LinkedList<>();
         int pos = 0;
         for(int i = 0; i<=MaxProducten; i++){
-            Product product = getProductenFile(""+i);
+            Product product = getFromFile(""+i);
             if(product!=null){
                 opslag.addLast(new Voorraad(product,getQuatiteit(pos)));
                 pos++;
@@ -31,18 +31,37 @@ public class Producten {
         return Integer.parseInt(new FileReader().getFile("producten/quantiteit.txt").get(productId));
     }
 
-    private Product getProductenFile(String id) {
+    public Product getFromFile(String id) {
         FileReader r = new FileReader();
         if(r.getFile("producten/"+id+".txt")!=null)
             return new Product(r.getFile("producten/"+id+".txt"));
         return null;
     }
 
-    public void makeNewProduct(ArrayList<String> data){
+    @Override
+    public Voorraad get(String id) {
+        for(int i = 0;i<opslag.size();i++){
+            if(opslag.get(i).product.id.equals(id))
+                return opslag.get(i);
+        }
+        return null;
+    }
+
+    public void create(ArrayList<String> data){
         new CreateFile().CreatePersoon("producten",data.toArray());
         addQuantity();
         opslag.add(new Voorraad(new Product(data),0));
     }
+
+    @Override
+    public int getPlace(String id) {
+        for(int i = 0;i<opslag.size();i++){
+            if(opslag.get(i).product.id.equals(id))
+                return i;
+        }
+        return 0;
+    }
+
     private void addQuantity(){
         ArrayList<String> quantiteitData = new FileReader().getFile("producten/quantiteit.txt");
         quantiteitData.add("0");

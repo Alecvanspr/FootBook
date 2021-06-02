@@ -10,7 +10,7 @@ import sample.modals.Klant;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-public class Clients{
+public class Clients implements ContextClass{
     private static LinkedList<Client> clients;
     private static int MaxKlanten;
 
@@ -52,6 +52,7 @@ public class Clients{
         }
         return null;
     }
+
     //hier krijg je de lijst met clients
     public LinkedList<Client> getClients() {
         return clients;
@@ -63,6 +64,17 @@ public class Clients{
         createFile.CreatePersoon("klanten",data.toArray());
         clients.add(new Klant(data));
     }
+
+    @Override
+    public int getPlace(String id) {
+        for(int i =0;i<clients.size();i++){
+            if(clients.get(i).id.equals(id)){
+                return i;
+            }
+        }
+        return 0;
+    }
+
     //hiermee kan je een client bewerken.
     public void editClient(ArrayList<String> data){
         FileUpdater fileUpdater = new FileUpdater();
@@ -82,19 +94,19 @@ public class Clients{
                 clients.get(i).email = data.get(6);
                 clients.get(i).geboortedatum = DateMaker.maakDate(data.get(7));
                 clients.get(i).registratieNummer = data.get(8);
-                clients.get(i).huisarts = context.getHuisartsen().getArts(data.get(9));
+                clients.get(i).huisarts = context.getHuisartsen().get(data.get(9));
                 if(Boolean.parseBoolean(data.get(10))){
                     clients.get(i).diabetes = new DiabetisInfo();
-                    clients.get(i).diatusSpecialist = context.getSpecialisten().getSpecialist(data.get(11));
+                    clients.get(i).diatusSpecialist = context.getSpecialisten().get(data.get(11));
                 }
                 if(Boolean.parseBoolean(data.get(12))){
                     clients.get(i).reuma = new ReumaInfo();
-                    clients.get(i).reumatoloog = context.getSpecialisten().getSpecialist(data.get(13));
+                    clients.get(i).reumatoloog = context.getSpecialisten().get(data.get(13));
                 }
                 clients.get(i).kanker = Boolean.parseBoolean(data.get(14));
                 if(clients.get(i).kanker) {
-                    clients.get(i).kankerInfo = new KankerInfo(getKankerInfo(i,data));
-                    clients.get(i).oncoloog = context.getSpecialisten().getSpecialist(data.get(15));
+                    clients.get(i).kankerInfo = new KankerInfo(SubStringMaker.sub(16,19,data));
+                    clients.get(i).oncoloog = context.getSpecialisten().get(data.get(15));
                 }
                 if(Boolean.parseBoolean(data.get(20))){
                     clients.get(i).soa = new SoaInfo(data.get(21));
@@ -112,14 +124,5 @@ public class Clients{
                 //this.nagelAandoening = data.get(32);
             }
         }
-    }
-
-    private ArrayList<String> getKankerInfo(int id,ArrayList<String> data){
-        ArrayList<String> ret = new ArrayList<>();
-        ret.add(Boolean.parseBoolean(data.get(16))+"");
-        ret.add(data.get(17));
-        ret.add(Boolean.parseBoolean(data.get(18))+"");
-        ret.add(data.get(19)+"");
-        return ret;
     }
 }

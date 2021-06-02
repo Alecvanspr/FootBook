@@ -23,7 +23,7 @@ public class newProduct {
     private Context context = Context.getContext();
 
     public void slaOp() throws IOException {
-        context.getProducten().makeNewProduct(getData());
+        context.getProducten().create(getData());
         ArrayList<String> temp = new ArrayList<>();
         temp.add(UniqueNumber.getUniqueNumber("src/db/MaxProducten.txt")+"");
         temp.addAll(getData());

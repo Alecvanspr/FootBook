@@ -7,7 +7,6 @@ public interface ContextClass {
     public void fillList();
     public Object getFromFile(String id);
     public Object get(String id);
-    public int getID(String name);
     public void create(ArrayList<String> data);
     public int getPlace(String id);
 }

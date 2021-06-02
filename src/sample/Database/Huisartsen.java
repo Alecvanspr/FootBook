@@ -5,25 +5,25 @@ import sample.modals.Huisarts;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-public class Huisartsen {
+public class Huisartsen implements ContextClass {
     private static LinkedList<Huisarts> Huisartsen;
     private static int MaxArtsen;
 
     public Huisartsen(){
         MaxArtsen = Integer.parseInt(UniqueNumber.getUniqueNumber("src/db/MaxHuisartsen.txt"));
-        fillArtsen();
+        fillList();
     }
-    public void fillArtsen(){
+    public void fillList(){
         Huisartsen = new LinkedList<>();
         for(int i = 0; i<=MaxArtsen; i++){
-            Huisarts arts =getArtsFile(""+i);
+            Huisarts arts = getFromFile(""+i);
             if(arts!=null) {
                 Huisartsen.addLast(arts);
             }
         }
     }
     //hier wordt de arts gehaald uit de linked list.
-    public Huisarts getArts(String id){
+    public Huisarts get(String id){
         for(int i = 0; i<Huisartsen.size();i++){
             if(id.equals(Huisartsen.get(i).id))
                 return Huisartsen.get(i);
@@ -38,21 +38,21 @@ public class Huisartsen {
         return 0;
     }
     //dit haald de bestanden uit het bestand zelf
-    private Huisarts getArtsFile(String id){
+    public Huisarts getFromFile(String id){
         FileReader r = new FileReader();
         if(r.getFile("huisartsen/"+id+".txt")!=null)
             return new Huisarts(r.getFile("huisartsen/" +id+".txt"));
         return null;
     }
-    public void makeNewHuisarts(ArrayList<String> data){
+    public void create(ArrayList<String> data){
         CreateFile createFile = new CreateFile();
         createFile.CreatePersoon("Huisartsen",data.toArray());
         Huisartsen.add(new Huisarts(data));
     }
-    public LinkedList<Huisarts> getHuisartsen() {
+    public LinkedList<Huisarts> getList() {
         return Huisartsen;
     }
-    public LinkedList<Huisarts> getHuisartsen(String filter){
+    public LinkedList<Huisarts> getList(String filter){
         LinkedList ret = new LinkedList();
         for(int i =0; i<Huisartsen.size();i++){
             if(Huisartsen.get(i).naam.toLowerCase().contains(filter.toLowerCase())||Huisartsen.get(i).id.contains(filter)||Huisartsen.get(i).huisartsenpost.toLowerCase().contains(filter.toLowerCase()))

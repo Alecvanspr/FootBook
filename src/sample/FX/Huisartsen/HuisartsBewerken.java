@@ -26,7 +26,7 @@ public class HuisartsBewerken {
 
     public void load(int id){
         this.id = id;
-        Huisarts huisarts= context.getHuisartsen().getHuisartsen().get(id);
+        Huisarts huisarts= context.getHuisartsen().getList().get(id);
         NaamFld.setText(huisarts.naam);
         straatfld.setText(huisarts.adres);
         postcodefld.setText(huisarts.postcode);
@@ -58,7 +58,7 @@ public class HuisartsBewerken {
     }
     private ArrayList<String> getData(){
         ArrayList<String> data = new ArrayList<>();
-        data.add(context.getHuisartsen().getHuisartsen().get(id).id);
+        data.add(context.getHuisartsen().getList().get(id).id);
         data.add(NaamFld.getText());
         data.add(Telefoonfld.getText());
         data.add(straatfld.getText());

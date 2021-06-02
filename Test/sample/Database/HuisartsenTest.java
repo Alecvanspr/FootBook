@@ -10,7 +10,7 @@ public class HuisartsenTest {
     private Context  context = Context.getContext();
 
     private void load(){
-        context.getHuisartsen().getHuisartsen().add(new Huisarts(getData()));
+        context.getHuisartsen().getList().add(new Huisarts(getData()));
     }
     private ArrayList<String> getData(){
         ArrayList<String> data = new ArrayList<>();
@@ -28,8 +28,8 @@ public class HuisartsenTest {
     @Test
     public void testGetArts(){
         load();
-        Assert.assertEquals("023",context.getHuisartsen().getArts("023").id);
-        Assert.assertEquals("Gert de doctor",context.getHuisartsen().getArts("023").naam);
+        Assert.assertEquals("023",context.getHuisartsen().get("023").id);
+        Assert.assertEquals("Gert de doctor",context.getHuisartsen().get("023").naam);
     }
     @Test
     public void testMakeNewHuisarts(){
@@ -42,13 +42,13 @@ public class HuisartsenTest {
     public void testGetHuisartsen(){
         //deze tests kunnen afwijken als er te veel data aan de database wordt toegevoed
         load();
-        Assert.assertEquals("023",context.getHuisartsen().getHuisartsen("023").getFirst().id);
-        Assert.assertEquals("023",context.getHuisartsen().getHuisartsen("Gert de doctor").getFirst().id);
-        Assert.assertEquals("023",context.getHuisartsen().getHuisartsen("LichteKwaal").getFirst().id);
+        Assert.assertEquals("023",context.getHuisartsen().getList("023").getFirst().id);
+        Assert.assertEquals("023",context.getHuisartsen().getList("Gert de doctor").getFirst().id);
+        Assert.assertEquals("023",context.getHuisartsen().getList("LichteKwaal").getFirst().id);
 
-        Assert.assertEquals("Gert de doctor",context.getHuisartsen().getHuisartsen("23").getFirst().naam);
-        Assert.assertEquals("Gert de doctor",context.getHuisartsen().getHuisartsen("Gert").getFirst().naam);
-        Assert.assertEquals("Gert de doctor",context.getHuisartsen().getHuisartsen("Kwaal").getFirst().naam);
+        Assert.assertEquals("Gert de doctor",context.getHuisartsen().getList("23").getFirst().naam);
+        Assert.assertEquals("Gert de doctor",context.getHuisartsen().getList("Gert").getFirst().naam);
+        Assert.assertEquals("Gert de doctor",context.getHuisartsen().getList("Kwaal").getFirst().naam);
     }
     @Test
     public void testEditHuisarts(){

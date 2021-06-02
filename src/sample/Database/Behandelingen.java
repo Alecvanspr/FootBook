@@ -39,7 +39,7 @@ public class Behandelingen implements ContextClass{
         }
         return null;
     }
-    @Override
+
     public int getID(String behandelingName){
         for(int i=0;i<behandelingen.size();i++){
             if(behandelingen.get(i).naam.equals(behandelingName))

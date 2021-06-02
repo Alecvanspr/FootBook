@@ -8,7 +8,6 @@ import sample.modals.ClientsExtentions.KankerInfo;
 import sample.modals.ClientsExtentions.ReumaInfo;
 import sample.modals.ClientsExtentions.SoaInfo;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -53,18 +52,18 @@ public abstract class Client extends Persoon{
         this.email = data.get(6);
         this.geboortedatum = DateMaker.maakDate(data.get(7));
         this.registratieNummer = data.get(8);
-        this.huisarts = Context.getHuisartsen().getArts(data.get(9));
+        this.huisarts = Context.getHuisartsen().get(data.get(9));
         if(Boolean.parseBoolean(data.get(10))) {
-            this.diatusSpecialist = Context.getSpecialisten().getSpecialist(data.get(11));
+            this.diatusSpecialist = Context.getSpecialisten().get(data.get(11));
             this.diabetes = new DiabetisInfo();
         }
         if(Boolean.parseBoolean(data.get(12))){
             this.reuma = new ReumaInfo();
-            this.reumatoloog = Context.getSpecialisten().getSpecialist(data.get(13));
+            this.reumatoloog = Context.getSpecialisten().get(data.get(13));
         }
         this.kanker = Boolean.parseBoolean(data.get(14));
         if(kanker) {
-            this.oncoloog = Context.getSpecialisten().getSpecialist(data.get(15));
+            this.oncoloog = Context.getSpecialisten().get(data.get(15));
             System.out.println(oncoloog.naam);
             kankerInfo = new KankerInfo(getSubArray(16,19,data));
         }

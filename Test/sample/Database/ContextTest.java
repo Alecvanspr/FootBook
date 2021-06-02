@@ -22,7 +22,7 @@ public class ContextTest {
 
     @org.junit.Test
     public void getArts() {
-        Huisarts huisarts = Context.getContext().getHuisartsen().getArts("1");
+        Huisarts huisarts = Context.getContext().getHuisartsen().get("1");
         Assert.assertTrue(huisarts.id.equals("1"));
     }
 
@@ -32,17 +32,17 @@ public class ContextTest {
 
     @org.junit.Test
     public void getHuisartsen() {
-        Assert.assertTrue(context.getHuisartsen().getHuisartsen()!=null);
+        Assert.assertTrue(context.getHuisartsen().getList()!=null);
     }
 
     @org.junit.Test
     public void getSpecialist() {
-        Specialist specialist = context.getSpecialisten().getSpecialist("1");
+        Specialist specialist = context.getSpecialisten().get("1");
     }
 
     @org.junit.Test
     public void getSpecialisten() {
-        Assert.assertTrue(context.getSpecialisten().getSpecialisten()!=null);
+        Assert.assertTrue(context.getSpecialisten().getList()!=null);
     }
 
     @org.junit.Test

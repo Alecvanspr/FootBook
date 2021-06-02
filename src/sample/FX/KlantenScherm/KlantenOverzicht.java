@@ -13,9 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-import sample.Database.Clients;
 import sample.Database.Context;
-import sample.FX.Huisartsen.HuisartsBewerken;
 import sample.FX.Huisartsen.HuisartsenOverzicht;
 import sample.FX.Specialisten.SpecialistenOverzicht;
 import sample.modals.Client;
@@ -143,7 +141,7 @@ public class KlantenOverzicht {
         }
     }
     private void makeSpecialistButton(Button button,int id){
-        button.setText(Context.getSpecialisten().getSpecialisten().get(id).naam);
+        button.setText(Context.getSpecialisten().getList().get(id).naam);
         button.setVisible(true);
         button.setLayoutY(extraInfoHeight);
         button.setOnAction(E->{

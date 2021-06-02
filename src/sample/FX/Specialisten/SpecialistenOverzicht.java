@@ -12,12 +12,10 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import sample.Database.Context;
-import sample.modals.Huisarts;
 import sample.modals.Specialist;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.LinkedList;
 
@@ -39,9 +37,9 @@ public class SpecialistenOverzicht {
 
     public void zoek(){
         if(!(zoekField.getText().equals(""))) {
-            specialists = Context.getSpecialisten().getSpecialisten(zoekField.getText());
+            specialists = Context.getSpecialisten().getList(zoekField.getText());
         }else{
-            specialists = Context.getSpecialisten().getSpecialisten();
+            specialists = Context.getSpecialisten().getList();
         }
     }
 

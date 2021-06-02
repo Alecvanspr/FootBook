@@ -13,7 +13,6 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import sample.Database.Context;
 import sample.Database.DateMaker;
-import sample.modals.Client;
 import sample.modals.Huisarts;
 import sample.modals.Specialist;
 
@@ -33,7 +32,7 @@ public class EditKlant {
     @FXML
     private AnchorPane KanchorPane,HuisartsField, oncoloogField,diabetistField,reumatoloogField;
 
-    private LinkedList<Huisarts> huisarts = Context.getContext().getHuisartsen().getHuisartsen();
+    private LinkedList<Huisarts> huisarts = Context.getContext().getHuisartsen().getList();
 
     @FXML
     private CheckBox diabetisCheckBox,ReumaCB,soaCB,kankerCB,elasKousCB,steunZolCB,confZolCB,OrthSchoenCB,chemoCB,uitzaaiingCB,medicijnenCB;
@@ -82,7 +81,7 @@ public class EditKlant {
     }
     private void zoek(){
         if(zoekField.getText()!=null) {
-            huisarts = Context.getHuisartsen().getHuisartsen(zoekField.getText());
+            huisarts = Context.getHuisartsen().getList(zoekField.getText());
             Errorlabel.setVisible(false);
         }else{
             Errorlabel.setVisible(true);
@@ -144,7 +143,7 @@ public class EditKlant {
         int hoogte = 45;
         zoek();
         pane.getChildren().clear();
-        LinkedList<Specialist> specialisten = Context.getContext().getSpecialisten().getSpecialisten(specialiteit);
+        LinkedList<Specialist> specialisten = Context.getContext().getSpecialisten().getList(specialiteit);
         for(int i = 0;i<specialisten.size();i++){
             Rectangle rectangle = makeBorder(hoogte*i);
             int id = i;
@@ -185,7 +184,7 @@ public class EditKlant {
         data.add(emailfld.getText());
         data.add(datumfld.getText());
         data.add(regnrfld.getText());
-        data.add(context.getHuisartsen().getHuisartsen(huisartsTF.getText()).getFirst().id);//Huisarts nr
+        data.add(context.getHuisartsen().getList(huisartsTF.getText()).getFirst().id);//Huisarts nr
         data.add(""+diabetisCheckBox.isSelected());//diabetus
         data.add(checkleeg(diabetistelidbl.getText()));//diabetusspecialist
         data.add(""+ReumaCB.isSelected());//reuma
