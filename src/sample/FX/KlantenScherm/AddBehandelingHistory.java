@@ -30,10 +30,10 @@ public class AddBehandelingHistory {
     private int id;
 
     public void load(int id){
-        this.id = Integer.parseInt(Context.getClients().getClient(id+"").id);
+        this.id = Integer.parseInt(Context.getClients().get(id+"").id);
         context = Context.getContext();
-        for(int i=0; i< context.getBehandelingen().getBehandelingen().size();i++){
-            BehandelingBox.getItems().add(context.getBehandelingen().getBehandelingen().get(i).naam);
+        for(int i = 0; i< context.getBehandelingen().getList().size(); i++){
+            BehandelingBox.getItems().add(context.getBehandelingen().getList().get(i).naam);
         }
     }
     public void slaOp() throws IOException {
@@ -48,7 +48,7 @@ public class AddBehandelingHistory {
     private ArrayList<String> getData(){
         ArrayList<String> data = new ArrayList<>();
         data.add(datumVeld.getText());
-        data.add(Context.getBehandelingen().getBehandelingID(BehandelingBox.getValue() + "")+"");//dit slaat een nummer op
+        data.add(Context.getBehandelingen().getID(BehandelingBox.getValue() + "")+"");//dit slaat een nummer op
         data.add(checkLeeg(opmerkingen.getText()));
         return data;
     }

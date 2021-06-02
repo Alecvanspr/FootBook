@@ -13,7 +13,7 @@ public class BehandelingHistory {
     //bijverkoop
     public BehandelingHistory(ArrayList<String> data){
             this.datum = DateMaker.maakDate(data.get(0));
-            this.type = Context.getBehandelingen().getBehandeling(data.get(1));
+            this.type = Context.getBehandelingen().get(data.get(1));
             this.bijzonderheden = data.get(2);
     }
 

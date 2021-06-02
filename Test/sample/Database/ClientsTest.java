@@ -45,10 +45,10 @@ public class ClientsTest {
         data.add("Verzorgd");//nagelconditie
         data.add("Geen");//nagelaandoening
         data.add("-");
-        context.clients.makeNewClient(data);
+        context.clients.create(data);
         String clientId = UniqueNumber.getUniqueNumber("src/db/MaxKlanten.txt");
-        Assert.assertTrue(context.clients.getClient(clientId).naam.equals("Thea van der Meijer"));
-        Assert.assertTrue(context.clients.getClient(clientId).postcode.equals("Poeldijk"));
+        Assert.assertTrue(context.clients.get(clientId).naam.equals("Thea van der Meijer"));
+        Assert.assertTrue(context.clients.get(clientId).postcode.equals("Poeldijk"));
         c.removeFile("src/db/klanten/"+clientId+"/"+clientId+".txt");
     }
     @org.junit.Test

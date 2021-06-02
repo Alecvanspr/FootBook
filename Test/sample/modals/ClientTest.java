@@ -21,7 +21,7 @@ public class ClientTest {
     }
     @org.junit.Test
     public void getBehandelingen(){
-        Client client = context.getClients().getClient("1");
+        Client client = context.getClients().get("1");
         client.behandelList.addBehandeling("26-03-2021","1","SideNoteTest");
         client.behandelList.addBehandeling("27-03-2021","2","Opmerking");
         client.behandelList.addBehandeling("08-05-2021","3","een goede Opmerking");
@@ -32,11 +32,11 @@ public class ClientTest {
     }
     @org.junit.Test
     public void allowScreeningTest(){
-        Client client = context.getClients().getClient("1");
-        Client diabeet = context.getClients().getClient("2");
-        Client kankerPatient = context.getClients().getClient("3");
-        Client reumapatient = context.getClients().getClient("4");
-        Client kankerReumaPatient = context.getClients().getClient("6");
+        Client client = context.getClients().get("1");
+        Client diabeet = context.getClients().get("2");
+        Client kankerPatient = context.getClients().get("3");
+        Client reumapatient = context.getClients().get("4");
+        Client kankerReumaPatient = context.getClients().get("6");
 
         Assert.assertFalse(client.allowScreening());
         Assert.assertTrue(diabeet.allowScreening());
@@ -46,11 +46,11 @@ public class ClientTest {
     }
     @org.junit.Test
     public void travelDistanceTest(){
-        Client kwintsheul = context.getClients().getClient("0");
-        Client Honserlersdijk = context.getClients().getClient("5");
-        Client Poeldijk = context.getClients().getClient("1");
-        Client DenHaag = context.getClients().getClient("2");
-        Client Gouda = context.getClients().getClient("6");
+        Client kwintsheul = context.getClients().get("0");
+        Client Honserlersdijk = context.getClients().get("5");
+        Client Poeldijk = context.getClients().get("1");
+        Client DenHaag = context.getClients().get("2");
+        Client Gouda = context.getClients().get("6");
         Assert.assertEquals(0,kwintsheul.travelDistance(),0.1);
         Assert.assertEquals(1.0,Honserlersdijk.travelDistance(),0.1);
         Assert.assertEquals(4.9,Poeldijk.travelDistance(),0.0);

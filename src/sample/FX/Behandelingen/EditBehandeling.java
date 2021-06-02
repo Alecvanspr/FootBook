@@ -8,7 +8,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import sample.Database.Context;
 import sample.Database.FileUpdater;
-import sample.modals.Behandeling;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,9 +21,9 @@ public class EditBehandeling {
 
     public void load(int id){
         this.id = id;
-        naam.setText(Context.getBehandelingen().getBehandelingen().get(id).naam);
-        omschrijving.setText(Context.getBehandelingen().getBehandelingen().get(id).omschrijving);
-        prijs.setText(Context.getBehandelingen().getBehandelingen().get(id).kosten+"");
+        naam.setText(Context.getBehandelingen().getList().get(id).naam);
+        omschrijving.setText(Context.getBehandelingen().getList().get(id).omschrijving);
+        prijs.setText(Context.getBehandelingen().getList().get(id).kosten+"");
     }
 
     public void slaOp() throws IOException {
@@ -39,13 +38,13 @@ public class EditBehandeling {
         updater.updateFile("src/db/behandelingen/"+getData().get(0)+".txt",getData());
     }
     private void updateList(){
-        Context.getBehandelingen().getBehandelingen().get(id).naam = naam.getText();
-        Context.getBehandelingen().getBehandelingen().get(id).omschrijving = omschrijving.getText();
-        Context.getBehandelingen().getBehandelingen().get(id).kosten = Double.parseDouble(prijs.getText());
+        Context.getBehandelingen().getList().get(id).naam = naam.getText();
+        Context.getBehandelingen().getList().get(id).omschrijving = omschrijving.getText();
+        Context.getBehandelingen().getList().get(id).kosten = Double.parseDouble(prijs.getText());
     }
     private ArrayList<String> getData(){
         ArrayList<String> ret = new ArrayList();
-        ret.add(Context.getBehandelingen().getBehandelingen().get(id).id);
+        ret.add(Context.getBehandelingen().getList().get(id).id);
         ret.add(naam.getText());
         ret.add(omschrijving.getText());
         ret.add(prijs.getText());

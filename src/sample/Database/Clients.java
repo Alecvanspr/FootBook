@@ -10,18 +10,18 @@ import sample.modals.Klant;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-public class Clients {
+public class Clients{
     private static LinkedList<Client> clients;
     private static int MaxKlanten;
 
     public Clients(){
         MaxKlanten = Integer.parseInt(UniqueNumber.getUniqueNumber("src/db/MaxKlanten.txt"));
-        fillClients();
+        fillList();
     }
-    private void fillClients(){
+    public void fillList(){
         clients = new LinkedList<>();
         for(int i = 0; i<MaxKlanten; i++){
-            Client client=getClientFile(""+i);
+            Client client= getFromFile(""+i);
             if(client!=null) {
                 clients.addLast(client);
             }
@@ -37,7 +37,7 @@ public class Clients {
         return matchingClients;
     }
     //deze methode is verantwoordelijk voor het ophalen van het txt bestand en het veranderen hiervan in een arraylist.
-    private Klant getClientFile(String id) {
+    public Klant getFromFile(String id) {
         FileReader r = new FileReader();
         if (r.getFile("klanten/" + id + "/" + id + ".txt") != null)
             return new Klant(r.getFile("klanten/" + id + "/" + id + ".txt"));
@@ -45,7 +45,7 @@ public class Clients {
     }
 
     //met deze methode kan je de client opvragen uit de arraylist op id.
-    public Client getClient(String id) {
+    public Client get(String id) {
         for (int i = 0; i < clients.size(); i++) {
             if (id.equals(clients.get(i).id))
                 return clients.get(i);
@@ -58,7 +58,7 @@ public class Clients {
     }
 
     //hiermee wordt een nieuwe client aangemaakt
-    public void makeNewClient(ArrayList<String> data){
+    public void create(ArrayList<String> data){
         CreateFile createFile = new CreateFile();
         createFile.CreatePersoon("klanten",data.toArray());
         clients.add(new Klant(data));

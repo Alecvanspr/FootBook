@@ -1,6 +1,5 @@
 package sample.FX.KlantenScherm;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,7 +15,6 @@ import sample.Database.Context;
 import sample.modals.Huisarts;
 import sample.modals.Specialist;
 
-import javax.print.DocFlavor;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -179,7 +177,7 @@ public class NieuweKlant {
 
     public void saveClient(){
             Context context = Context.getContext();
-            context.getClients().makeNewClient(getData());
+            context.getClients().create(getData());
     }
     public String checkleeg(String text){
         if(text.equals("")||text==null){

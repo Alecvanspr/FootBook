@@ -5,11 +5,6 @@ import sample.modals.Client;
 import sample.modals.Huisarts;
 import sample.modals.Specialist;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-
-import static org.junit.Assert.*;
-
 public class ContextTest {
     //hiermee wordt de database opgeroepen en kan je met de huidige database testen
     public Context context = Context.getContext();
@@ -17,7 +12,7 @@ public class ContextTest {
     public CreateFile c = new CreateFile();
     @org.junit.Test
     public void getClient() {
-        Client client = context.getClients().getClient(0+"");
+        Client client = context.getClients().get(0+"");
         Assert.assertTrue(client.naam.equals("Klaas van der Gouw"));
     }
 
@@ -52,7 +47,7 @@ public class ContextTest {
 
     @org.junit.Test
     public void getBehandeling() {
-        Assert.assertTrue(context.getBehandelingen().getBehandeling("1").id.equals("1"));
+        Assert.assertTrue(context.getBehandelingen().get("1").id.equals("1"));
     }
 
     @org.junit.Test

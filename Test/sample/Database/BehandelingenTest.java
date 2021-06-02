@@ -5,14 +5,13 @@ import org.junit.Test;
 import sample.modals.Behandeling;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 public class BehandelingenTest {
     private Behandelingen behandelingen = new Behandelingen();
     private int id;
     private void load(){
-        id = behandelingen.getBehandelingen().size();
-        behandelingen.getBehandelingen().add(new Behandeling(newBehandelingData()));
+        id = behandelingen.getList().size();
+        behandelingen.getList().add(new Behandeling(newBehandelingData()));
     }
     private ArrayList<String> newBehandelingData(){
         ArrayList<String> data = new ArrayList<>();
@@ -29,13 +28,13 @@ public class BehandelingenTest {
     @Test
     public void getBehandeling(){
         load();
-        Assert.assertEquals("43",behandelingen.getBehandeling("43").id);
-        Assert.assertEquals("Luxe voetbehandeling",behandelingen.getBehandeling("43").naam);
+        Assert.assertEquals("43",behandelingen.get("43").id);
+        Assert.assertEquals("Luxe voetbehandeling",behandelingen.get("43").naam);
     }
     @Test
     public void getBehandelingId(){
         load();
-        Assert.assertEquals(43,behandelingen.getBehandelingID("Luxe voetbehandeling"));
+        Assert.assertEquals(43,behandelingen.getID("Luxe voetbehandeling"));
     }
     //onderstaande test is alweer hardcoded
     @Test

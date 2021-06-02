@@ -8,7 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import sample.Database.Behandelingen;
 import sample.Database.Context;
 import sample.modals.Behandeling;
 
@@ -24,8 +23,8 @@ public class BehandelingsOverzicht {
     private AnchorPane Behandelingenpane;
 
     public void load() {
-        for (int i = 0; i < Context.getBehandelingen().getBehandelingen().size(); i++) {
-            Behandeling behandeling = Context.getBehandelingen().getBehandelingen().get(i);
+        for (int i = 0; i < Context.getBehandelingen().getList().size(); i++) {
+            Behandeling behandeling = Context.getBehandelingen().getList().get(i);
             Label id = new Label(behandeling.id);
             id.setLayoutY(height*i);
 

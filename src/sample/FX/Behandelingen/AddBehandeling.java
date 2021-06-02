@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import sample.Database.Context;
@@ -20,7 +19,7 @@ public class AddBehandeling {
 
     public void slaOp() throws IOException {
         if(checkLeeg()){
-            Context.getBehandelingen().makeBehandeling(getData());
+            Context.getBehandelingen().create(getData());
             gaNaarBehandelingsOverzicht();
         }
     }
