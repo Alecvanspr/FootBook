@@ -35,9 +35,9 @@
             <Label layoutX="246.0" layoutY="75.0" text="Telefoonnr:" />
             <Label layoutX="22.0" layoutY="150.0" text="Huisarts" />
             <Button fx:id="behandelingenBtn" layoutX="316.0" layoutY="756.0" mnemonicParsing="false" text="Behandelingen historie" />
-            <Button fx:id="goViewHuisarts" layoutX="375.0" layoutY="146.0" mnemonicParsing="false" text="Button" />
+            <Button fx:id="goViewHuisarts" layoutX="375.0" layoutY="146.0" mnemonicParsing="false" text="Meer informatie" />
             <Label fx:id="huisartslbl" layoutX="109.0" layoutY="150.0" text="Label" />
-            <Label layoutX="28.0" layoutY="200.0" text="overige Info" />
+            <Label layoutX="28.0" layoutY="200.0" text="overige Informatie" />
             <Label fx:id="KankerInfo" visible="false" layoutX="28.0" layoutY="230.0" text="Label" />
             <Label fx:id="DiabetisInfo" visible="false" layoutX="28.0" layoutY="280.0" text="Label" />
             <Label fx:id="ReumaInfo" visible="false" layoutX="28.0" layoutY="330.0" text="Label" />

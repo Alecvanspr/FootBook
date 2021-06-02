@@ -124,8 +124,6 @@ public class KlantenOverzicht {
                     SoaInfo.setText("");
                 }
 
-
-
                 edit.setOnAction(Event->{
                     try {
                         goKlantBewerken(gebruikerID);
