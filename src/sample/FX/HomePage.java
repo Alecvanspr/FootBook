@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import sample.Database.Context;
 import sample.Database.Huisartsen;
 import sample.FX.Behandelingen.BehandelingsOverzicht;
 import sample.FX.Huisartsen.HuisartsenOverzicht;
@@ -23,6 +24,8 @@ import java.net.URL;
 public class HomePage {
     @FXML
     private Button KlantenBtn;
+
+    private Context context = Context.getContext();
 
     //opzich zit hier veel code duplication in, maar vrijwel zinloos en niet mogelijk om dit kleiner te maken.
     public void gaNaarInvetarisOverzicht() throws IOException {

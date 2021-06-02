@@ -3,8 +3,10 @@ package sample.modals;
 import sample.Database.Context;
 import sample.Database.FileReader;
 import sample.Database.FileUpdater;
+import sample.modals.BehandelingHistory;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class BehandelList {
     private ArrayList<BehandelingHistory> behandelingen;
@@ -13,7 +15,7 @@ public class BehandelList {
     public BehandelList(String id){
         this.clientID = id;
         behandelingen = new ArrayList<>();
-        Context context = new Context();
+        Context context = Context.getContext();
         FileReader fileReader = new FileReader();
         ArrayList<String> data = fileReader.getFile("klanten/"+id+"/BehandelingLog.txt");
         //Hier worden de 2 gegeven in verwerkt

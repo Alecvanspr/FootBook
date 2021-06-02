@@ -68,8 +68,8 @@ public class EditKlant {
         nagelconfld.setText(context.getClients().getClients().get(id).nagelConditie);
         nagelAandfld.setText(context.getClients().getClients().get(id).nagelAandoening);
 
-        diabetisCheckBox.setSelected(context.getClients().getClients().get(id).diabetes);
-        ReumaCB.setSelected(context.getClients().getClients().get(id).reuma);
+        diabetisCheckBox.setSelected(context.getClients().getClients().get(id).diabetes!=null);
+        ReumaCB.setSelected(context.getClients().getClients().get(id).reuma!=null);
         soaCB.setSelected(context.getClients().getClients().get(id).soa);
         kankerCB.setSelected(context.getClients().getClients().get(id).kanker);
         elasKousCB.setSelected(context.getClients().getClients().get(id).kousen);

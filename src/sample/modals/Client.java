@@ -3,8 +3,11 @@ package sample.modals;
 import sample.Database.Context;
 import sample.Database.DateMaker;
 import sample.Database.FileReader;
+import sample.modals.ClientsExtentions.DiabetisInfo;
 import sample.modals.ClientsExtentions.KankerInfo;
+import sample.modals.ClientsExtentions.ReumaInfo;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -17,17 +20,13 @@ public abstract class Client extends Persoon{
     public Date geboortedatum;
     public String registratieNummer;
     public Huisarts huisarts;
-    public Boolean diabetes;
+    public DiabetisInfo diabetes;
     public Specialist diatusSpecialist;
-    public Boolean reuma;
+    public ReumaInfo reuma;
     public Specialist reumatoloog;
     public Boolean kanker;
     public KankerInfo kankerInfo;
-//    public Specialist oncoloog;
-//    public Boolean chemos;
-//    public String medicijnen;
-//    public Boolean uitzaaingen;
-//    public String terapien;
+    public Specialist oncoloog;
     public Boolean soa;
     public String soanaam;
     public String allergenen;
@@ -55,40 +54,43 @@ public abstract class Client extends Persoon{
         this.geboortedatum = DateMaker.maakDate(data.get(7));
         this.registratieNummer = data.get(8);
         this.huisarts = context.getHuisartsen().getArts(data.get(9));
-        this.diabetes = makeBoolean(data.get(10));
-        if(diabetes)
-        this.diatusSpecialist = context.getSpecialisten().getSpecialist(data.get(11));
-        this.reuma = makeBoolean(data.get(12));
-        if(reuma)
-        this.reumatoloog = context.getSpecialisten().getSpecialist(data.get(13));
-        this.kanker = makeBoolean(data.get(14));
-        if(kanker) {
-//            this.oncoloog = context.getSpecialisten().getSpecialist(data.get(15));
-//            this.chemos  = makeBoolean(data.get(16));
-//            this.medicijnen = data.get(17);
-//            this.uitzaaingen = makeBoolean(data.get(18));
-//            this.terapien = data.get(19);
+        if(Boolean.parseBoolean(data.get(10))) {
+            this.diatusSpecialist = context.getSpecialisten().getSpecialist(data.get(11));
+            this.diabetes = new DiabetisInfo();
         }
-        this.soa = makeBoolean(data.get(20));
+        if(Boolean.parseBoolean(data.get(12))){
+            this.reuma = new ReumaInfo();
+            this.reumatoloog = context.getSpecialisten().getSpecialist(data.get(13));
+        }
+        this.kanker = Boolean.parseBoolean(data.get(14));
+        if(kanker) {
+            this.oncoloog = context.getSpecialisten().getSpecialist(data.get(15));
+            kankerInfo = new KankerInfo(getSubArray(16,19,data));
+        }
+        this.soa = Boolean.parseBoolean(data.get(20));
         this.soanaam = data.get(21);
         this.allergenen = data.get(22);
-        this.kousen = makeBoolean(data.get(23));
+        this.kousen = Boolean.parseBoolean(data.get(23));
         this.voettype = data.get(24);
         this.orthopedischeAfwijkingen = data.get(25);
-        this.steunzolen = makeBoolean(data.get(26));
-        this.confectieSchoenen = makeBoolean(data.get(27));
-        this.orthopedischeSchoenen = makeBoolean(data.get(28));
+        this.steunzolen = Boolean.parseBoolean(data.get(26));
+        this.confectieSchoenen = Boolean.parseBoolean(data.get(27));
+        this.orthopedischeSchoenen = Boolean.parseBoolean(data.get(28));
         this.huidconditie = data.get(29);
         this.huidaandoening = data.get(30);
         this.nagelConditie = data.get(31);
         //this.nagelAandoening = data.get(32);
         this.behandelList = new BehandelList(id);
     }
-    public Boolean makeBoolean(String bool){
-        if(bool.equalsIgnoreCase("true"))
-            return true;
-        return false;
+
+    public ArrayList<String> getSubArray(int begin,int end,ArrayList<String>data){
+        ArrayList<String> ret = new ArrayList<>();
+        for(int i = begin; i<=end;i++){
+            ret.add(data.get(i));
+        }
+        return ret;
     }
+
 
     public double travelDistance(){
         FileReader reader = new FileReader();
@@ -100,7 +102,7 @@ public abstract class Client extends Persoon{
         return 0.0;
     }
     public boolean allowScreening(){
-        if((kanker&&reuma)|| diabetes){
+        if((kanker&&reuma!=null)|| diabetes!=null){
             return true;
         }
         return false;

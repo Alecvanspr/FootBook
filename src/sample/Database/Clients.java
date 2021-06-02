@@ -1,6 +1,9 @@
 package sample.Database;
 
 import sample.modals.Client;
+import sample.modals.ClientsExtentions.DiabetisInfo;
+import sample.modals.ClientsExtentions.KankerInfo;
+import sample.modals.ClientsExtentions.ReumaInfo;
 import sample.modals.Klant;
 
 import java.util.ArrayList;
@@ -80,19 +83,18 @@ public class Clients {
                 clients.get(i).geboortedatum = DateMaker.maakDate(data.get(7));
                 clients.get(i).registratieNummer = data.get(8);
                 clients.get(i).huisarts = context.getHuisartsen().getArts(data.get(9));
-                clients.get(i).diabetes = Boolean.getBoolean(data.get(10));
-                if(clients.get(i).diabetes)
+                if(Boolean.parseBoolean(data.get(10))){
+                    clients.get(i).diabetes = new DiabetisInfo();
                     clients.get(i).diatusSpecialist = context.getSpecialisten().getSpecialist(data.get(11));
-                clients.get(i).reuma = Boolean.getBoolean(data.get(12));
-                if(clients.get(i).reuma)
+                }
+                if(Boolean.getBoolean(data.get(12))){
+                    clients.get(i).reuma = new ReumaInfo();
                     clients.get(i).reumatoloog = context.getSpecialisten().getSpecialist(data.get(13));
+                }
                 clients.get(i).kanker = Boolean.getBoolean(data.get(14));
-                if(clients.get(i).kanker) {//TODO dit
-//                    clients.get(i).oncoloog = context.getSpecialisten().getSpecialist(data.get(15));
-//                    clients.get(i).chemos  = Boolean.getBoolean(data.get(16));
-//                    clients.get(i).medicijnen = data.get(17);
-//                    clients.get(i).uitzaaingen = Boolean.getBoolean(data.get(18));
-//                    clients.get(i).terapien = data.get(19);
+                if(clients.get(i).kanker) {
+                    clients.get(i).kankerInfo = new KankerInfo(getKankerInfo(i,data)); //TODO zorgen dat dit ook werkt in de javaFX
+                    clients.get(i).oncoloog = context.getSpecialisten().getSpecialist(data.get(15));
                 }
                 clients.get(i).soa = Boolean.getBoolean(data.get(20));
                 clients.get(i).soanaam = data.get(21);
@@ -109,5 +111,13 @@ public class Clients {
                 //this.nagelAandoening = data.get(32);
             }
         }
+    }
+
+    private ArrayList<String> getKankerInfo(int id,ArrayList<String> data){
+        ArrayList<String> ret = new ArrayList<>();
+        ret.add(Boolean.parseBoolean(data.get(16))+"");
+        ret.add(data.get(17));
+        ret.add(Boolean.parseBoolean(data.get(18))+"");
+        return ret;
     }
 }

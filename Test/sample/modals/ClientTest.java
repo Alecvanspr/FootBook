@@ -31,10 +31,6 @@ public class ClientTest {
         //Assert.assertTrue(client.getBehandelingGeschiedenis().get(2).type.equals("een ander Testgeval"));
     }
     @org.junit.Test
-    public void getScreenings(){
-
-    }
-    @org.junit.Test
     public void allowScreeningTest(){
         Client client = context.getClients().getClient("1");
         Client diabeet = context.getClients().getClient("2");
