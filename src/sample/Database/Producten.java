@@ -12,7 +12,7 @@ public class Producten implements ContextClass {
     private static int MaxProducten;
 
     public Producten(){
-        MaxProducten = Integer.parseInt(UniqueNumber.getUniqueNumber("src/db/MaxProducten.txt"));
+        MaxProducten = Integer.parseInt(uniqueNumber.getUniqueNumber("src/db/MaxProducten.txt"));
         fillList();
     }
     public void fillList(){
@@ -32,9 +32,8 @@ public class Producten implements ContextClass {
     }
 
     public Product getFromFile(String id) {
-        FileReader r = new FileReader();
-        if(r.getFile("producten/"+id+".txt")!=null)
-            return new Product(r.getFile("producten/"+id+".txt"));
+        if(reader.getFile("producten/"+id+".txt")!=null)
+            return new Product(reader.getFile("producten/"+id+".txt"));
         return null;
     }
 
@@ -69,11 +68,10 @@ public class Producten implements ContextClass {
     }
 
     public void editProducten(ArrayList<String> data,int pos){
-        FileUpdater updater = new FileUpdater();
         updateQuantity(pos,data.get(6));
         opslag.get(pos).aantal = Integer.parseInt(data.get(6));
         data.remove(6);
-        updater.updateFile("Producten",data);
+        fileUpdater.updateFile("Producten",data);
     }
     private void updateQuantity(int id,String newAantal){
         ArrayList<String> quantiteitData = new FileReader().getFile("producten/quantiteit.txt");

@@ -10,7 +10,7 @@ public class Behandelingen implements ContextClass{
     private static int MaxBehandelingen;
 
     public Behandelingen(){
-        MaxBehandelingen = Integer.parseInt(UniqueNumber.getUniqueNumber("src/db/MaxBehandelingen.txt"));
+        MaxBehandelingen = Integer.parseInt(uniqueNumber.getUniqueNumber("src/db/MaxBehandelingen.txt"));
         fillList();
     }
     @Override
@@ -25,9 +25,8 @@ public class Behandelingen implements ContextClass{
     }
     @Override
     public Behandeling getFromFile(String id){
-        FileReader r = new FileReader();
-        if(r.getFile("behandelingen/"+id+".txt")!=null)
-            return new Behandeling(r.getFile("behandelingen/"+id+".txt"));
+        if(reader.getFile("behandelingen/"+id+".txt")!=null)
+            return new Behandeling(reader.getFile("behandelingen/"+id+".txt"));
         return null;
     }
 
@@ -54,8 +53,7 @@ public class Behandelingen implements ContextClass{
 
     @Override
     public void create(ArrayList<String> data) {
-        CreateFile createFile = new CreateFile();
-        String id = UniqueNumber.getUniqueNumber("src/db/MaxBehandelingen.txt");
+        String id = uniqueNumber.getUniqueNumber("src/db/MaxBehandelingen.txt");
         createFile.CreateNewFile("Behandelingen", data.toArray());
         behandelingen.add(new Behandeling(new FileReader().getFile("behandelingen/"+id+".txt")));
     }

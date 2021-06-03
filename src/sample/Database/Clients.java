@@ -1,6 +1,5 @@
 package sample.Database;
 
-import sample.Database.*;
 import sample.modals.Client;
 import sample.modals.ClientsExtentions.*;
 import sample.modals.Klant;
@@ -13,7 +12,7 @@ public class Clients implements ContextClass {
     private static int MaxKlanten;
 
     public Clients(){
-        MaxKlanten = Integer.parseInt(UniqueNumber.getUniqueNumber("src/db/MaxKlanten.txt"));
+        MaxKlanten = Integer.parseInt(uniqueNumber.getUniqueNumber("src/db/MaxKlanten.txt"));
         fillList();
     }
     public void fillList(){
@@ -36,9 +35,8 @@ public class Clients implements ContextClass {
     }
     //deze methode is verantwoordelijk voor het ophalen van het txt bestand en het veranderen hiervan in een arraylist.
     public Klant getFromFile(String id) {
-        FileReader r = new FileReader();
-        if (r.getFile("klanten/" + id + "/" + id + ".txt") != null)
-            return new Klant(r.getFile("klanten/" + id + "/" + id + ".txt"));
+        if (reader.getFile("klanten/" + id + "/" + id + ".txt") != null)
+            return new Klant(reader.getFile("klanten/" + id + "/" + id + ".txt"));
         return null;
     }
 
@@ -58,7 +56,6 @@ public class Clients implements ContextClass {
 
     //hiermee wordt een nieuwe client aangemaakt
     public void create(ArrayList<String> data){
-        CreateFile createFile = new CreateFile();
         createFile.CreateNewFile("klanten",data.toArray());
         clients.add(new Klant(data));
     }
@@ -75,7 +72,6 @@ public class Clients implements ContextClass {
 
     //hiermee kan je een client bewerken.
     public void editClient(ArrayList<String> data){
-        FileUpdater fileUpdater = new FileUpdater();
         fileUpdater.updateFile("src/db/Klanten/"+data.get(0)+"/"+data.get(0)+".txt",data);
         changeClient(data);
     }

@@ -34,8 +34,6 @@ public abstract class Client extends Persoon{
     public VoetInfo voet;
 
     public Client(ArrayList<String> data){
-        FileReader r = new FileReader();
-        Context context = Context.getContext();
         this.id = data.get(0);
         this.naam = data.get(1);
         this.telefoonnr = data.get(2);

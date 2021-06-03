@@ -10,7 +10,7 @@ public class Specialisten implements ContextClass{
     private static int MaxSpecialisten;
 
     public Specialisten(){
-        MaxSpecialisten = Integer.parseInt(UniqueNumber.getUniqueNumber("src/db/MaxSpecialisten.txt"));
+        MaxSpecialisten = Integer.parseInt(uniqueNumber.getUniqueNumber("src/db/MaxSpecialisten.txt"));
         fillList();
     }
     public void fillList(){
@@ -31,9 +31,8 @@ public class Specialisten implements ContextClass{
         return null;
     }
     public Specialist getFromFile(String id){
-        FileReader r = new FileReader();
-        if(r.getFile("specialisten/"+id+".txt")!=null)
-            return new Specialist(r.getFile("specialisten/"+id+".txt"));
+        if(reader.getFile("specialisten/"+id+".txt")!=null)
+            return new Specialist(reader.getFile("specialisten/"+id+".txt"));
         return null;
     }
     public LinkedList<Specialist> getList() {
@@ -50,12 +49,10 @@ public class Specialisten implements ContextClass{
     }
 
     public void create(ArrayList<String> data){
-        CreateFile createFile = new CreateFile();
         createFile.CreateNewFile("Specialisten", data.toArray());
         specialisten.add(new Specialist(data));
     }
     public void editSpecialist(ArrayList<String> data){
-        FileUpdater fileUpdater = new FileUpdater();
         fileUpdater.updateFile("src/db/Specialisten/"+data.get(0)+".txt",data);
         changeSpecialist(data.get(0),data);
     }

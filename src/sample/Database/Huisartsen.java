@@ -10,7 +10,7 @@ public class Huisartsen implements ContextClass {
     private static int MaxArtsen;
 
     public Huisartsen(){
-        MaxArtsen = Integer.parseInt(UniqueNumber.getUniqueNumber("src/db/MaxHuisartsen.txt"));
+        MaxArtsen = Integer.parseInt(uniqueNumber.getUniqueNumber("src/db/MaxHuisartsen.txt"));
         fillList();
     }
     public void fillList(){
@@ -39,13 +39,11 @@ public class Huisartsen implements ContextClass {
     }
     //dit haald de bestanden uit het bestand zelf
     public Huisarts getFromFile(String id){
-        FileReader r = new FileReader();
-        if(r.getFile("huisartsen/"+id+".txt")!=null)
-            return new Huisarts(r.getFile("huisartsen/" +id+".txt"));
+        if(reader.getFile("huisartsen/"+id+".txt")!=null)
+            return new Huisarts(reader.getFile("huisartsen/" +id+".txt"));
         return null;
     }
     public void create(ArrayList<String> data){
-        CreateFile createFile = new CreateFile();
         createFile.CreateNewFile("Huisartsen",data.toArray());
         Huisartsen.add(new Huisarts(data));
     }
@@ -61,7 +59,6 @@ public class Huisartsen implements ContextClass {
         return  ret;
     }
     public void editHuisarts(ArrayList data){
-        FileUpdater fileUpdater = new FileUpdater();
         fileUpdater.updateFile("src/db/Huisartsen/"+data.get(0)+".txt",data);
         changeHuisarts(data);
     }
