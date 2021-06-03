@@ -3,10 +3,8 @@ package sample.modals;
 import sample.Database.Context;
 import sample.Database.DateMaker;
 import sample.Database.FileReader;
-import sample.modals.ClientsExtentions.DiabetisInfo;
-import sample.modals.ClientsExtentions.KankerInfo;
-import sample.modals.ClientsExtentions.ReumaInfo;
-import sample.modals.ClientsExtentions.SoaInfo;
+import sample.Database.SubStringMaker;
+import sample.modals.ClientsExtentions.*;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -28,17 +26,12 @@ public abstract class Client extends Persoon{
     public KankerInfo kankerInfo;
     public Specialist oncoloog;
     public SoaInfo soa;
-    public String allergenen;
-    public Boolean kousen;
-    public String voettype;
-    public String orthopedischeAfwijkingen;
-    public Boolean steunzolen;
-    public Boolean confectieSchoenen;
-    public Boolean orthopedischeSchoenen;
-    public String huidconditie;
-    public String huidaandoening;
-    public String nagelConditie;
-    public String nagelAandoening;
+    public NagelInfo nagel;
+    public HuidInfo huid;
+    public SchoenInfo schoen;
+    public AllergieInfo allergenen;
+    public SteunInfo steun;
+    public VoetInfo voet;
 
     public Client(ArrayList<String> data){
         FileReader r = new FileReader();
@@ -64,32 +57,23 @@ public abstract class Client extends Persoon{
         this.kanker = Boolean.parseBoolean(data.get(14));
         if(kanker) {
             this.oncoloog = Context.getSpecialisten().get(data.get(15));
-            System.out.println(oncoloog.naam);
-            kankerInfo = new KankerInfo(getSubArray(16,19,data));
+            kankerInfo = new KankerInfo(SubStringMaker.sub(16,19,data));
         }
         if(Boolean.parseBoolean(data.get(20))) {
             this.soa= new SoaInfo(data.get(21));
         }
-        this.allergenen = data.get(22);
-        this.kousen = Boolean.parseBoolean(data.get(23));
-        this.voettype = data.get(24);
-        this.orthopedischeAfwijkingen = data.get(25);
-        this.steunzolen = Boolean.parseBoolean(data.get(26));
-        this.confectieSchoenen = Boolean.parseBoolean(data.get(27));
-        this.orthopedischeSchoenen = Boolean.parseBoolean(data.get(28));
-        this.huidconditie = data.get(29);
-        this.huidaandoening = data.get(30);
-        this.nagelConditie = data.get(31);
-        //this.nagelAandoening = data.get(32);
-        this.behandelList = new BehandelList(id);
-    }
-
-    private ArrayList<String> getSubArray(int begin,int end,ArrayList<String>data){
-        ArrayList<String> ret = new ArrayList<>();
-        for(int i = begin; i<=end;i++){
-            ret.add(data.get(i));
+        this.allergenen = new AllergieInfo(data.get(22));
+        if(data.get(31).equals(" ")){
+            nagel = new NagelInfo(data.get(31),data.get(32));
         }
-        return ret;
+        if(Boolean.parseBoolean(data.get(23))&&Boolean.parseBoolean(data.get(26)))
+            steun = new SteunInfo(Boolean.parseBoolean(data.get(23)), data.get(25), Boolean.parseBoolean(data.get(26)));
+        this.voet = new VoetInfo(data.get(24));
+        this.schoen = new SchoenInfo(Boolean.parseBoolean(data.get(27)),Boolean.parseBoolean(data.get(28)));
+        if(data.get(29).equals("")&& data.get(30).equals("")){
+            huid = new HuidInfo(data.get(29),data.get(30));
+        }
+        this.behandelList = new BehandelList(id);
     }
 
     public double travelDistance(){

@@ -56,7 +56,7 @@ public class Behandelingen implements ContextClass{
     public void create(ArrayList<String> data) {
         CreateFile createFile = new CreateFile();
         String id = UniqueNumber.getUniqueNumber("src/db/MaxBehandelingen.txt");
-        createFile.CreatePersoon("Behandelingen", data.toArray());
+        createFile.CreateNewFile("Behandelingen", data.toArray());
         behandelingen.add(new Behandeling(new FileReader().getFile("behandelingen/"+id+".txt")));
     }
 

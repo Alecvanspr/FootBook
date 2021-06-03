@@ -2,7 +2,7 @@ package sample.modals.ClientsExtentions;
 
 import java.util.ArrayList;
 
-public class KankerInfo {
+public class KankerInfo extends ClientInfo{
     boolean uitzaaingen;
     boolean medicijnen;
     boolean chemos;

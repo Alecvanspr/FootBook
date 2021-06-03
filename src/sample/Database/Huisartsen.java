@@ -46,7 +46,7 @@ public class Huisartsen implements ContextClass {
     }
     public void create(ArrayList<String> data){
         CreateFile createFile = new CreateFile();
-        createFile.CreatePersoon("Huisartsen",data.toArray());
+        createFile.CreateNewFile("Huisartsen",data.toArray());
         Huisartsen.add(new Huisarts(data));
     }
     public LinkedList<Huisarts> getList() {

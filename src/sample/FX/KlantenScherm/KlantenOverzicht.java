@@ -17,6 +17,7 @@ import sample.Database.Context;
 import sample.FX.Huisartsen.HuisartsenOverzicht;
 import sample.FX.Specialisten.SpecialistenOverzicht;
 import sample.modals.Client;
+import sample.modals.ClientsExtentions.ClientInfo;
 
 import java.io.File;
 import java.io.IOException;
@@ -30,7 +31,7 @@ public class KlantenOverzicht {
     @FXML
     private AnchorPane klantenOverzicht;
     @FXML
-    private Label naamlbl,straatlbl,postcodelbl,plaatslbl,telefoonlbl,geboortedatumlbl,registratienrlbl,huisartslbl,KankerInfo,DiabetisInfo,SoaInfo,ReumaInfo;
+    private Label naamlbl,straatlbl,postcodelbl,plaatslbl,telefoonlbl,geboortedatumlbl,registratienrlbl,huisartslbl,KankerInfo,DiabetisInfo,SoaInfo,ReumaInfo,NagelInfo,HuidInfo,SchoenInfo,Allergenen,Steun,VoetInfo;
     @FXML
     private Button zoekBtn, edit,behandelingenBtn, goViewHuisarts, Reumatoloog,oncoloog,diabetiste;
     @FXML
@@ -112,15 +113,14 @@ public class KlantenOverzicht {
                     ReumaInfo.setText("");
                     Reumatoloog.setVisible(false);
                 }
+                setInfo(clients.get(gebruikerID).soa,SoaInfo);
+                setInfo(clients.get(gebruikerID).nagel,NagelInfo);
+                setInfo(clients.get(gebruikerID).huid,HuidInfo);
+                setInfo(clients.get(gebruikerID).schoen,SchoenInfo);
+                setInfo(clients.get(gebruikerID).allergenen,Allergenen);
+                setInfo(clients.get(gebruikerID).steun,Steun);
+                setInfo(clients.get(gebruikerID).voet,VoetInfo);
 
-                if(clients.get(gebruikerID).soa!=null) {
-                    SoaInfo.setVisible(true);
-                    SoaInfo.setText(clients.get(gebruikerID).soa.getInfo());
-                    SoaInfo.setLayoutY(extraInfoHeight);
-                    extraInfoHeight+=50;
-                }else{
-                    SoaInfo.setText("");
-                }
 
                 edit.setOnAction(Event->{
                     try {
@@ -138,6 +138,16 @@ public class KlantenOverzicht {
                 });
             });
             klantenOverzicht.getChildren().addAll(rectangle,id,naam);
+        }
+    }
+    private void setInfo(ClientInfo info, Label label){
+        if(info!=null) {
+            label.setVisible(true);
+            label.setText(info.getInfo());
+            label.setLayoutY(extraInfoHeight);
+            extraInfoHeight+=50;
+        }else{
+            label.setText("");
         }
     }
     private void makeSpecialistButton(Button button,int id){

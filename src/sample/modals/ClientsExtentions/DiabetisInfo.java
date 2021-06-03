@@ -2,7 +2,7 @@ package sample.modals.ClientsExtentions;
 
 import java.util.ArrayList;
 
-public class DiabetisInfo {
+public class DiabetisInfo extends ClientInfo {
 
     public DiabetisInfo(){
     }

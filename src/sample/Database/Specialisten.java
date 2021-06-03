@@ -51,7 +51,7 @@ public class Specialisten implements ContextClass{
 
     public void create(ArrayList<String> data){
         CreateFile createFile = new CreateFile();
-        createFile.CreatePersoon("Specialisten", data.toArray());
+        createFile.CreateNewFile("Specialisten", data.toArray());
         specialisten.add(new Specialist(data));
     }
     public void editSpecialist(ArrayList<String> data){

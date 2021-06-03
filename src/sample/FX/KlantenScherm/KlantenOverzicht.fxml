@@ -38,13 +38,19 @@
             <Button fx:id="goViewHuisarts" layoutX="375.0" layoutY="146.0" mnemonicParsing="false" text="Meer informatie" />
             <Label fx:id="huisartslbl" layoutX="109.0" layoutY="150.0" text="Label" />
             <Label layoutX="28.0" layoutY="200.0" text="overige Informatie" />
-            <Label fx:id="KankerInfo" visible="false" layoutX="28.0" layoutY="230.0" text="Label" />
-            <Label fx:id="DiabetisInfo" visible="false" layoutX="28.0" layoutY="280.0" text="Label" />
-            <Label fx:id="ReumaInfo" visible="false" layoutX="28.0" layoutY="330.0" text="Label" />
-            <Label fx:id="SoaInfo" visible="false" layoutX="28.0" layoutY="380.0" text="Label" />
-            <Button fx:id="oncoloog" visible="false" layoutX="375.0" layoutY="226.0" mnemonicParsing="false" text="Oncoloog" />
-            <Button fx:id="diabetiste" visible="false" layoutX="375.0" layoutY="285.0" mnemonicParsing="false" text="Diabetiste" />
-            <Button fx:id="Reumatoloog" visible="false" layoutX="375.0" layoutY="326.0" mnemonicParsing="false" text="Reumatoloog" />
+            <Label fx:id="KankerInfo" layoutX="28.0" layoutY="230.0" text="Label" visible="false" />
+            <Label fx:id="DiabetisInfo" layoutX="28.0" layoutY="280.0" text="Label" visible="false" />
+            <Label fx:id="ReumaInfo" layoutX="28.0" layoutY="330.0" text="Label" visible="false" />
+            <Label fx:id="SoaInfo" layoutX="28.0" layoutY="380.0" text="Label" visible="false" />
+            <Button fx:id="oncoloog" layoutX="375.0" layoutY="226.0" mnemonicParsing="false" text="Oncoloog" visible="false" />
+            <Button fx:id="diabetiste" layoutX="375.0" layoutY="285.0" mnemonicParsing="false" text="Diabetiste" visible="false" />
+            <Button fx:id="Reumatoloog" layoutX="375.0" layoutY="326.0" mnemonicParsing="false" text="Reumatoloog" visible="false" />
+            <Label fx:id="NagelInfo" layoutX="42.0" layoutY="339.0" text="Label" visible="false"/>
+            <Label fx:id="HuidInfo" layoutX="42.0" layoutY="372.0" text="Label" visible="false"/>
+            <Label fx:id="SchoenInfo" layoutX="42.0" layoutY="410.0" text="Label" visible="false"/>
+            <Label fx:id="Allergenen" layoutX="42.0" layoutY="440.0" text="Label" visible="false"/>
+            <Label fx:id="Steun" layoutX="42.0" layoutY="440.0" text="Label" visible="false"/>
+            <Label fx:id="VoetInfo" layoutX="42.0" layoutY="440.0" text="Label" visible="false"/>
          </children>
       </AnchorPane>
       <Label layoutX="24.0" layoutY="123.0" text="Naam" />

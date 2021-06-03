@@ -1,16 +1,14 @@
 package sample.Database;
 
+import sample.Database.*;
 import sample.modals.Client;
-import sample.modals.ClientsExtentions.DiabetisInfo;
-import sample.modals.ClientsExtentions.KankerInfo;
-import sample.modals.ClientsExtentions.ReumaInfo;
-import sample.modals.ClientsExtentions.SoaInfo;
+import sample.modals.ClientsExtentions.*;
 import sample.modals.Klant;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-public class Clients implements ContextClass{
+public class Clients implements ContextClass {
     private static LinkedList<Client> clients;
     private static int MaxKlanten;
 
@@ -61,7 +59,7 @@ public class Clients implements ContextClass{
     //hiermee wordt een nieuwe client aangemaakt
     public void create(ArrayList<String> data){
         CreateFile createFile = new CreateFile();
-        createFile.CreatePersoon("klanten",data.toArray());
+        createFile.CreateNewFile("klanten",data.toArray());
         clients.add(new Klant(data));
     }
 
@@ -111,17 +109,19 @@ public class Clients implements ContextClass{
                 if(Boolean.parseBoolean(data.get(20))){
                     clients.get(i).soa = new SoaInfo(data.get(21));
                 }
-                clients.get(i).allergenen = data.get(22);
-                clients.get(i).kousen = Boolean.getBoolean(data.get(23));
-                clients.get(i).voettype = data.get(24);
-                clients.get(i).orthopedischeAfwijkingen = data.get(25);
-                clients.get(i).steunzolen = Boolean.getBoolean(data.get(26));
-                clients.get(i).confectieSchoenen = Boolean.getBoolean(data.get(27));
-                clients.get(i).orthopedischeSchoenen = Boolean.getBoolean(data.get(28));
-                clients.get(i).huidconditie = data.get(29);
-                clients.get(i).huidaandoening = data.get(30);
-                clients.get(i).nagelConditie = data.get(31);
-                //this.nagelAandoening = data.get(32);
+                clients.get(i).allergenen = new AllergieInfo(data.get(22));
+                if(Boolean.getBoolean(data.get(23))||Boolean.parseBoolean(data.get(26))){
+                    clients.get(i).steun = new SteunInfo(Boolean.parseBoolean(data.get(23)),data.get(25),Boolean.parseBoolean(data.get(26)));
+                }
+                clients.get(i).voet.voettype = data.get(24);
+                if(Boolean.parseBoolean(data.get(27))||Boolean.parseBoolean(data.get(28))){
+                    clients.get(i).schoen = new SchoenInfo(Boolean.getBoolean(data.get(27)), Boolean.getBoolean(data.get(28)));
+                }
+                if(!(data.get(29).equals(""))||!(data.get(30).equals(""))){
+                    clients.get(i).huid = new HuidInfo(data.get(29),data.get(30));
+                }
+                if(!data.get(31).equals(""))
+                    clients.get(i).nagel = new NagelInfo(data.get(31),data.get(32));
             }
         }
     }

@@ -61,22 +61,29 @@ public class EditKlant {
         emailfld.setText(context.getClients().getClients().get(id).email);
         SoaTF.setText(context.getClients().getClients().get(id).soa+"");
         huisartsTF.setText(context.getClients().getClients().get(id).huisarts.naam);
-        Voettypetld.setText(context.getClients().getClients().get(id).voettype);
-        orthAffld.setText(context.getClients().getClients().get(id).orthopedischeAfwijkingen);
-        huidconfld.setText(context.getClients().getClients().get(id).huidconditie);
-        huidAandfld.setText(context.getClients().getClients().get(id).huidaandoening);
-        nagelconfld.setText(context.getClients().getClients().get(id).nagelConditie);
-        nagelAandfld.setText(context.getClients().getClients().get(id).nagelAandoening);
-
+        Voettypetld.setText(context.getClients().getClients().get(id).voet.voettype);
+        if(context.getClients().getClients().get(id).steun!=null) {
+            orthAffld.setText(context.getClients().getClients().get(id).steun.orthopedischeAfwijkingen);
+            elasKousCB.setSelected(context.getClients().getClients().get(id).steun.kousen);
+            steunZolCB.setSelected(context.getClients().getClients().get(id).steun.steunzolen);
+        }
+        if(context.getClients().getClients().get(id).huid!=null) {
+            huidconfld.setText(context.getClients().getClients().get(id).huid.huidconditie);
+            huidAandfld.setText(context.getClients().getClients().get(id).huid.huidaandoening);
+        }
+        if(context.getClients().getClients().get(id).nagel!=null) {
+            nagelconfld.setText(context.getClients().getClients().get(id).nagel.nagelConditie);
+            nagelAandfld.setText(context.getClients().getClients().get(id).nagel.nagelAandoening);
+        }
         diabetisCheckBox.setSelected(context.getClients().getClients().get(id).diabetes!=null);
         ReumaCB.setSelected(context.getClients().getClients().get(id).reuma!=null);
         soaCB.setSelected(context.getClients().getClients().get(id).soa!=null);
         kankerCB.setSelected(context.getClients().getClients().get(id).kanker);
-        elasKousCB.setSelected(context.getClients().getClients().get(id).kousen);
-        steunZolCB.setSelected(context.getClients().getClients().get(id).steunzolen);
-        confZolCB.setSelected(context.getClients().getClients().get(id).confectieSchoenen);
-        OrthSchoenCB.setSelected(context.getClients().getClients().get(id).orthopedischeSchoenen);
 
+        if(context.getClients().getClients().get(id).schoen!=null) {
+            confZolCB.setSelected(context.getClients().getClients().get(id).schoen.confectieSchoenen);
+            OrthSchoenCB.setSelected(context.getClients().getClients().get(id).schoen.orthopedischeSchoenen);
+        }
         loadVelden(id);
     }
     private void zoek(){
@@ -194,9 +201,9 @@ public class EditKlant {
         data.add(""+chemoCB.isSelected());//chemos
         data.add(medicijnenCB.isSelected()+"");//medicijnen
         data.add(""+uitzaaiingCB.isSelected());//uitzaaiingen
-        data.add(checkleeg("leeg"));//terapiën
+        data.add(checkleeg("-"));//terapiën
         data.add(""+soaCB.isSelected());//soa
-        data.add(checkleeg("leeg"));//allergenen
+        data.add(checkleeg("-"));//allergenen
         data.add(""+elasKousCB.isSelected());//kousen
         data.add(checkleeg(Voettypetld.getText()));//voettype
         data.add(checkleeg(orthAffld.getText()));//orthopedische afwijkingen
@@ -221,11 +228,11 @@ public class EditKlant {
     public String checkleeg(String text){
         try {
             if (text.equals("")) {
-                return "geen";
+                return "-";
             }
             return text;
         }catch(NullPointerException nullPointerException){
-            return "Geen";
+            return "text";
         }
     }
     public void makeDiabetisVisable(){

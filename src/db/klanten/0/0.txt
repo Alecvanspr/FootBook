@@ -13,21 +13,21 @@ id
 false
 id
 true
-2
+1
 false
 false
 false
-leeg
+-
 false
-leeg
+-
+false
+Platvoet
+-
 false
 false
 false
-false
-false
-false
-Geen
-Geen
-Geen
-Geen
+Gezonde Huid
+-
+Goede Nagels
+-
 -

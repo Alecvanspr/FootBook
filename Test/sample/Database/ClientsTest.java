@@ -49,7 +49,7 @@ public class ClientsTest {
         String clientId = UniqueNumber.getUniqueNumber("src/db/MaxKlanten.txt");
         Assert.assertTrue(context.clients.get(clientId).naam.equals("Thea van der Meijer"));
         Assert.assertTrue(context.clients.get(clientId).postcode.equals("Poeldijk"));
-        c.removeFile("src/db/klanten/"+clientId+"/"+clientId+".txt");
+        new DeleteFile().removeFile("src/db/klanten/"+clientId+"/"+clientId+".txt");
     }
     @org.junit.Test
     public void SearchByNameTest(){

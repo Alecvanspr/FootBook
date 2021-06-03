@@ -14,7 +14,7 @@ public class CreateFile {
 
     }
     //Dit is voor het maken het vullen van een textbestand
-    public void CreatePersoon(String type, Object[] data) {
+    public void CreateNewFile(String type, Object[] data) {
         try {
             int UniqueNumber = sample.Database.UniqueNumber.getNewUniqueNumber(Pathmaker.getPath(type));
             String path = Pathmaker.createPath(type,UniqueNumber);
@@ -48,16 +48,6 @@ public class CreateFile {
             writer.close();
         }catch (IOException e){
             System.out.println("ERROR er gaat iets goed fout");
-        }
-    }
-
-    //dit is voor het vinden van de MaxFiles file.
-
-
-    public void removeFile(String path){
-        File file = new File(path);
-        if(file.delete()){
-            System.out.println(path+ " is no more");
         }
     }
 }
