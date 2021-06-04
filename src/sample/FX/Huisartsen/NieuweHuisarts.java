@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import sample.Database.Context;
+import sample.Database.ContextClasses.Context;
 
 import java.io.File;
 import java.io.IOException;

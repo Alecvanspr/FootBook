@@ -1,4 +1,4 @@
-package sample.Database;
+package sample.Database.ContextClasses;
 
 public class Context {
     private static Context context;

@@ -13,10 +13,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-import sample.Database.Context;
+import sample.Database.ContextClasses.Context;
 import sample.FX.Huisartsen.HuisartsenOverzicht;
 import sample.FX.Specialisten.SpecialistenOverzicht;
-import sample.modals.Client;
+import sample.modals.Personen.Client;
 import sample.modals.ClientsExtentions.ClientInfo;
 
 import java.io.File;

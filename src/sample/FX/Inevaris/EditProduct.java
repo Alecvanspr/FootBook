@@ -6,7 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import sample.Database.Context;
+import sample.Database.ContextClasses.Context;
 import sample.modals.Product;
 
 import java.io.File;

@@ -1,4 +1,4 @@
-package sample.modals;
+package sample.modals.Personen;
 
 public abstract class Persoon {
     public String id;

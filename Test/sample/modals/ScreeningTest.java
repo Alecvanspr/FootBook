@@ -2,7 +2,7 @@ package sample.modals;
 
 import org.junit.Assert;
 import org.junit.Test;
-import sample.Database.DateMaker;
+import sample.Database.Tools.DateMaker;
 
 import java.util.ArrayList;
 

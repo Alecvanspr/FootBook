@@ -1,8 +1,10 @@
-package sample.modals;
+package sample.modals.Personen;
+
+import sample.modals.Personen.Persoon;
 
 import java.util.ArrayList;
 
-public class Specialist extends Persoon{
+public class Specialist extends Persoon {
     public String ziekenhuis;
     public String specialiteit;
 

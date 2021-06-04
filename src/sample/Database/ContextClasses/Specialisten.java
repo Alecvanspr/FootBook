@@ -1,6 +1,6 @@
-package sample.Database;
+package sample.Database.ContextClasses;
 
-import sample.modals.Specialist;
+import sample.modals.Personen.Specialist;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

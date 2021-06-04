@@ -1,7 +1,7 @@
-package sample.modals;
+package sample.modals.Behandelingen;
 
-import sample.Database.Context;
-import sample.Database.DateMaker;
+import sample.Database.ContextClasses.Context;
+import sample.Database.Tools.DateMaker;
 
 import java.util.ArrayList;
 import java.util.Date;

@@ -1,4 +1,6 @@
-package sample.Database;
+package sample.Database.Managers;
+
+import sample.Database.Managers.FileReader;
 
 import java.io.File;
 

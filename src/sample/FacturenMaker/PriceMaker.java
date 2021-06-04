@@ -1,11 +1,10 @@
 package sample.FacturenMaker;
 
-import sample.Database.Context;
-import sample.modals.Behandeling;
-import sample.modals.Client;
+import sample.Database.ContextClasses.Context;
+import sample.modals.Behandelingen.Behandeling;
+import sample.modals.Personen.Client;
 import sample.modals.Product;
 
-import javax.lang.model.type.ArrayType;
 import java.util.ArrayList;
 
 public class PriceMaker {
@@ -18,11 +17,12 @@ public class PriceMaker {
     public PriceMaker(Client client){
         this.client = client;
     }
+
     public void addProduct(String id){
-        producten.add(context.getProducten().get(Integer.parseInt(id)));
+        producten.add(context.getProducten().get(id).product);
     }
     public void addBehandeling(String id){
-        behandelingen.add(context.getBehandeling(id));
+        behandelingen.add(context.behandelingen.get(id));
     }
 
     public double Vervoerskosten(){
@@ -38,10 +38,11 @@ public class PriceMaker {
             totaal = 10;
         }
         if(bijverkoopItem!=null){
-            totaal=totaal+ context.getProducten().get(Integer.parseInt(bijverkoopItem)).verkoopPrijs;
+            totaal=totaal+ context.getProducten().get(bijverkoopItem).product.verkoopPrijs;
         }
         if(typeBehandeling!=null){
-            totaal=totaal+ context.getBehandeling(typeBehandeling).kosten;
+            System.out.println(typeBehandeling);
+            totaal=totaal+ context.getBehandelingen().get(typeBehandeling).kosten;
         }
         totaal=totaal+Vervoerskosten();
         return totaal;

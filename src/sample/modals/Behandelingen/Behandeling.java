@@ -1,4 +1,4 @@
-package sample.modals;
+package sample.modals.Behandelingen;
 
 import java.util.ArrayList;
 

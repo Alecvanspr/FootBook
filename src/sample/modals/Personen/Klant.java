@@ -1,8 +1,10 @@
-package sample.modals;
+package sample.modals.Personen;
+
+import sample.modals.Personen.Client;
 
 import java.util.ArrayList;
 
-public class Klant extends Client{
+public class Klant extends Client {
 
     public Klant(ArrayList<String> data) {
         super(data);

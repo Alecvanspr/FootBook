@@ -1,4 +1,4 @@
-package sample.Database;
+package sample.Database.Tools;
 
 import java.util.Date;
 import java.util.GregorianCalendar;

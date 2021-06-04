@@ -1,8 +1,10 @@
-package sample.modals;
+package sample.modals.Personen;
+
+import sample.modals.Personen.Persoon;
 
 import java.util.ArrayList;
 
-public class Huisarts extends Persoon{
+public class Huisarts extends Persoon {
     public String huisartsenpost;
     public String website;
     public Huisarts(ArrayList<String> data){

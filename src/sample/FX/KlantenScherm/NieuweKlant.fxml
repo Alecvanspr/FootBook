@@ -33,10 +33,11 @@
 
       <Button fx:id="btnTerug" layoutX="14.0" layoutY="860.0" mnemonicParsing="false" onAction="#GaTerug" text="Terug" />
 
+
       <AnchorPane layoutX="14.0" layoutY="168.0" prefHeight="132.0" prefWidth="385.0">
          <children>
-            <CheckBox fx:id="diabetisCheckBox" layoutY="5.0" mnemonicParsing="false" onAction="#makeDiabetisVisable" text="Diabetus" />
-            <CheckBox fx:id="kankerCB" layoutY="33.0" mnemonicParsing="false" onAction="#makeKankerVisable" text="Kanker" />
+            <CheckBox fx:id="diabetisCheckBox" layoutY="5.0" mnemonicParsing="false" text="Diabetus" />
+            <CheckBox fx:id="kankerCB" layoutY="33.0" mnemonicParsing="false" text="Kanker" />
             <CheckBox fx:id="ReumaCB" layoutY="62.0" mnemonicParsing="false" text="Reuma" />
             <CheckBox fx:id="soaCB" layoutX="-1.0" layoutY="91.0" mnemonicParsing="false" onAction="#makeSoaVisable" text="SOA" />
             <TextField fx:id="SoaTF" layoutX="78.0" layoutY="87.0" promptText="Type soa" visible="false" />
@@ -44,7 +45,7 @@
             <TextField layoutX="78.0" layoutY="114.0" />
          </children>
       </AnchorPane>
-
+      <!--Dit is het laatste veld met de meeste checkdingen-->
       <AnchorPane layoutX="960.0" layoutY="496.0" prefHeight="341.0" prefWidth="450.0">
          <children>
             <Label fx:id="HuisartsLBL" layoutX="14.0" layoutY="9.0" text="Huisarts" />
@@ -69,7 +70,7 @@
          </children>
       </AnchorPane>
 
-      <AnchorPane fx:id="KanchorPane" layoutX="401.0" layoutY="14.0" prefHeight="342.0" prefWidth="427.0" visible="true">
+      <AnchorPane fx:id="KanchorPane" layoutX="455.0" layoutY="14.0" prefHeight="394.0" prefWidth="450.0" visible="true">
          <children>
             <Label layoutX="14.0" layoutY="5.0" text="Behandelmethode" />
             <CheckBox fx:id="chemoCB" layoutX="14.0" layoutY="33.0" mnemonicParsing="false" text="Chemos" />
@@ -77,27 +78,18 @@
             <CheckBox fx:id="medicijnenCB" layoutX="14.0" layoutY="90.0" mnemonicParsing="false" text="Medicijnen" />
             <Label layoutX="14.0" layoutY="125.0" text="Naam" />
             <Label layoutX="273.0" layoutY="117.0" text="Ziekenhuis" />
-         </children>
-      </AnchorPane>
-
-      <AnchorPane fx:id="" layoutX="401.0" layoutY="14.0" prefHeight="356.0" prefWidth="436.0" visible="true">
-         <children>
-            <Label layoutX="14.0" layoutY="5.0" text="Behandelmethode" />
-            <Label layoutX="14.0" layoutY="125.0" text="Naam" />
-            <Label layoutX="273.0" layoutY="117.0" text="Ziekenhuis" />
-            <ScrollPane layoutX="14.0" layoutY="143.0" prefHeight="250.0" prefWidth="375.0">
+            <ScrollPane layoutX="14.0" layoutY="143.0" prefHeight="244.0" prefWidth="419.0">
                <content>
                   <AnchorPane fx:id="oncoloogField" />
                </content>
             </ScrollPane>
-            <Label fx:id="oncolooglbl" layoutX="375.0" layoutY="6.0" text="" />
-            <Label fx:id="oncoloogidlbl" layoutX="375.0" layoutY="6.0" text="Label" visible="false"/>
          </children>
       </AnchorPane>
+      
 
       <Button layoutX="1426.0" layoutY="860.0" mnemonicParsing="false" onAction="#slaKlantOp" text="Sla op" />
       <Label fx:id="Errorlabel" layoutX="990.0" layoutY="834.0" text="Velden zijn leeg" textFill="RED" visible="false" />
-
+      <!--Dit is het huisartsen veld-->
       <AnchorPane layoutX="960.0" layoutY="185.0" prefHeight="302.0" prefWidth="386.0">
          <children>
             <TextField fx:id="zoekField" layoutX="4.0" layoutY="16.0" onAction="#loadHuisartsen" />
@@ -112,7 +104,8 @@
          </children>
       </AnchorPane>
 
-      <AnchorPane layoutX="419.0" layoutY="426.0" prefHeight="342.0" prefWidth="400.0">
+      <!--Dit is het diabetis veld-->
+      <AnchorPane layoutX="463.0" layoutY="426.0" prefHeight="342.0" prefWidth="450.0">
          <children>
             <ScrollPane layoutX="23.0" layoutY="59.0" prefHeight="244.0" prefWidth="354.0">
                <content>
@@ -126,6 +119,7 @@
             <Label fx:id="diabetistelidbl" layoutX="357.0" layoutY="5.0" text="id" visible="false" />
          </children>
       </AnchorPane>
+      <!--Dit is het diabetisveld-->
       <AnchorPane layoutX="25.0" layoutY="423.0" prefHeight="309.0" prefWidth="386.0">
          <children>
             <ScrollPane layoutX="16.0" layoutY="66.0" prefHeight="244.0" prefWidth="354.0">

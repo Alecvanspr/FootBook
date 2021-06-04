@@ -1,6 +1,6 @@
-package sample.Database;
+package sample.Database.ContextClasses;
 
-import sun.management.counter.Units;
+import sample.Database.Managers.Pathmaker;
 
 import java.io.*;
 
@@ -16,7 +16,7 @@ public class CreateFile {
     //Dit is voor het maken het vullen van een textbestand
     public void CreateNewFile(String type, Object[] data) {
         try {
-            int UniqueNumber = sample.Database.UniqueNumber.getNewUniqueNumber(Pathmaker.getPath(type));
+            int UniqueNumber = sample.Database.Managers.UniqueNumber.getNewUniqueNumber(Pathmaker.getPath(type));
             String path = Pathmaker.createPath(type,UniqueNumber);
             File nieuwBestand = new File(path);
             if (nieuwBestand.createNewFile()) {

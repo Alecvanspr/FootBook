@@ -2,6 +2,8 @@ package sample.Database;
 
 import org.junit.Assert;
 import org.junit.Test;
+import sample.Database.Managers.FileUpdater;
+import sample.Database.Managers.UniqueNumber;
 
 import java.util.ArrayList;
 
@@ -20,7 +22,7 @@ public class UniqueNumberTest {
 */ 
 @Test
 public void testGetUniqueNumber() throws Exception {
-    Assert.assertEquals("1",UniqueNumber.getUniqueNumber("src/db/MaxTest.txt"));
+    Assert.assertEquals("1", UniqueNumber.getUniqueNumber("src/db/MaxTest.txt"));
     clearTestFile();
 }
 

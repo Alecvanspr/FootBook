@@ -1,5 +1,7 @@
-package sample.Database;
+package sample.Database.ContextClasses;
 
+import sample.Database.Managers.FileReader;
+import sample.Database.Managers.FileUpdater;
 import sample.modals.Voorraad;
 import sample.modals.Product;
 

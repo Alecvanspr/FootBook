@@ -1,9 +1,12 @@
 package sample.Database;
 
 import org.junit.Assert;
-import sample.modals.Client;
-import sample.modals.Huisarts;
-import sample.modals.Specialist;
+import sample.Database.ContextClasses.Context;
+import sample.Database.ContextClasses.CreateFile;
+import sample.Database.Managers.FileReader;
+import sample.modals.Personen.Client;
+import sample.modals.Personen.Huisarts;
+import sample.modals.Personen.Specialist;
 
 public class ContextTest {
     //hiermee wordt de database opgeroepen en kan je met de huidige database testen

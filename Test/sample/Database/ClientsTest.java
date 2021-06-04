@@ -1,7 +1,11 @@
 package sample.Database;
 
 import org.junit.Assert;
-import sample.modals.Client;
+import sample.Database.ContextClasses.Context;
+import sample.Database.ContextClasses.CreateFile;
+import sample.Database.Managers.DeleteFile;
+import sample.Database.Managers.UniqueNumber;
+import sample.modals.Personen.Client;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

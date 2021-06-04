@@ -2,6 +2,7 @@ package sample.Database;
 
 import org.junit.Assert;
 import org.junit.Test;
+import sample.Database.Tools.DateMaker;
 
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -10,7 +11,7 @@ public class DateMakerTest {
     @Test
     public void maakDate(){
         Date date = new GregorianCalendar(2021,4,29).getTime();
-        Assert.assertEquals(date,DateMaker.maakDate("29-05-2021"));
+        Assert.assertEquals(date, DateMaker.maakDate("29-05-2021"));
     }
     @Test
     public void maakDateString(){

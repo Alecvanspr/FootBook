@@ -2,7 +2,9 @@ package sample.Database;
 
 import org.junit.Assert;
 import org.junit.Test;
-import sample.modals.Behandeling;
+import sample.Database.ContextClasses.Behandelingen;
+import sample.Database.Managers.UniqueNumber;
+import sample.modals.Behandelingen.Behandeling;
 
 import java.util.ArrayList;
 

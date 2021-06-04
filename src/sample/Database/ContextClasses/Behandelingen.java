@@ -1,6 +1,7 @@
-package sample.Database;
+package sample.Database.ContextClasses;
 
-import sample.modals.Behandeling;
+import sample.Database.Managers.FileReader;
+import sample.modals.Behandelingen.Behandeling;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

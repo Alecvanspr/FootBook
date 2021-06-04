@@ -8,9 +8,9 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import sample.Database.Context;
-import sample.Database.FileUpdater;
-import sample.modals.BehandelingHistory;
+import sample.Database.ContextClasses.Context;
+import sample.Database.Managers.FileUpdater;
+import sample.modals.Behandelingen.BehandelingHistory;
 
 import java.io.File;
 import java.io.IOException;

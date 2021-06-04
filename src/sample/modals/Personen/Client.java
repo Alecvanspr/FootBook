@@ -1,9 +1,10 @@
-package sample.modals;
+package sample.modals.Personen;
 
-import sample.Database.Context;
-import sample.Database.DateMaker;
-import sample.Database.FileReader;
-import sample.Database.SubStringMaker;
+import sample.Database.ContextClasses.Context;
+import sample.Database.Tools.DateMaker;
+import sample.Database.Managers.FileReader;
+import sample.Database.Tools.SubStringMaker;
+import sample.modals.Behandelingen.BehandelList;
 import sample.modals.ClientsExtentions.*;
 
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ import java.util.Date;
 //Getbahndelgeschiedenis
 //makeDate
 
-public abstract class Client extends Persoon{
+public abstract class Client extends Persoon {
     public BehandelList behandelList;
     public Date geboortedatum;
     public String registratieNummer;

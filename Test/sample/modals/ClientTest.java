@@ -1,8 +1,9 @@
 package sample.modals;
 
 import org.junit.Assert;
-import sample.Database.Context;
-import sample.Database.DateMaker;
+import sample.Database.ContextClasses.Context;
+import sample.Database.Tools.DateMaker;
+import sample.modals.Personen.Client;
 
 import java.util.*;
 

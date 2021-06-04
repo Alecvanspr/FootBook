@@ -1,8 +1,10 @@
-package sample.Database;
+package sample.Database.ContextClasses;
 
-import sample.modals.Client;
+import sample.Database.Tools.DateMaker;
+import sample.Database.Tools.SubStringMaker;
+import sample.modals.Personen.Client;
 import sample.modals.ClientsExtentions.*;
-import sample.modals.Klant;
+import sample.modals.Personen.Klant;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

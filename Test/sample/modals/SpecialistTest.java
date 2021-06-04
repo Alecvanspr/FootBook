@@ -2,6 +2,7 @@ package sample.modals;
 
 import org.junit.Assert;
 import org.junit.Test;
+import sample.modals.Personen.Specialist;
 
 import java.util.ArrayList;
 

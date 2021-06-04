@@ -5,20 +5,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import sample.Database.Context;
-import sample.Database.Huisartsen;
+import sample.Database.ContextClasses.Context;
 import sample.FX.Behandelingen.BehandelingsOverzicht;
 import sample.FX.Huisartsen.HuisartsenOverzicht;
 import sample.FX.Inevaris.Invetaris;
 import sample.FX.KlantenScherm.KlantenOverzicht;
 import sample.FX.Specialisten.SpecialistenOverzicht;
 
-import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 public class HomePage {

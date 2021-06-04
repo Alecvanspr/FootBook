@@ -1,11 +1,11 @@
-package sample.Database;
+package sample.Database.Managers;
 
-import java.io.File;
+import sample.Database.Managers.FileReader;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Date;
 
 //addbehandeling
 //maakdatum

@@ -1,12 +1,10 @@
-package sample.modals;
+package sample.modals.Behandelingen;
 
-import sample.Database.Context;
-import sample.Database.FileReader;
-import sample.Database.FileUpdater;
-import sample.modals.BehandelingHistory;
+import sample.Database.ContextClasses.Context;
+import sample.Database.Managers.FileReader;
+import sample.Database.Managers.FileUpdater;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 public class BehandelList {
     private ArrayList<BehandelingHistory> behandelingen;

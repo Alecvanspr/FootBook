@@ -2,12 +2,13 @@ package sample.Database;
 
 import org.junit.Assert;
 import org.junit.Test;
-import sample.modals.Huisarts;
+import sample.Database.ContextClasses.Context;
+import sample.modals.Personen.Huisarts;
 
 import java.util.ArrayList;
 
 public class HuisartsenTest {
-    private Context  context = Context.getContext();
+    private Context context = Context.getContext();
 
     private void load(){
         context.getHuisartsen().getList().add(new Huisarts(getData()));

@@ -1,8 +1,10 @@
-package sample.Database;
+package sample.Database.ContextClasses;
 
-import java.io.File;
+import sample.Database.Managers.FileReader;
+import sample.Database.Managers.FileUpdater;
+import sample.Database.Managers.UniqueNumber;
+
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 public interface ContextClass {
     public FileReader reader = new FileReader();

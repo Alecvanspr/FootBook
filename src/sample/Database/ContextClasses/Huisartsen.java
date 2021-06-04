@@ -1,6 +1,6 @@
-package sample.Database;
+package sample.Database.ContextClasses;
 
-import sample.modals.Huisarts;
+import sample.modals.Personen.Huisarts;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

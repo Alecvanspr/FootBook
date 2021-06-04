@@ -11,8 +11,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-import sample.Database.Context;
-import sample.modals.Specialist;
+import sample.Database.ContextClasses.Context;
+import sample.modals.Personen.Specialist;
 
 import java.io.File;
 import java.io.IOException;

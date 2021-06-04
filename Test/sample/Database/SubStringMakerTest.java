@@ -2,6 +2,7 @@ package sample.Database;
 
 import org.junit.Assert;
 import org.junit.Test;
+import sample.Database.Tools.SubStringMaker;
 
 import java.util.ArrayList;
 
@@ -10,7 +11,7 @@ public class SubStringMakerTest {
     public void testSubStringMaker(){
         ArrayList<String> data = getData();
         ArrayList<String> TestData = getDataTest();
-        Assert.assertEquals(data.get(0),SubStringMaker.sub(0,0,data).get(0));
+        Assert.assertEquals(data.get(0), SubStringMaker.sub(0,0,data).get(0));
         Assert.assertEquals(2,SubStringMaker.sub(2,3,data).size());
         Assert.assertEquals(TestData,SubStringMaker.sub(3,6,data));
     }

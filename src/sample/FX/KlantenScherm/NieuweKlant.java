@@ -11,9 +11,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-import sample.Database.Context;
-import sample.modals.Huisarts;
-import sample.modals.Specialist;
+import sample.Database.ContextClasses.Context;
+import sample.modals.Personen.Huisarts;
+import sample.modals.Personen.Specialist;
 
 import java.io.File;
 import java.io.IOException;
@@ -42,7 +42,7 @@ public class NieuweKlant {
         loadSpecialisten("Reumatoloog",reumatoloogField,reumatolooglbl,reumatoloogidlbl);
         loadSpecialisten("diabetiste",diabetistField,diabetistelbl,diabetistelidbl);
         loadSpecialisten("Oncoloog",oncoloogField,oncolooglbl,oncoloogidlbl);
-        zoek();
+        loadHuisartsen();
     }
 
     public void GaTerug() throws IOException {
@@ -58,6 +58,7 @@ public class NieuweKlant {
         window.setScene(new Scene(root,1080, 900));
     }
     public void slaKlantOp() throws IOException {
+        System.out.println(checkBenodigdeVelden()+"Benodigd is");
         if(checkBenodigdeVelden()) {
             saveClient();
             GoToScreen("KlantenOverzicht");
@@ -123,7 +124,7 @@ public class NieuweKlant {
         }
     }
     private Rectangle makeBorder(int y){
-        Rectangle rectangle = new Rectangle(325,40);
+        Rectangle rectangle = new Rectangle(335,40);
         rectangle.setFill(Color.TRANSPARENT);
         rectangle.setStroke(Color.BLACK);
         rectangle.setLayoutX(5);
@@ -167,12 +168,15 @@ public class NieuweKlant {
         return data;
     }
     public boolean checkBenodigdeVelden(){
-        return checkfield(NaamFld)&&checkfield(telNrfld)&&checkfield(straatfld)&&checkfield(postcodefld)&&checkfield(plaatsfld)&&checkfield(emailfld)&&checkfield(regnrfld)&&HuisartsID.getText().equals("");
+        return checkfield(NaamFld)&&checkfield(telNrfld)&&checkfield(straatfld)&&checkfield(postcodefld)&&checkfield(plaatsfld)&&checkfield(emailfld)&&checkfield(regnrfld)&&!HuisartsID.getText().equals("");
     }
     private boolean checkfield(TextField textField){
-        if(textField.getText().equals(""))
+        if(textField.getText().equals("")) {
+            System.out.println("false");
             return false;
-            return true;
+        }
+        System.out.println("true");
+        return true;
     }
 
     public void saveClient(){
@@ -180,10 +184,14 @@ public class NieuweKlant {
             context.getClients().create(getData());
     }
     public String checkleeg(String text){
-        if(text.equals("")||text==null){
-            return "geen";
+        try {
+            if (text.equals("") || text == null) {
+                return "-";
+            }
+            return text;
+        }catch (NullPointerException io){
+            return "-";
         }
-        return text;
     }
 
 

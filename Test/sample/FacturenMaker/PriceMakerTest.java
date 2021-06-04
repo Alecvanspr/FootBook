@@ -1,19 +1,19 @@
 package sample.FacturenMaker;
 
 import org.junit.Assert;
-import sample.Database.Context;
-import sample.modals.Client;
+import sample.Database.ContextClasses.Context;
+import sample.modals.Personen.Client;
 
 public class PriceMakerTest {
     public Context context = Context.getContext();
     @org.junit.Test
     public void VervoersKostenTest(){
-        Client Kwintsheul = context.getClient("0"); //0KM
-        Client Honserlersdijk = context.getClient("5"); //1KM
-        Client Poeldijk = context.getClient("1"); //4.9KM
-        Client Naaldwijk = context.getClient("4");//5KM
-        Client DenHaag = context.getClient("2"); //8.8KM
-        Client Gouda = context.getClient("6"); //45KM
+        Client Kwintsheul = context.getClients().get("0"); //0KM
+        Client Honserlersdijk = context.getClients().get("5"); //1KM
+        Client Poeldijk = context.getClients().get("1"); //4.9KM
+        Client Naaldwijk = context.getClients().get("4");//5KM
+        Client DenHaag = context.getClients().get("2"); //8.8KM
+        Client Gouda = context.getClients().get("6"); //45KM
 
         PriceMaker kwintsheul = new PriceMaker(Kwintsheul);
         PriceMaker honsel = new PriceMaker(Honserlersdijk);
@@ -31,8 +31,8 @@ public class PriceMakerTest {
     }
     @org.junit.Test
     public void berekenTotaalTest(){
-        Client kwintsheul = context.getClient("0"); //0KM
-        Client naaldwijk = context.getClient("4");//5KM
+        Client kwintsheul = context.getClients().get("0"); //0KM
+        Client naaldwijk = context.getClients().get("4");//5KM
         PriceMaker Kwintsheul = new PriceMaker(kwintsheul);
         PriceMaker Naaldwijk = new PriceMaker(naaldwijk);
 

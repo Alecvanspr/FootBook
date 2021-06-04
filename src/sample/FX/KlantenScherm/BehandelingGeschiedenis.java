@@ -8,9 +8,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import sample.Database.Context;
-import sample.Database.DateMaker;
-import sample.modals.Client;
+import sample.Database.ContextClasses.Context;
+import sample.Database.Tools.DateMaker;
+import sample.modals.Personen.Client;
 
 import java.io.File;
 import java.io.IOException;
