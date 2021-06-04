@@ -78,7 +78,7 @@ public abstract class Client extends Persoon{
         FileReader reader = new FileReader();
         ArrayList<String> plaatsen = reader.getFile("Plaatsen.txt");
         for (int i=1; i<plaatsen.size()-1;i++)
-        if(plaats.equalsIgnoreCase(plaatsen.get(i))){
+        if(this.plaats.equalsIgnoreCase(plaatsen.get(i))){
             return Double.parseDouble(plaatsen.get(i+1));
         }
         return 0.0;
