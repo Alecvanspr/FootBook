@@ -24,7 +24,7 @@ import java.util.LinkedList;
 
 public class EditKlant {
     @FXML
-    private TextField NaamFld,straatfld,postcodefld,regnrfld,datumfld,telNrfld,plaatsfld,emailfld,SoaTF,huisartsTF,Voettypetld,orthAffld,huidconfld,huidAandfld,nagelconfld,nagelAandfld,zoekField;
+    private TextField NaamFld,straatfld,postcodefld,regnrfld,datumfld,telNrfld,plaatsfld,emailfld,SoaTF,huisartsTF,Voettypetld,orthAffld,huidconfld,huidAandfld,nagelconfld,nagelAandfld,zoekField, allergenenTF;
 
     @FXML
     private Label HuisartsID,Errorlabel,reumatolooglbl,oncolooglbl,diabetistelbl,oncoloogidlbl,reumatoloogidlbl,diabetistelidbl;
@@ -59,9 +59,11 @@ public class EditKlant {
         telNrfld.setText(context.getClients().getClients().get(id).telefoonnr);
         plaatsfld.setText(context.getClients().getClients().get(id).plaats);
         emailfld.setText(context.getClients().getClients().get(id).email);
-        SoaTF.setText(context.getClients().getClients().get(id).soa+"");
+        if(context.getClients().getClients().get(id).soa!=null)
+            SoaTF.setText(context.getClients().getClients().get(id).soa+"");
         huisartsTF.setText(context.getClients().getClients().get(id).huisarts.naam);
-        Voettypetld.setText(context.getClients().getClients().get(id).voet.voettype);
+        if(context.getClients().getClients().get(id).voet!=null)
+            Voettypetld.setText(context.getClients().getClients().get(id).voet.voettype);
         if(context.getClients().getClients().get(id).steun!=null) {
             orthAffld.setText(context.getClients().getClients().get(id).steun.orthopedischeAfwijkingen);
             elasKousCB.setSelected(context.getClients().getClients().get(id).steun.kousen);
@@ -74,6 +76,9 @@ public class EditKlant {
         if(context.getClients().getClients().get(id).nagel!=null) {
             nagelconfld.setText(context.getClients().getClients().get(id).nagel.nagelConditie);
             nagelAandfld.setText(context.getClients().getClients().get(id).nagel.nagelAandoening);
+        }
+        if(context.getClients().getClients().get(id).allergenen!=null){
+            allergenenTF.setText(context.getClients().getClients().get(id).allergenen.allergien);
         }
         diabetisCheckBox.setSelected(context.getClients().getClients().get(id).diabetes!=null);
         ReumaCB.setSelected(context.getClients().getClients().get(id).reuma!=null);
@@ -111,15 +116,15 @@ public class EditKlant {
     private void loadDiabetiste(int id){
         loadSpecialisten("diabetiste",diabetistField,diabetistelbl,diabetistelidbl);
         if(context.getClients().getClients().get(id).diabetes!=null) {
-            oncolooglbl.setText(context.getClients().getClients().get(id).diatusSpecialist.naam);
-            oncoloogidlbl.setText(context.getClients().getClients().get(id).diatusSpecialist.id);
+            diabetistelbl.setText(context.getClients().getClients().get(id).diatusSpecialist.naam);
+            diabetistelidbl.setText(context.getClients().getClients().get(id).diatusSpecialist.id);
         }
     }
     private void loadReumatoloog(int id){
         loadSpecialisten("Reumatoloog",reumatoloogField,reumatolooglbl,reumatoloogidlbl);
         if(context.getClients().getClients().get(id).reuma!=null) {
-            oncolooglbl.setText(context.getClients().getClients().get(id).reumatoloog.naam);
-            oncoloogidlbl.setText(context.getClients().getClients().get(id).reumatoloog.id);
+            reumatolooglbl.setText(context.getClients().getClients().get(id).reumatoloog.naam);
+            reumatoloogidlbl.setText(context.getClients().getClients().get(id).reumatoloog.id);
         }
     }
 
@@ -203,7 +208,7 @@ public class EditKlant {
         data.add(""+uitzaaiingCB.isSelected());//uitzaaiingen
         data.add(checkleeg("-"));//terapiën
         data.add(""+soaCB.isSelected());//soa
-        data.add(checkleeg("-"));//allergenen
+        data.add(checkleeg(allergenenTF.getText()));//allergenen
         data.add(""+elasKousCB.isSelected());//kousen
         data.add(checkleeg(Voettypetld.getText()));//voettype
         data.add(checkleeg(orthAffld.getText()));//orthopedische afwijkingen
@@ -232,7 +237,7 @@ public class EditKlant {
             }
             return text;
         }catch(NullPointerException nullPointerException){
-            return "text";
+            return "-";
         }
     }
     public void makeDiabetisVisable(){

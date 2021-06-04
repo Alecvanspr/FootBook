@@ -114,12 +114,12 @@ public class KlantenOverzicht {
                     Reumatoloog.setVisible(false);
                 }
                 setInfo(clients.get(gebruikerID).soa,SoaInfo);
-                setInfo(clients.get(gebruikerID).nagel,NagelInfo);
-                setInfo(clients.get(gebruikerID).huid,HuidInfo);
                 setInfo(clients.get(gebruikerID).schoen,SchoenInfo);
                 setInfo(clients.get(gebruikerID).allergenen,Allergenen);
                 setInfo(clients.get(gebruikerID).steun,Steun);
                 setInfo(clients.get(gebruikerID).voet,VoetInfo);
+                setInfo(clients.get(gebruikerID).nagel,NagelInfo);
+                setInfo(clients.get(gebruikerID).huid,HuidInfo);
 
 
                 edit.setOnAction(Event->{

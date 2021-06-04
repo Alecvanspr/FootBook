@@ -9,6 +9,6 @@ public class VoetInfo extends ClientInfo {
 
     @Override
     public String getInfo() {
-        return "De klant heeft "+voettype;
+        return "Voettype klant: "+voettype;
     }
 }

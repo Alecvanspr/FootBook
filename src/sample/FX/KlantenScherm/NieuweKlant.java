@@ -58,10 +58,11 @@ public class NieuweKlant {
         window.setScene(new Scene(root,1080, 900));
     }
     public void slaKlantOp() throws IOException {
-        System.out.println(checkBenodigdeVelden()+"Benodigd is");
         if(checkBenodigdeVelden()) {
             saveClient();
             GoToScreen("KlantenOverzicht");
+        }else{
+
         }
     }
     private void zoek(){
@@ -115,7 +116,6 @@ public class NieuweKlant {
             naam.setLayoutY(hoogte*i);
             naam.setLayoutX(15);
 
-
             Label ziekenhuis = new Label(specialisten.get(i).ziekenhuis);
             ziekenhuis.setLayoutY(hoogte*i);
             ziekenhuis.setLayoutX(200);
@@ -139,6 +139,7 @@ public class NieuweKlant {
         data.add(postcodefld.getText());
         data.add(plaatsfld.getText());
         data.add(emailfld.getText());
+        System.out.println(datumfld.getText());
         data.add(datumfld.getText());
         data.add(regnrfld.getText());
         data.add(context.getHuisartsen().getList(huisartsTF.getText()).getFirst().id);//Huisarts nr
@@ -172,10 +173,8 @@ public class NieuweKlant {
     }
     private boolean checkfield(TextField textField){
         if(textField.getText().equals("")) {
-            System.out.println("false");
             return false;
         }
-        System.out.println("true");
         return true;
     }
 
@@ -191,22 +190,6 @@ public class NieuweKlant {
             return text;
         }catch (NullPointerException io){
             return "-";
-        }
-    }
-
-
-    public void makeDiabetisVisable(){
-        if(diabetisCheckBox.isSelected()){
-            System.out.println(true);
-        }else{
-            System.out.println(false);
-        }
-    }
-    public void makeKankerVisable(){
-        if(kankerCB.isSelected()){
-            KanchorPane.setVisible(true);
-        }else{
-            KanchorPane.setVisible(false);
         }
     }
     public void makeSoaVisable(){

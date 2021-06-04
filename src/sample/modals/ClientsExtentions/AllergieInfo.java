@@ -7,9 +7,6 @@ public class AllergieInfo extends ClientInfo {
     }
     @Override
     public String getInfo() {
-        if(allergien.equals("")||allergien.equals("geen")){
-            return "";
-        }
-        return "Hij lijd aan "+ allergien;
+        return "Allergieën: "+ allergien;
     }
 }

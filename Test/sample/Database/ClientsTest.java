@@ -27,27 +27,27 @@ public class ClientsTest {
         data.add("014");//Registratie nummer
         data.add("2");//Huisarts nr
         data.add("false");//diabetus
-        data.add("null");//diabetusspecialist
+        data.add("-");//diabetusspecialist
         data.add("True");//reuma
-        data.add("null");//reumatoloog
+        data.add("1");//reumatoloog
         data.add("True");//kanker
         data.add("2");//oncoloog
         data.add("true");//chemos
-        data.add("null");//medicijnen
+        data.add("-");//medicijnen
         data.add("true");//uitzaaiingen
-        data.add("geen");//terapiën
+        data.add("-");//terapiën
         data.add("false");//soa
         data.add("Lactose");//allergenen
         data.add("false");//kousen
         data.add("Normale voet");//voettype
-        data.add("Geen");//orthopedische afwijkingen
+        data.add("-");//orthopedische afwijkingen
         data.add("false");//steunzolen
         data.add("false");//aangepaste confectiezolen
         data.add("false");//orthopedische schoenen
         data.add("Normaal");//huidconditie
-        data.add("Geen");//huisaandoeningen
+        data.add("-");//huisaandoeningen
         data.add("Verzorgd");//nagelconditie
-        data.add("Geen");//nagelaandoening
+        data.add("-");//nagelaandoening
         data.add("-");
         context.clients.create(data);
         String clientId = UniqueNumber.getUniqueNumber("src/db/MaxKlanten.txt");

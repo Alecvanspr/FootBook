@@ -59,18 +59,25 @@ public abstract class Client extends Persoon {
             kankerInfo = new KankerInfo(SubStringMaker.sub(16,19,data));
         }
         if(Boolean.parseBoolean(data.get(20))) {
-            this.soa= new SoaInfo(data.get(21));
+            this.soa= new SoaInfo(data.get(20));
         }
-        this.allergenen = new AllergieInfo(data.get(22));
-        if(data.get(31).equals(" ")){
-            nagel = new NagelInfo(data.get(31),data.get(32));
+        if(!data.get(21).equals("-")) {
+            this.allergenen = new AllergieInfo(data.get(21));
         }
-        if(Boolean.parseBoolean(data.get(23))&&Boolean.parseBoolean(data.get(26)))
-            steun = new SteunInfo(Boolean.parseBoolean(data.get(23)), data.get(25), Boolean.parseBoolean(data.get(26)));
-        this.voet = new VoetInfo(data.get(24));
-        this.schoen = new SchoenInfo(Boolean.parseBoolean(data.get(27)),Boolean.parseBoolean(data.get(28)));
-        if(data.get(29).equals("")&& data.get(30).equals("")){
-            huid = new HuidInfo(data.get(29),data.get(30));
+        if(Boolean.parseBoolean(data.get(22))&&Boolean.parseBoolean(data.get(25))) {
+            steun = new SteunInfo(Boolean.parseBoolean(data.get(22)), data.get(24), Boolean.parseBoolean(data.get(25)));
+        }
+        if(!data.get(23).equals("-")) {
+            this.voet = new VoetInfo(data.get(23));
+        }
+        if(Boolean.parseBoolean(data.get(26))|| Boolean.parseBoolean(data.get(27))) {
+            this.schoen = new SchoenInfo(Boolean.parseBoolean(data.get(26)), Boolean.parseBoolean(data.get(27)));
+        }
+        if(!data.get(28).equals("-")|| !data.get(29).equals("-")){
+            huid = new HuidInfo(data.get(28),data.get(29));
+        }
+        if(!data.get(30).equals("-")){
+            nagel = new NagelInfo(data.get(30),data.get(31));
         }
         this.behandelList = new BehandelList(id);
     }

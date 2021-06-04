@@ -10,6 +10,11 @@ public class NagelInfo extends ClientInfo {
 
     @Override
     public String getInfo() {
-        return "Deze klant heeft "+nagelAandoening+ " \r\nDe klant heeft een nagelconditie van"+ nagelConditie;
+        String string = "";
+        if(!nagelConditie.equals("-"))
+            string+="Nagelconditie: "+ nagelConditie + "\r\n";
+        if(!nagelAandoening.equals("-"))
+            string+="Nagelaandoening: "+ nagelAandoening;
+        return string;
     }
 }

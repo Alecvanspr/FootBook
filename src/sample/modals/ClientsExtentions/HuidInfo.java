@@ -11,6 +11,13 @@ public class HuidInfo extends ClientInfo {
 
     @Override
     public String getInfo() {
-        return "De huidconditie van de klant is "+huidconditie+"\r\nDe klant lijd aan "+huidaandoening;
+        String ret = "";
+        if(!huidconditie.contains("-")) {
+            ret += "De huidconditie: " + huidconditie + "\r\n";
+        }
+        if(!huidaandoening.contains("-")) {
+            ret += "Huidaandoeningen: " + huidaandoening + "\r\n";
+        }
+        return ret;
     }
 }

@@ -9,9 +9,9 @@ Marlies03@gmail.com
 155
 2
 false
-null
+-
 false
-null
+-
 True
 2
 true
@@ -20,14 +20,14 @@ true
 1
 false
 Lactose
-false
+-
 Normale voet
-Geen
+-
 false
 false
 false
 Normaal
-Geen
+-
 Verzorgd
-Geen
+-
 -

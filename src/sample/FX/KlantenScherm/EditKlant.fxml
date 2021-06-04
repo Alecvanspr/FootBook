@@ -41,7 +41,7 @@
                     <CheckBox fx:id="soaCB" layoutX="-1.0" layoutY="91.0" mnemonicParsing="false" onAction="#makeSoaVisable" text="SOA" />
                     <TextField fx:id="SoaTF" layoutX="78.0" layoutY="87.0" promptText="Type soa" visible="false" />
                     <Label layoutY="118.0" text="Allergenen" />
-                    <TextField layoutX="78.0" layoutY="114.0" />
+                    <TextField fx:id="allergenenTF" layoutX="78.0" layoutY="114.0" />
                 </children>
             </AnchorPane>
 
@@ -90,8 +90,8 @@
                             <AnchorPane fx:id="oncoloogField" />
                         </content>
                     </ScrollPane>
-                    <Label fx:id="oncolooglbl" layoutX="375.0" layoutY="6.0" text="Label" />
-                    <Label fx:id="oncoloogidlbl" layoutX="375.0" layoutY="6.0" text="Label" visible="false"/>
+                    <Label fx:id="oncolooglbl" layoutX="330.0" layoutY="6.0" />
+                    <Label fx:id="oncoloogidlbl" layoutX="375.0" layoutY="6.0" text="Label" visible="false" />
                 </children>
             </AnchorPane>
 
@@ -122,7 +122,7 @@
                     <Label layoutX="23.0" layoutY="39.0" text="Naam" />
                     <Label layoutX="329.0" layoutY="39.0" text="Ziekenhuis" />
                     <Label layoutX="12.0" layoutY="5.0" text="Diabetiste" />
-                    <Label fx:id="diabetistelbl" layoutX="357.0" layoutY="5.0" text="naam" />
+                    <Label fx:id="diabetistelbl" layoutX="270.0" layoutY="5.0" prefHeight="18.0" prefWidth="126.0" />
                      <Label fx:id="diabetistelidbl" layoutX="357.0" layoutY="5.0" text="id" visible="false" />
                  </children>
               </AnchorPane>
@@ -136,7 +136,7 @@
             <Label layoutX="23.0" layoutY="39.0" text="Naam" />
             <Label layoutX="313.0" layoutY="39.0" text="Ziekenhuis" />
             <Label layoutX="16.0" layoutY="6.0" text="Reumatoloog" />
-            <Label fx:id="reumatolooglbl" layoutX="327.0" layoutY="6.0" text="naamr" />
+            <Label fx:id="reumatolooglbl" layoutX="296.0" layoutY="6.0" />
              <Label fx:id="reumatoloogidlbl" layoutX="327.0" layoutY="6.0" text="id" visible="false" />
          </children>
       </AnchorPane>

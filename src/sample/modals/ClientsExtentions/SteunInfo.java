@@ -17,11 +17,11 @@ public class SteunInfo extends ClientInfo{
         String string = "";
         if(kousen)
            string+="De klant heeft steunkousen";
-        if(!orthopedischeAfwijkingen.contains("geen")){
-            string+="De klant heeft "+orthopedischeAfwijkingen + " als orthopedische afwijking";
+        if(!orthopedischeAfwijkingen.contains("-")){
+            string+="Orthopedische afwijking: "+orthopedischeAfwijkingen + "\r\n";
         }
         if(steunzolen)
-            string+="De klant heeft steunzolen";
+            string+="De klant heeft steunzolen\r\n";
         return string;
     }
 }
