@@ -71,9 +71,7 @@ public class SpecialistenOverzicht {
             SpecialistenField.getChildren().addAll(rectangle,naam,huisartsenpost);
         }
     }
-    public void GaNaarNieuweSpecialist() throws IOException {
-        GoToScreen("Specialisten/NieuweSpecialist");
-    }
+
 
     public void GaNaarHomescreen() throws IOException
     {
@@ -97,6 +95,18 @@ public class SpecialistenOverzicht {
 
         EditSpecialist controller = (EditSpecialist) fxmlLoader.getController();
         controller.load(id);
+
+        Stage window = (Stage)zoekField.getScene().getWindow();
+        window.setScene(new Scene(root,1080,900));
+    }
+    public void GaNaarNieuweSpecialist() throws IOException {
+        URL url = new File("src/sample/FX/Specialisten/NieuweSpecialist.fxml").toURI().toURL();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(url);
+        Parent root = fxmlLoader.load();
+
+        NieuweSpecialist controller = (NieuweSpecialist) fxmlLoader.getController();
+        controller.load();
 
         Stage window = (Stage)zoekField.getScene().getWindow();
         window.setScene(new Scene(root,1080,900));

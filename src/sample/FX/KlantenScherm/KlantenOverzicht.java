@@ -41,14 +41,18 @@ public class KlantenOverzicht {
 
     private int extraInfoHeight;
 
-    private void zoek(){
-        if(!zoekField.equals(""))
+    public void zoek(){
+        if(!zoekField.getText().equals("")) {
             clients = context.getClients().getClients(zoekField.getText());
-        else
+        }else
             clients = context.getClients().getClients();
+        load();
     }
     public void load(){
-        zoek();
+        if(clients==null){
+            zoek();
+        }
+        klantenOverzicht.getChildren().clear();
         for(int i =0; i<clients.size();i++){
             Rectangle rectangle = new Rectangle(245,40);
             rectangle.setLayoutY(i*hoogte-7);

@@ -51,7 +51,7 @@ public class Producten implements ContextClass {
     public void create(ArrayList<String> data){
         new CreateFile().CreateNewFile("producten",data.toArray());
         addQuantity();
-        opslag.add(new Voorraad(new Product(data),0));
+        fillList();
     }
 
     @Override

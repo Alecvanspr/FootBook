@@ -21,21 +21,21 @@
             <children>
                 <Label layoutX="25.0" layoutY="22.0" text="Naam:" />
                 <Label layoutX="25.0" layoutY="47.0" text="Adress:" />
-                <Label fx:id="naamlbl" layoutX="148.0" layoutY="22.0" text="naam" />
-                <Label fx:id="straatlbl" layoutX="147.0" layoutY="47.0" text="straat" />
+                <Label fx:id="naamlbl" layoutX="148.0" layoutY="22.0" />
+                <Label fx:id="straatlbl" layoutX="147.0" layoutY="47.0" />
                 <Label layoutX="16.0" layoutY="99.0" text="postcode:" />
-                <Label fx:id="postcodelbl" layoutX="147.0" layoutY="99.0" text="postcode" />
+                <Label fx:id="postcodelbl" layoutX="147.0" layoutY="99.0" />
                 <Label layoutX="27.0" layoutY="75.0" text="Plaats:" />
-                <Label fx:id="plaatslbl" layoutX="147.0" layoutY="75.0" text="Plaats" />
-                <Label fx:id="telefoonlbl" layoutX="148.0" layoutY="128.0" text="Label" />
+                <Label fx:id="plaatslbl" layoutX="147.0" layoutY="75.0" />
+                <Label fx:id="telefoonlbl" layoutX="148.0" layoutY="128.0" />
                 <Label layoutX="12.0" layoutY="128.0" text="Telefoonnr:" />
                 <Label layoutX="28.0" layoutY="152.0" text="Email:" />
                 <Label layoutX="21.0" layoutY="208.0" text="Specialisatie" />
-                <Label fx:id="emaillbl" layoutX="148.0" layoutY="152.0" text="Email" />
-                <Label fx:id="Ziekenhuisbl" layoutX="144.0" layoutY="180.0" text="Label" />
+                <Label fx:id="emaillbl" layoutX="148.0" layoutY="152.0" />
+                <Label fx:id="Ziekenhuisbl" layoutX="144.0" layoutY="180.0" />
                 <Label layoutX="16.0" layoutY="180.0" text="Ziekenhuis" />
-                <Label fx:id="Specialiteitlbl" layoutX="144.0" layoutY="208.0" text="label" />
-            <Button fx:id="bewerkSpecialist" layoutX="620.0" layoutY="757.0" mnemonicParsing="false" text="Button" />
+                <Label fx:id="Specialiteitlbl" layoutX="144.0" layoutY="208.0" />
+            <Button fx:id="bewerkSpecialist" layoutX="598.0" layoutY="756.0" mnemonicParsing="false" text="Bewerken" />
             </children>
         </AnchorPane>
         <Label layoutX="24.0" layoutY="123.0" text="Naam" />

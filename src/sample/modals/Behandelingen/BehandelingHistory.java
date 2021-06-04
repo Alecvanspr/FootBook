@@ -16,5 +16,4 @@ public class BehandelingHistory {
             this.type = Context.getBehandelingen().get(data.get(1));
             this.bijzonderheden = data.get(2);
     }
-
 }

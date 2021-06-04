@@ -5,7 +5,7 @@
 
 <AnchorPane prefHeight="900.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FX.KlantenScherm.KlantenOverzicht">
    <children>
-      <Button fx:id="zoekBtn" layoutX="223.0" layoutY="79.0" mnemonicParsing="false" text="Zoek" />
+      <Button fx:id="zoekBtn" layoutX="223.0" layoutY="79.0" mnemonicParsing="false" onAction="#zoek" text="Zoek" />
       <TextField fx:id="zoekField" layoutX="22.0" layoutY="79.0" prefHeight="26.0" prefWidth="187.0" promptText="zoek" />
       <Button layoutX="16.0" layoutY="860.0" mnemonicParsing="false" onAction="#GaNaarHomescreen" text="Terug" />
       <Button layoutX="22.0" layoutY="40.0" mnemonicParsing="false" onAction="#MaakNieuweKlant" text="Maak nieuwe klant" />
