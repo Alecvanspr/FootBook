@@ -17,7 +17,6 @@ public class PriceMaker {
     public PriceMaker(Client client){
         this.client = client;
     }
-
     public void addProduct(String id){
         producten.add(context.getProducten().get(id).product);
     }
@@ -32,7 +31,6 @@ public class PriceMaker {
     }
 
     public double berekenTotaal(Boolean amnese, String bijverkoopItem,String typeBehandeling){
-        System.out.println(typeBehandeling);
         double totaal = 0.0;
         if(amnese){
             totaal = 10;

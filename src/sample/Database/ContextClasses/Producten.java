@@ -2,6 +2,7 @@ package sample.Database.ContextClasses;
 
 import sample.Database.Managers.FileReader;
 import sample.Database.Managers.FileUpdater;
+import sample.Database.Managers.MaxFiles;
 import sample.modals.Voorraad;
 import sample.modals.Product;
 
@@ -11,16 +12,20 @@ import java.util.LinkedList;
 public class Producten implements ContextClass {
     //private static LinkedList<Product> producten;
     private static LinkedList<Voorraad> opslag;
-    private static int MaxProducten;
 
     public Producten(){
-        MaxProducten = Integer.parseInt(uniqueNumber.getUniqueNumber("src/db/MaxProducten.txt"));
         fillList();
     }
+
+    @Override
+    public MaxFiles getMax() {
+        return new MaxFiles("src/db/MaxProducten.txt");
+    }
+
     public void fillList(){
         opslag = new LinkedList<>();
         int pos = 0;
-        for(int i = 0; i<=MaxProducten; i++){
+        for(int i = 0; i<=getMax().getMaxFiles(); i++){
             Product product = getFromFile(""+i);
             if(product!=null){
                 opslag.addLast(new Voorraad(product,getQuatiteit(pos)));

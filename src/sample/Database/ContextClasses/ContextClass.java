@@ -2,11 +2,13 @@ package sample.Database.ContextClasses;
 
 import sample.Database.Managers.FileReader;
 import sample.Database.Managers.FileUpdater;
+import sample.Database.Managers.MaxFiles;
 import sample.Database.Managers.UniqueNumber;
 
 import java.util.ArrayList;
 
 public interface ContextClass {
+    MaxFiles getMax();
     public FileReader reader = new FileReader();
     public CreateFile createFile = new CreateFile();
     public FileUpdater fileUpdater = new FileUpdater();

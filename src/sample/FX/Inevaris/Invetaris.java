@@ -49,7 +49,7 @@ public class Invetaris {
             Button bewerk = new Button("Edit");
             bewerk.setLayoutX(1000);
             bewerk.setLayoutY(h);
-            int finalI = i;
+            int finalI = i; // dit gaf anders een error
             bewerk.setOnAction(e->{
                 try {
                     editProduct(finalI);

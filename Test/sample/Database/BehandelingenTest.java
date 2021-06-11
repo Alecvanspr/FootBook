@@ -24,10 +24,6 @@ public class BehandelingenTest {
         return data;
     }
     @Test
-    public void getBehandelingsFile(){
-
-    }
-    @Test
     public void getBehandeling(){
         load();
         Assert.assertEquals("43",behandelingen.get("43").id);

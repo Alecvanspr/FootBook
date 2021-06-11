@@ -7,9 +7,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
-//addbehandeling
-//maakdatum
-
 public class FileUpdater {
     public void addBehandeling(String id,ArrayList<String> new_Data){
         FileReader r = new FileReader();

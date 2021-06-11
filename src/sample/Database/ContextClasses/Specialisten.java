@@ -1,5 +1,6 @@
 package sample.Database.ContextClasses;
 
+import sample.Database.Managers.MaxFiles;
 import sample.modals.Personen.Specialist;
 
 import java.util.ArrayList;
@@ -7,15 +8,19 @@ import java.util.LinkedList;
 
 public class Specialisten implements ContextClass{
     private static LinkedList<Specialist> specialisten;
-    private static int MaxSpecialisten;
 
     public Specialisten(){
-        MaxSpecialisten = Integer.parseInt(uniqueNumber.getUniqueNumber("src/db/MaxSpecialisten.txt"));
         fillList();
     }
+
+    @Override
+    public MaxFiles getMax() {
+        return new MaxFiles("src/db/MaxSpecialisten.txt");
+    }
+
     public void fillList(){
         specialisten = new LinkedList<>();
-        for(int i = 0; i<=MaxSpecialisten; i++){
+        for(int i = 0; i<=getMax().getMaxFiles(); i++){
             Specialist specialist = getFromFile(""+i);
             if(specialist!=null) {
                 specialisten.addLast(specialist);

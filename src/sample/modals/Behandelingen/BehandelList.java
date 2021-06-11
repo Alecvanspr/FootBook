@@ -13,7 +13,6 @@ public class BehandelList {
     public BehandelList(String id){
         this.clientID = id;
         behandelingen = new ArrayList<>();
-        Context context = Context.getContext();
         FileReader fileReader = new FileReader();
         ArrayList<String> data = fileReader.getFile("klanten/"+id+"/BehandelingLog.txt");
         //Hier worden de 2 gegeven in verwerkt
